@@ -1,0 +1,9 @@
+{
+    "localeId": "bn",
+    "localeName": "Bengali",
+    "isDefaultLanguage": false,
+    "properties": {
+        "thankMsg": "সমালোচনামূলক তথ্য সরবরাহ করার জন্য।",
+        "note": "বিঃদ্রঃ"
+    }
+}
