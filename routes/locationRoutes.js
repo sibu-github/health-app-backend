@@ -21,8 +21,8 @@ router.post('/api/location/', async(req, res) => {
 router.get('/api/getlocation/', async(req, res) => {
 
     try {
-        const location = await (await Location.find(req.body)).count();
-
+        const location = await Location.find({}, { locationName: 1 })
+        res.send(location);
 
     } catch (err) {
         res.send(err)

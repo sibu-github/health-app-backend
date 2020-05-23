@@ -12,10 +12,11 @@ app.use(bodyparser.json());
 const port = process.env.PORT || 3000;
 
 
-var indexRouter = require('./routes/index');
 const userRouter = require('./routes/userResponseroutes');
 const locationRouter = require('./routes/locationRoutes')
 const userinfoRouter = require('./routes/userInfoRoutes');
+const apilogRouter = require('./routes/apilogRoutes');
+const questionRouter = require('./routes/quesitonsRoutes');
 
 
 
@@ -27,9 +28,10 @@ app.use(function(req, res, next) {
 });
 
 app.use(userRouter);
-app.use(indexRouter);
 app.use(locationRouter);
 app.use(userinfoRouter);
+app.use(apilogRouter);
+app.use(questionRouter);
 app.listen(port, () => {
     console.log('Server is up on port ' + port);
 });

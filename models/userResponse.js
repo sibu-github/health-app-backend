@@ -24,16 +24,14 @@ const responseSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        unique: true,
         validate(value) {
             if (!validator.isEmail(value)) {
-                throw new error('email is invalid');
+                throw new Error('email is invalid');
             }
         }
     },
     phone: {
         type: String,
-
     },
     firstName: {
         type: String

@@ -6,7 +6,7 @@ const userResponse = require('../models/userResponse');
 const Location = require('../models/locationList');
 const question = require('../models/questions');
 const userinfo = require('../models/userInfo');
-
+const apilog = require('../models/apilog');
 
 router.post('/api/userResponse', async(req, res) => {
     try {

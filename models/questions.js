@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 const questionSchema = new mongoose.Schema({
     longText: {
-        type: String
+        type: String,
+        unique: true
     },
-    shorText: {
-        type: String
+    shortText: {
+        type: String,
+        unique: true
     },
     active: {
         type: Boolean,
