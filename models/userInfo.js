@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require('validator');
+mongoose.connect("mongodb+srv://tars1729:tars1729@mycluster-eljsg.azure.mongodb.net/healthapp?retryWrites=true&w=majority", { useNewUrlParser: true });
 const userinfoScema = new mongoose.Schema({
     email: {
         type: String,

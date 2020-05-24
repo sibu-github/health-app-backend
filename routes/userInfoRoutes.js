@@ -3,12 +3,11 @@ const express = require('express');
 const router = new express.Router();
 const userinfo = require('../models/userInfo');
 const location = require('../models/locationList');
-
+const url = require('url');
 
 router.post('/api/userinfo', async(req, res) => {
     try {
         const Location = await location.find({ locationName: req.body.locationName });
-        console.log(Location);
         if (Location) {
             const userInfo = new userinfo({
                 email: req.body.email,
@@ -16,9 +15,12 @@ router.post('/api/userinfo', async(req, res) => {
                 locationId: Location[0]._id,
                 locationName: Location[0].locationName
             });
+
             await userInfo.save();
-            res.send(userInfo);
+            res.send({ userInfo });
         }
+
+
     } catch (err) {
         res.send(err);
     }
@@ -26,9 +28,9 @@ router.post('/api/userinfo', async(req, res) => {
 
 router.get('/api/userdetails', async(req, res) => {
     try {
-
-        const userdetails = await userinfo.find({ email: req.body.email });
-        res.send({ phone: userdetails[0].phone, userLocationId: userdetails[0].locationId, userLocation: userdetails[0].locationName })
+        const email = req.query.email
+        const userdetails = await userinfo.find({ email: email });
+        res.send({ userdetails });
     } catch (err) {
         res.send(err);
     }

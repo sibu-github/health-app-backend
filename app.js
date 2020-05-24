@@ -8,7 +8,8 @@ const bodyparser = require('body-parser');
 
 const app = express();
 app.use(bodyparser.json());
-
+app.use(cors());
+app.use(bodyparser.urlencoded({ extended: false }));
 const port = process.env.PORT || 3000;
 
 
@@ -24,6 +25,7 @@ const questionRouter = require('./routes/quesitonsRoutes');
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.setHeader("Access-Control-Allow-Methods", "GET,POST,PATCH,DELETE,OPTIONS");
     next();
 });
 

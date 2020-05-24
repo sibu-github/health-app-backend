@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "dev": "nodemon index.js"
+        "dev": "nodemon app.js"
     },
     "dependencies": {
         "body-parser": "^1.19.0",
@@ -20,7 +20,9 @@
     },
     "description": "backend for the health app",
     "main": "app.js",
-    "devDependencies": {},
+    "devDependencies": {
+        "env-cmd": "^10.1.0"
+    },
     "repository": {
         "type": "git",
         "url": "http://192.168.235.45/sarmak/healthscanner.git"

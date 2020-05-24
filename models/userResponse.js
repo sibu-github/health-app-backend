@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const validator = require('validator');
 const router = express.Router();
+mongoose.connect("mongodb+srv://tars1729:tars1729@mycluster-eljsg.azure.mongodb.net/healthapp?retryWrites=true&w=majority", { useNewUrlParser: true });
 const responseSchema = new mongoose.Schema({
     type: {
         type: String,

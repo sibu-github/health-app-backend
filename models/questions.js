@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.connect("mongodb+srv://tars1729:tars1729@mycluster-eljsg.azure.mongodb.net/healthapp?retryWrites=true&w=majority", { useNewUrlParser: true });
 const questionSchema = new mongoose.Schema({
     longText: {
         type: String,
