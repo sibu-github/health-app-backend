@@ -17,10 +17,7 @@ router.post('/api/userResponse', async(req, res) => {
         // res.send(Response);
 
         location = await Location.find({ locationName: req.body.locationName });
-        console.log(location[0].locationName);
         if (location) {
-
-
             const Response = new userResponse({
                 type: req.body.type,
                 locationId: location[0]._id,
@@ -41,57 +38,49 @@ router.post('/api/userResponse', async(req, res) => {
             });
             await Response.save();
             res.send(Response);
-            // res.send(location.locationName, location.locationType, location._id, location.country, location.region);
         }
-        // console.log(location);
-        // res.send(location)
+
     } catch (err) {
         res.send(err);
-        console.log(err);
     }
 });
 
 
-router.get('/api/dashboard/', async(req, res, next) => {
+router.get('/api/dashboard/', async(req, res) => {
     try {
         q1_counting_positive = await userResponse.aggregate([{
-                "$match": {
-                    locationName: req.body.locationName,
-                    locationType: req.body.locationType,
-                    country: req.body.country,
-                    region: req.body.region,
-                    "response.0.answer": true
-                }
+                "$match": req.body
+            },
+            {
+                "$match": { "response.0.answer": false }
             },
             {
                 $count: "postive"
 
-            },
+            }
 
         ]);
+
 
         q2_counting_positive = await userResponse.aggregate([{
-                "$match": {
-                    locationName: req.body.locationName,
-                    locationType: req.body.locationType,
-                    country: req.body.country,
-                    region: req.body.region,
-                    "response.1.answer": true
-                }
+                "$match": req.body
+            },
+            {
+                "$match": { "response.1.answer": true }
             },
             {
                 $count: "postive"
 
             }
         ]);
+
+
         q3_counting_positive = await userResponse.aggregate([{
-                "$match": {
-                    locationName: req.body.locationName,
-                    locationType: req.body.locationType,
-                    country: req.body.country,
-                    region: req.body.region,
-                    "response.2.answer": true
-                }
+                "$match": req.body
+
+            },
+            {
+                "$match": { "response.2.answer": true }
             },
             {
                 $count: "postive"
@@ -99,15 +88,13 @@ router.get('/api/dashboard/', async(req, res, next) => {
             }
 
         ]);
+
 
         q1_counting_negative = await userResponse.aggregate([{
-                "$match": {
-                    locationName: req.body.locationName,
-                    locationType: req.body.locationType,
-                    country: req.body.country,
-                    region: req.body.region,
-                    "response.0.answer": false
-                }
+                "$match": req.body
+            },
+            {
+                "$match": { "response.0.answer": false }
             },
             {
                 $count: "negative"
@@ -116,14 +103,12 @@ router.get('/api/dashboard/', async(req, res, next) => {
 
         ]);
 
+
         q2_counting_negative = await userResponse.aggregate([{
-                "$match": {
-                    locationName: req.body.locationName,
-                    locationType: req.body.locationType,
-                    country: req.body.country,
-                    region: req.body.region,
-                    "response.1.answer": false
-                }
+                "$match": req.body
+            },
+            {
+                "$match": { "response.1.answer": false }
             },
             {
                 $count: "negative"
@@ -133,13 +118,10 @@ router.get('/api/dashboard/', async(req, res, next) => {
 
 
         q3_counting_negative = await userResponse.aggregate([{
-                "$match": {
-                    locationName: req.body.locationName,
-                    locationType: req.body.locationType,
-                    country: req.body.country,
-                    region: req.body.region,
-                    "response.0.answer": false
-                }
+                "$match": req.body
+            },
+            {
+                "$match": { "response.2.answer": false }
             },
             {
                 $count: "negative"
@@ -149,16 +131,11 @@ router.get('/api/dashboard/', async(req, res, next) => {
         ]);
 
         res.send({
-            "global_response": {
-                "q1_count": { "postive": q1_counting_positive, "negative": q1_counting_negative },
-                "q2_count": { "positive": q2_counting_positive, "negative": q2_counting_negative },
-                "q3_count": { "postive": q3_counting_positive, "negative": q3_counting_negative }
-            }
+            "q1_count": { "postive": q1_counting_positive, "negative": q1_counting_negative },
+            "q2_count": { "positive": q2_counting_positive, "negative": q2_counting_negative },
+            "q3_count": { "positive": q3_counting_positive, "negative": q3_counting_negative }
+
         });
-
-
-
-
     } catch (err) {
         res.send(err);
     }

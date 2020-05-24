@@ -13,7 +13,6 @@ router.post('/api/location/', async(req, res) => {
         // await location.save();
         res.send(location);
     } catch (err) {
-        console.log(err);
         res.send(err);
     }
 })

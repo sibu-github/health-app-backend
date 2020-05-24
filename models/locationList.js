@@ -11,28 +11,25 @@ const locationSchema = new mongoose.Schema({
         required: true,
         trim: true,
         unique: true,
-        uppercase: true
     },
 
     locationType: {
         type: String,
         required: true,
         trim: true,
-        uppercase: true
+
     },
 
     country: {
         type: String,
         required: true,
         trim: true,
-        uppercase: true
     },
 
     region: {
         type: String,
         required: true,
         trim: true,
-        uppercase: true
     },
     active: {
         type: Boolean,
