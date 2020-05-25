@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const validator = require('validator');
-mongoose.connect("mongodb+srv://tars1729:tars1729@mycluster-eljsg.azure.mongodb.net/healthapp?retryWrites=true&w=majority", { useNewUrlParser: true });
 const userinfoScema = new mongoose.Schema({
     email: {
         type: String,
@@ -21,6 +20,6 @@ const userinfoScema = new mongoose.Schema({
 
 
 }, { timestamps: { createdOn: 'created_at', updatedOn: 'updated_at' } });
-
+//env.config();
 const userinfo = mongoose.model('userinfo', userinfoScema);
 module.exports = userinfo;

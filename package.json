@@ -1,33 +1,31 @@
 {
-  "name": "healthapp",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js"
-  },
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "cookie-parser": "~1.4.4",
-    "cors": "^2.8.5",
-    "debug": "~2.6.9",
-    "express": "^4.17.1",
-    "http-errors": "~1.6.3",
-    "jade": "^1.11.0",
-    "mongoose": "^5.9.14",
-    "morgan": "~1.9.1",
-    "nodemon": "^2.0.4",
-    "validator": "^13.0.0"
-  },
-  "description": "backend for the health app",
-  "main": "app.js",
-  "devDependencies": {
-    "env-cmd": "^10.1.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "http://192.168.235.45/sarmak/healthscanner.git"
-  },
-  "author": "siva teja",
-  "license": "ISC"
+    "name": "package.json",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "dev": "nodemon index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@sendgrid/mail": "^6.5.4",
+        "bcrypt": "^4.0.0",
+        "cors": "^2.8.5",
+        "crypto": "^1.0.1",
+        "csv-express": "^1.2.2",
+        "dotenv": "^8.2.0",
+        "env-cmd": "^8.0.2",
+        "eval": "^0.1.4",
+        "express": "^4.17.1",
+        "express-generator": "^4.16.1",
+        "moment": "^2.24.0",
+        "moment-timezone": "^0.5.28",
+        "mongoose": "^5.9.1",
+        "nodemon": "^2.0.2",
+        "password-hash": "^1.2.2",
+        "password-validator": "^5.0.3",
+        "validator": "^12.2.0",
+        "validators": "^0.3.1"
+    }
 }

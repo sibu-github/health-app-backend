@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-mongoose.connect("mongodb+srv://tars1729:tars1729@mycluster-eljsg.azure.mongodb.net/healthapp?retryWrites=true&w=majority", { useNewUrlParser: true });
 const questionSchema = new mongoose.Schema({
     longText: {
         type: String,
@@ -15,5 +14,6 @@ const questionSchema = new mongoose.Schema({
     },
 
 }, { timestamps: { createdOn: 'created_at', updatedOn: 'updated_at' } });
+//env.config();
 const question = mongoose.model('question', questionSchema);
 module.exports = question;

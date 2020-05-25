@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const express = require('express');
 const validator = require('validator');
 const router = express.Router();
-mongoose.connect("mongodb+srv://tars1729:tars1729@mycluster-eljsg.azure.mongodb.net/healthapp?retryWrites=true&w=majority", { useNewUrlParser: true });
 const responseSchema = new mongoose.Schema({
     type: {
         type: String,
@@ -61,5 +60,7 @@ const responseSchema = new mongoose.Schema({
 
 
 }, { timestamps: { createdOn: 'createdOn' } });
+//env.config();
+//console.log("#####" + process.env.MONGODB_URL);
 const userResponse = mongoose.model('userResponse', responseSchema);
 module.exports = userResponse;
