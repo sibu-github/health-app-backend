@@ -1,0 +1,9 @@
+{
+    "localeId": "en",
+    "localeName": "English",
+    "isDefaultLanguage": true,
+    "properties": {
+        "thankMsg": "For providing critical information.",
+        "note": "Note"
+    }
+}

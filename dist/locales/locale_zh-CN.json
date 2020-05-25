@@ -1,0 +1,9 @@
+{
+    "localeId": "zh-CN",
+    "localeName": "Chinese (Simplified)",
+    "isDefaultLanguage": false,
+    "properties": {
+        "thankMsg": "用于提供关键信息。",
+        "note": "注意"
+    }
+}
