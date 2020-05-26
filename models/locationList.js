@@ -1,8 +1,7 @@
-const mongoose = require('mongoose');
-const validator = require('validator');
-mongoose.set('useCreateIndex', true);
-const locationSchema = new mongoose.Schema({
+const mongoose = require("mongoose");
+const validator = require("validator");
 
+const locationSchema = new mongoose.Schema({
     locationName: {
         type: String,
         required: true,
@@ -28,9 +27,9 @@ const locationSchema = new mongoose.Schema({
     },
     active: {
         type: Boolean,
-        default: true
-    }
+        default: true,
+    },
 });
 
-const location = mongoose.model('location', locationSchema);
+const location = mongoose.model("location", locationSchema);
 module.exports = location;
