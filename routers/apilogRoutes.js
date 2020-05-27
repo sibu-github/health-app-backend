@@ -11,7 +11,7 @@ router.post("/api/apilog", async(req, res) => {
         await log.save();
         res.send(log);
     } catch (err) {
-        res.send(err).json({});
+        res.send(err);
     }
 });
 

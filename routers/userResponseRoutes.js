@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 
 const userResponse = require("../models/userResponse");
 const Location = require("../models/locationList");
+const questions = require("../models/questions");
+const question = require("../models/questions");
 
 
 router.post("/api/userResponse", async(req, res) => {
@@ -60,7 +62,7 @@ router.get("/api/userflag", async(req, res) => {
     }
 });
 
-router.get("/api/dashboard/", async(req, res) => {
+router.post("/api/dashboard/", async(req, res) => {
     try {
         q1_counting_positive = await userResponse.aggregate([{
                 $match: req.body,
@@ -128,15 +130,23 @@ router.get("/api/dashboard/", async(req, res) => {
             },
         ]);
 
+        const question = await userResponse.find().limit(1);
+        const question1 = question[0].response[0].shortText;
+        const question2 = question[0].response[1].shortText;
+        const question3 = question[0].response[2].shortText;
+
         res.send({
+            "question1": question1,
             q1_count: {
                 "postive": q1_counting_positive,
                 "negative": q1_counting_negative,
             },
+            "question2": question2,
             q2_count: {
                 "positive": q2_counting_positive,
                 "negative": q2_counting_negative,
             },
+            "question3": question3,
             q3_count: {
                 "positive": q3_counting_positive,
                 "negative": q3_counting_negative,
