@@ -1,38 +1,27 @@
 {
-  "name": "healthapp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js",
-    "lint": "eslint . >> lint-errors.log"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@sendgrid/mail": "^6.5.4",
-    "bcrypt": "^4.0.0",
-    "cors": "^2.8.5",
-    "crypto": "^1.0.1",
-    "csv-express": "^1.2.2",
-    "dotenv": "^8.2.0",
-    "env-cmd": "^8.0.2",
-    "eval": "^0.1.4",
-    "express": "^4.17.1",
-    "express-generator": "^4.16.1",
-    "moment": "^2.24.0",
-    "moment-timezone": "^0.5.28",
-    "mongoose": "^5.9.1",
-    "nodemon": "^2.0.2",
-    "password-hash": "^1.2.2",
-    "password-validator": "^5.0.3",
-    "validator": "^12.2.0",
-    "validators": "^0.3.1"
-  },
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2"
-  }
+    "name": "healthapp",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "dev": "nodemon index.js",
+        "start": "node index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "env-cmd": "^8.0.2",
+        "eval": "^0.1.4",
+        "express": "^4.17.1",
+        "express-generator": "^4.16.1",
+        "moment": "^2.24.0",
+        "moment-timezone": "^0.5.28",
+        "mongoose": "^5.9.1",
+        "nodemon": "^2.0.2",
+        "validator": "^12.2.0",
+        "validators": "^0.3.1"
+    }
 }

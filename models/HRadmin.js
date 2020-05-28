@@ -1,14 +1,14 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const adminSchema = new mongoose.Schema({
     email: {
-        type: String
+        type: String,
     },
     isActive: {
         type: Boolean,
-        default: true
-    }
+        default: true,
+    },
 });
 
-const hradmin = mongoose.model('hradmin', adminSchema);
+const hradmin = mongoose.model("hradmin", adminSchema);
 module.exports = hradmin;

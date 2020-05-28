@@ -1,2 +1,3 @@
 node_modules
 lint-errors.log
+.vscode

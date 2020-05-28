@@ -8,6 +8,7 @@ const userinfoRouter = require('./routers/userInfoRoutes');
 const apilogRouter = require('./routers/apilogRoutes');
 const questionRouter = require('./routers/questionsRoutes');
 const adminRouter = require('./routers/hradminRoutes');
+
 const DIST_FOLDER = './dist';
 const INDEX_FILE_NAME = 'index.html';
 
@@ -31,12 +32,11 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, DIST_FOLDER)));
 
 // for serving the angular code,
-app.get('/', (req, res) => {
+app.get('/landpage', (req, res) => {
   res.sendFile(path.join(__dirname, DIST_FOLDER, INDEX_FILE_NAME));
 });
 
-// for serving the angular code,
-app.get('/landpage', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, DIST_FOLDER, INDEX_FILE_NAME));
 });
 
