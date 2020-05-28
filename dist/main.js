@@ -381,7 +381,7 @@ module.exports = "<div fxLayout=\"column wrap\" style=\"width:100%;height:700px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column wrap\" style=\"width:100%;height:600px;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;\" fxFlex=\"25\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"75\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n        <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"25\" fxLayoutAlign=\"center end\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Images\\image1.png\" style=\"width:80px;height:20px;\" width=\"100px;\"></div>\n      </div>\n      <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;\" fxFlex=\"75\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n          <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;\" fxFlex=\"40\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n            <div class=\"contact-info\">\n              {{locales.contactinfo}}</div>\n          </div>\n          <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;margin-left:15px;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Images\\step.png\"></div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;height:400px;\" fxFlex=\"50\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;margin-left:15px;\" fxFlex=\"90\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <form #contactInfo=\"ngForm\" style=\"width:100%;height:100%;\">\n        <mat-form-field style=\"width:100%;\" [appearance]=\"&apos;legacy&apos;\" [floatLabel]=\"&apos;auto&apos;\" [hideRequiredMarker]=\"false\">\n          <input matInput [(ngModel)]=\"email\" name=\"email\" type=\"text\" placeholder=\"{{locales.Email}}\" required #EmailId=\"ngModel\" oninput=\"this.value = this.value.toLowerCase()\" pattern=\"([A-Za-z]|[0-9])[A-Za-z0-9.]+[A-Za-z0-9]@((?:[-a-z0-9]+\\.)+[a-z]{2,})\" [ngModelOptions]=\"{ updateOn:change}\" (keyup)=\"onBlurEmail(EmailId)\">\n\n        </mat-form-field>\n        <div *ngIf=\"EmailId.errors &amp;&amp; (EmailId.dirty || EmailId.touched || validclick)\">\n          <span *ngIf=\"EmailId.errors.required\">\n                <small style=\"color:red;font-family:Poppins;font-style:normal;\">{{locales.eir}}</small></span><span *ngIf=\"EmailId.errors.pattern\">\n                <small style=\"color:red;\">{{locales.Emailidinvalid}}</small></span></div>\n        <mat-form-field style=\"width:100%;\" [appearance]=\"&apos;legacy&apos;\" [floatLabel]=\"&apos;auto&apos;\" [hideRequiredMarker]=\"false\">\n          <input matInput [(ngModel)]=\"phone\" name=\"phone\" type=\"text\" placeholder=\"{{locales.phone}}\" required #mobilenumber=\"ngModel\">\n\n        </mat-form-field>\n        <div *ngIf=\"mobilenumber.errors &amp;&amp; (mobilenumber.dirty || mobilenumber.touched || validclick)\">\n          <span *ngIf=\"mobilenumber.errors.required\">\n                <small style=\"color:red;font-family:Poppins;font-style:normal;\">{{locales.pnr}}</small></span><span *ngIf=\"mobilenumber.errors.pattern\">\n                <small style=\"color:red;font-family:Poppins;font-style:normal;\">{{locales.pnrl}}</small></span></div>\n        <mat-form-field style=\"width:100%;\" [appearance]=\"&apos;legacy&apos;\" [floatLabel]=\"&apos;auto&apos;\" [hideRequiredMarker]=\"false\">\n          <input matInput [(ngModel)]=\"company\" name=\"company\" type=\"text\" placeholder=\"{{locales.companyname}}\" required #companyName=\"ngModel\">\n\n        </mat-form-field>\n        <div *ngIf=\" companyName.errors &amp;&amp; (companyName.dirty || companyName.touched || validclick)\">\n          <span *ngIf=\"companyName.errors.required\">\n                <small style=\"color:red;font-family:Poppins;font-style:normal;\">{{locales.cr}}</small></span><span *ngIf=\"companyName.errors.pattern\">\n                <small style=\"color:red;font-family:Poppins;font-style:normal;\">{{locales.poc}}</small></span></div>\n        <mat-form-field style=\"width:100%;\" [appearance]=\"&apos;legacy&apos;\" [floatLabel]=\"&apos;auto&apos;\" [hideRequiredMarker]=\"false\">\n          <input matInput [(ngModel)]=\"ingredioncontact\" name=\"ingredioncontact\" type=\"text\" placeholder=\"{{locales.ingredoncontact}}\" required #gc=\"ngModel\" pattern=\"[a-zA-Z\\s]+$\" [ngModelOptions]=\"{updateOn:&apos;change&apos;}\">\n\n        </mat-form-field>\n        <div *ngIf=\"gc.errors &amp;&amp; (gc.dirty || gc.touched || validclick)\">\n          <span *ngIf=\"gc.errors.required\">\n                <small style=\"color:red;font-family:Poppins;font-style:normal;\">{{locales.gcn}}</small></span><span *ngIf=\"gc.errors.pattern\">\n                <small style=\"color:red;font-family:Poppins;font-style:normal;\">{{locales.poc}}</small></span></div>\n      </form>\n    </div>\n    <div fxLayout=\"column wrap\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"30\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div>\n        <mat-icon style=\"position: absolute;top: 486px;bottom: 24%;margin-left: 4px;\" (click)=\"navigatePrev()\">arrow_back_ios</mat-icon>\n        <button mat-flat-button style=\"margin-top: 67px;margin-left: 16px;font-family: Poppins;font-style: normal;font-weight: 500;font-size: 18px;line-height: 24px;display: flex;align-items: center;letter-spacing: 0.5px;text-transform: capitalize;color: #A1A4B1;\n\" type=\"submit\" (click)=\"navigatePrev()\">{{locales.back}}</button>\n      </div>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"70\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><button mat-button style=\"color: #FFFFFF;margin-top: 50px;margin-left:105px;height: 60px;width: 134px;font-family: Poppins; font-style: normal; font-weight: 600;box-shadow: 1.13333px 7.93333px 23.8px rgba(94, 167, 62, 0.2); background:#5EA73E;border-radius: 44px;\" (click)=\"contactSubmit(contactInfo)\">{{locales.cont}}</button></div>\n  </div>\n</div>"
+module.exports = "<div\n  fxLayout=\"column wrap\"\n  style=\"width: 100%; height: 600px;\"\n  fxFlex=\"100\"\n  fxLayoutAlign=\"start stretch\"\n  [fxShow]=\"true\"\n  [fxHide]=\"false\"\n>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"width: 100%; height: 100%;\"\n    fxFlex=\"20\"\n    fxLayoutAlign=\"start stretch\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100%; height: 100%;\"\n      fxFlex=\"100\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <div\n        fxLayout=\"row wrap\"\n        style=\"width: 100%; height: 100%;\"\n        fxFlex=\"25\"\n        fxLayoutAlign=\"start stretch\"\n        [fxShow]=\"true\"\n        [fxHide]=\"false\"\n      >\n        <div\n          fxLayout=\"column wrap\"\n          style=\"width: 100%; height: 100%;\"\n          fxFlex=\"75\"\n          fxLayoutAlign=\"start stretch\"\n          [fxShow]=\"true\"\n          [fxHide]=\"false\"\n        ></div>\n        <div\n          fxLayout=\"column wrap\"\n          style=\"width: 100%; height: 100%;\"\n          fxFlex=\"25\"\n          fxLayoutAlign=\"center end\"\n          [fxShow]=\"true\"\n          [fxHide]=\"false\"\n        >\n          <img\n            imgSrc=\"Images\\image1.png\"\n            style=\"width: 80px; height: 20px;\"\n            width=\"100px;\"\n          />\n        </div>\n      </div>\n      <div\n        fxLayout=\"row wrap\"\n        style=\"width: 100%; height: 100%;\"\n        fxFlex=\"75\"\n        fxLayoutAlign=\"start stretch\"\n        [fxShow]=\"true\"\n        [fxHide]=\"false\"\n      >\n        <div\n          fxLayout=\"column wrap\"\n          style=\"width: 100%; height: 100%;\"\n          fxFlex=\"100\"\n          fxLayoutAlign=\"start stretch\"\n          [fxShow]=\"true\"\n          [fxHide]=\"false\"\n        >\n          <div\n            fxLayout=\"row wrap\"\n            style=\"width: 100%; height: 100%;\"\n            fxFlex=\"40\"\n            fxLayoutAlign=\"start stretch\"\n            [fxShow]=\"true\"\n            [fxHide]=\"false\"\n          >\n            <div class=\"contact-info\">\n              {{locales.contactinfo}}\n            </div>\n          </div>\n          <div\n            fxLayout=\"row wrap\"\n            style=\"width: 100%; height: 100%; margin-left: 15px;\"\n            fxFlex=\"20\"\n            fxLayoutAlign=\"start stretch\"\n            [fxShow]=\"true\"\n            [fxHide]=\"false\"\n          >\n            <img imgSrc=\"Images\\step.png\" />\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"width: 100%; height: 400px;\"\n    fxFlex=\"50\"\n    fxLayoutAlign=\"start stretch\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100%; height: 100%; margin-left: 15px;\"\n      fxFlex=\"90\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <form #contactInfo=\"ngForm\" style=\"width: 100%; height: 100%;\">\n        <mat-form-field\n          style=\"width: 100%;\"\n          [appearance]=\"'legacy'\"\n          [floatLabel]=\"'auto'\"\n          [hideRequiredMarker]=\"false\"\n        >\n          <input\n            matInput\n            [(ngModel)]=\"email\"\n            name=\"email\"\n            type=\"text\"\n            placeholder=\"{{locales.Email}}\"\n            required\n            #EmailId=\"ngModel\"\n            oninput=\"this.value = this.value.toLowerCase()\"\n            pattern=\"([A-Za-z]|[0-9])[A-Za-z0-9.]+[A-Za-z0-9]@((?:[-a-z0-9]+\\.)+[a-z]{2,})\"\n            [ngModelOptions]=\"{ updateOn:change}\"\n            (keyup)=\"onBlurEmail(EmailId)\"\n          />\n        </mat-form-field>\n        <div\n          *ngIf=\"EmailId.errors &amp;&amp; (EmailId.dirty || EmailId.touched || validclick)\"\n        >\n          <span *ngIf=\"EmailId.errors.required\">\n            <small style=\"color: red; font-family: Poppins; font-style: normal;\"\n              >{{locales.eir}}</small\n            ></span\n          ><span *ngIf=\"EmailId.errors.pattern\">\n            <small style=\"color: red;\">{{locales.Emailidinvalid}}</small></span\n          >\n        </div>\n        <mat-form-field\n          style=\"width: 100%;\"\n          [appearance]=\"'legacy'\"\n          [floatLabel]=\"'auto'\"\n          [hideRequiredMarker]=\"false\"\n        >\n          <input\n            matInput\n            [(ngModel)]=\"phone\"\n            name=\"phone\"\n            type=\"text\"\n            placeholder=\"{{locales.phone}}\"\n            required\n            #mobilenumber=\"ngModel\"\n          />\n        </mat-form-field>\n        <div\n          *ngIf=\"mobilenumber.errors &amp;&amp; (mobilenumber.dirty || mobilenumber.touched || validclick)\"\n        >\n          <span *ngIf=\"mobilenumber.errors.required\">\n            <small style=\"color: red; font-family: Poppins; font-style: normal;\"\n              >{{locales.pnr}}</small\n            ></span\n          ><span *ngIf=\"mobilenumber.errors.pattern\">\n            <small style=\"color: red; font-family: Poppins; font-style: normal;\"\n              >{{locales.pnrl}}</small\n            ></span\n          >\n        </div>\n        <mat-form-field\n          style=\"width: 100%;\"\n          [appearance]=\"'legacy'\"\n          [floatLabel]=\"'auto'\"\n          [hideRequiredMarker]=\"false\"\n        >\n          <input\n            matInput\n            [(ngModel)]=\"company\"\n            name=\"company\"\n            type=\"text\"\n            placeholder=\"{{locales.companyname}}\"\n            required\n            #companyName=\"ngModel\"\n          />\n        </mat-form-field>\n        <div\n          *ngIf=\" companyName.errors &amp;&amp; (companyName.dirty || companyName.touched || validclick)\"\n        >\n          <span *ngIf=\"companyName.errors.required\">\n            <small style=\"color: red; font-family: Poppins; font-style: normal;\"\n              >{{locales.cr}}</small\n            ></span\n          ><span *ngIf=\"companyName.errors.pattern\">\n            <small style=\"color: red; font-family: Poppins; font-style: normal;\"\n              >{{locales.poc}}</small\n            ></span\n          >\n        </div>\n        <mat-form-field\n          style=\"width: 100%;\"\n          [appearance]=\"'legacy'\"\n          [floatLabel]=\"'auto'\"\n          [hideRequiredMarker]=\"false\"\n        >\n          <input\n            matInput\n            [(ngModel)]=\"ingredioncontact\"\n            name=\"ingredioncontact\"\n            type=\"text\"\n            placeholder=\"{{locales.ingredoncontact}}\"\n            required\n            #gc=\"ngModel\"\n            pattern=\"[a-zA-Z\\s]+$\"\n            [ngModelOptions]=\"{updateOn:'change'}\"\n          />\n        </mat-form-field>\n        <div\n          *ngIf=\"gc.errors &amp;&amp; (gc.dirty || gc.touched || validclick)\"\n        >\n          <span *ngIf=\"gc.errors.required\">\n            <small style=\"color: red; font-family: Poppins; font-style: normal;\"\n              >{{locales.gcn}}</small\n            ></span\n          ><span *ngIf=\"gc.errors.pattern\">\n            <small style=\"color: red; font-family: Poppins; font-style: normal;\"\n              >{{locales.poc}}</small\n            ></span\n          >\n        </div>\n      </form>\n    </div>\n    <div\n      fxLayout=\"column wrap\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    ></div>\n  </div>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"width: 100%;\"\n    fxFlex=\"20\"\n    fxLayoutAlign=\"start stretch\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100%;\"\n      fxFlex=\"30\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <div>\n        <mat-icon\n          style=\"position: absolute; top: 486px; bottom: 24%; margin-left: 4px;\"\n          (click)=\"navigatePrev()\"\n          >arrow_back_ios</mat-icon\n        >\n        <button\n          mat-flat-button\n          style=\"\n            margin-top: 67px;\n            margin-left: 16px;\n            font-family: Poppins;\n            font-style: normal;\n            font-weight: 500;\n            font-size: 18px;\n            line-height: 24px;\n            display: flex;\n            align-items: center;\n            letter-spacing: 0.5px;\n            text-transform: capitalize;\n            color: #a1a4b1;\n          \"\n          type=\"submit\"\n          (click)=\"navigatePrev()\"\n        >\n          {{locales.back}}\n        </button>\n      </div>\n    </div>\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100%;\"\n      fxFlex=\"70\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <button\n        mat-button\n        style=\"\n          color: #ffffff;\n          margin-top: 50px;\n          margin-left: 105px;\n          height: 60px;\n          width: 134px;\n          font-family: Poppins;\n          font-style: normal;\n          font-weight: 600;\n          box-shadow: 1.13333px 7.93333px 23.8px rgba(94, 167, 62, 0.2);\n          background: #5ea73e;\n          border-radius: 44px;\n        \"\n        (click)=\"contactSubmit(contactInfo)\"\n      >\n        {{locales.cont}}\n      </button>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -392,7 +392,7 @@ module.exports = "<div fxLayout=\"column wrap\" style=\"width:100%;height:600px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column wrap\" style=\"display:flex; width:100%; height:700px;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:100px;\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;\" fxFlex=\"30\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"80\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n        <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"20\" fxLayoutAlign=\"end center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/image1.png\" style=\"width:100px;\"></div>\n      </div>\n      <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;\" fxFlex=\"70\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n          <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;\" fxFlex=\"40\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n            <div style=\"margin-left:10px;letter-spacing: 0.5px; text-transform: capitalize;color: #283552;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 20px; line-height: 30px;\">\n              {{locales.healthinformation}}</div>\n          </div>\n          <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;\" fxFlex=\"60\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n            <div fxLayout=\"column wrap\" style=\"width:100%;height:100%\" fxFlex=\"80\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/Stepper.png\" style=\"margin-left:10px;width:300px;\"></div>\n            <div fxLayout=\"column wrap\" style=\"width:100%;height:100%\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"color: #25282B;width:100%; height:200px;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 13px; line-height: 19px; letter-spacing: 0.5px;\" fxLayoutAlign=\"start none\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;margin-left:10px;\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div fxLayout=\"row wrap\" style=\"width:100%; height:100%;\" fxFlex=\"15\" fxLayoutAlign=\"start center\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div style=\"margin-left:10px;width:100%; height:100%;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 13px; line-height: 19px; letter-spacing: 0.5px;color: #25282B;\">\n          {{locales.question1}}</div>\n      </div>\n      <div fxLayout=\"row wrap\" style=\"width:100%; height:100%;\" fxFlex=\"40\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxLayoutAlign=\"  none\" [fxShow]=\"true\" [fxHide]=\"false\"><label class=\"text\">\n            {{locales.fever}}</label><label class=\"text\">\n            {{locales.cough}}</label><label class=\"text\">\n            {{locales.chills}}</label></div>\n      </div>\n      <div fxLayout=\"row wrap\" style=\"width:100%;height:100px;\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><label style=\"width:100%;height:100%;\">\n          {{locales.choose}}</label></div>\n    </div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"margin-top:15px;\" fxFlex=\"80\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div fxLayout=\"row wrap\" fxLayoutAlign=\"space-around stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <mat-radio-group [(ngModel)]=\"answer\" (change)=\"onChangeRadio($event, 1)\">\n          <mat-radio-button value=\"false\" required [labelPosition]=\"&apos;after&apos;\">NO</mat-radio-button>\n          <mat-radio-button value=\"true\" required [labelPosition]=\"&apos;after&apos;\">YES</mat-radio-button>\n        </mat-radio-group>\n      </div>\n    </div>\n    <div fxLayout=\"column wrap\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;height:100px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><label style=\"color: #25282B;\" class=\"text2\">\n        {{locales.question2}}</label></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:100%\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"margin-right:10px;\" fxFlex=\"80\" fxLayoutAlign=\"start end\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;\" fxFlex=\"100\" fxLayoutAlign=\"center start\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <mat-radio-group (change)=\"onChangeRadio($event, 2)\">\n          <mat-radio-button value=\"false\" required>NO</mat-radio-button>\n          <mat-radio-button value=\"true\" required color=\"#5EA73E\">YES</mat-radio-button>\n        </mat-radio-group>\n      </div>\n    </div>\n    <div fxLayout=\"column wrap\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxLayoutAlign=\"  none\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div fxLayout=\"row wrap\" fxLayoutAlign=\"space-around stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><label style=\"margin-right:130px;margin-top:20px;align:left;\">\n          <button mat-button (click)=\"onBack()\">\n            <mat-icon>keyboard_arrow_left</mat-icon>{{locales.back}}\n          </button></label><label style=\"margin-left:20px;margin-right:10px;\">\n          <button mat-button style=\"width:100px;height:50px;color: #FFFFFF;background: #5EA73E; box-shadow: 1.13333px 7.93333px 23.8px rgba(94, 167, 62, 0.2); border-radius: 44px;\" (click)=\"onNext()\">{{locales.continue}}</button></label></div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div\n  fxLayout=\"column wrap\"\n  style=\"display: flex; width: 100%; height: 700px;\"\n  fxFlex=\"100\"\n  fxLayoutAlign=\"start stretch\"\n  [fxShow]=\"true\"\n  [fxHide]=\"false\"\n>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"width: 100%; height: 100px;\"\n    fxFlex=\"15\"\n    fxLayoutAlign=\"start stretch\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100%; height: 100%;\"\n      fxFlex=\"100\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <div\n        fxLayout=\"row wrap\"\n        style=\"width: 100%; height: 100%;\"\n        fxFlex=\"30\"\n        fxLayoutAlign=\"start stretch\"\n        [fxShow]=\"true\"\n        [fxHide]=\"false\"\n      >\n        <div\n          fxLayout=\"column wrap\"\n          style=\"width: 100%; height: 100%;\"\n          fxFlex=\"80\"\n          fxLayoutAlign=\"start stretch\"\n          [fxShow]=\"true\"\n          [fxHide]=\"false\"\n        ></div>\n        <div\n          fxLayout=\"column wrap\"\n          style=\"width: 100%; height: 100%;\"\n          fxFlex=\"20\"\n          fxLayoutAlign=\"end center\"\n          [fxShow]=\"true\"\n          [fxHide]=\"false\"\n        >\n          <img imgSrc=\"Web/image1.png\" style=\"width: 100px;\" />\n        </div>\n      </div>\n      <div\n        fxLayout=\"row wrap\"\n        style=\"width: 100%; height: 100%;\"\n        fxFlex=\"70\"\n        fxLayoutAlign=\"start stretch\"\n        [fxShow]=\"true\"\n        [fxHide]=\"false\"\n      >\n        <div\n          fxLayout=\"column wrap\"\n          style=\"width: 100%; height: 100%;\"\n          fxFlex=\"100\"\n          fxLayoutAlign=\"start stretch\"\n          [fxShow]=\"true\"\n          [fxHide]=\"false\"\n        >\n          <div\n            fxLayout=\"row wrap\"\n            style=\"width: 100%; height: 100%;\"\n            fxFlex=\"40\"\n            fxLayoutAlign=\"start stretch\"\n            [fxShow]=\"true\"\n            [fxHide]=\"false\"\n          >\n            <div\n              style=\"\n                margin-left: 10px;\n                letter-spacing: 0.5px;\n                text-transform: capitalize;\n                color: #283552;\n                font-family: Poppins;\n                font-style: normal;\n                font-weight: 600;\n                font-size: 20px;\n                line-height: 30px;\n              \"\n            >\n              {{locales.healthinformation}}\n            </div>\n          </div>\n          <div\n            fxLayout=\"row wrap\"\n            style=\"width: 100%; height: 100%;\"\n            fxFlex=\"60\"\n            fxLayoutAlign=\"start stretch\"\n            [fxShow]=\"true\"\n            [fxHide]=\"false\"\n          >\n            <div\n              fxLayout=\"column wrap\"\n              style=\"width: 100%; height: 100%;\"\n              fxFlex=\"80\"\n              fxLayoutAlign=\"start stretch\"\n              [fxShow]=\"true\"\n              [fxHide]=\"false\"\n            >\n              <img\n                imgSrc=\"Web/Stepper.png\"\n                style=\"margin-left: 10px; width: 300px;\"\n              />\n            </div>\n            <div\n              fxLayout=\"column wrap\"\n              style=\"width: 100%; height: 100%;\"\n              fxFlex=\"20\"\n              fxLayoutAlign=\"start stretch\"\n              [fxShow]=\"true\"\n              [fxHide]=\"false\"\n            ></div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"\n      color: #25282b;\n      width: 100%;\n      font-family: Poppins;\n      font-style: normal;\n      font-weight: 600;\n      font-size: 13px;\n      line-height: 19px;\n      letter-spacing: 0.5px;\n    \"\n    fxFlex=\"32\"\n    fxLayoutAlign=\"start none\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100%; height: 100%; margin-left: 10px;\"\n      fxLayoutAlign=\"center center\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <div\n        fxLayout=\"row wrap\"\n        style=\"width: 100%; height: 100%;\"\n        fxLayoutAlign=\"center center\"\n        [fxShow]=\"true\"\n        [fxHide]=\"false\"\n      >\n        <div\n          fxLayout=\"column wrap\"\n          style=\"width: 100%; height: 100%;\"\n          fxLayoutAlign=\"  none\"\n          [fxShow]=\"true\"\n          [fxHide]=\"false\"\n        >\n          <label style=\"margin-left: 10px; color: #25282b;\">\n            {{locales.question1}}</label\n          ><label class=\"text\"> {{locales.fever}}</label\n          ><label class=\"text\"> {{locales.cough}}</label\n          ><label class=\"text\"> {{locales.chills}}</label\n          ><label class=\"text\"> {{locales.choose}}</label>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"width: 100%; height: 100%; margin-bottom: 10px;\"\n    fxFlex=\"8\"\n    fxLayoutAlign=\"start stretch\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <div\n      fxLayout=\"column wrap\"\n      fxFlex=\"10\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    ></div>\n    <div\n      fxLayout=\"column wrap\"\n      style=\"margin-top: 15px;\"\n      fxFlex=\"80\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <div\n        fxLayout=\"row wrap\"\n        fxLayoutAlign=\"space-around stretch\"\n        [fxShow]=\"true\"\n        [fxHide]=\"false\"\n      >\n        <mat-radio-group (change)=\"onChangeRadio($event, 1)\">\n          <mat-radio-button value=\"false\" required [labelPosition]=\"'after'\"\n            >NO</mat-radio-button\n          >\n          <mat-radio-button value=\"true\" required [labelPosition]=\"'after'\"\n            >YES</mat-radio-button\n          >\n        </mat-radio-group>\n      </div>\n    </div>\n    <div\n      fxLayout=\"column wrap\"\n      fxFlex=\"10\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    ></div>\n  </div>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"width: 100%; height: 100px;\"\n    fxLayoutAlign=\"start stretch\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100%; height: 100%;\"\n      fxLayoutAlign=\"center center\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <label style=\"color: #25282b;\" class=\"text2\">\n        {{locales.question2}}</label\n      >\n    </div>\n  </div>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"width: 100%; height: 100%;\"\n    fxFlex=\"10\"\n    fxLayoutAlign=\"start stretch\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <div\n      fxLayout=\"column wrap\"\n      fxFlex=\"10\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    ></div>\n    <div\n      fxLayout=\"column wrap\"\n      style=\"margin-right: 10px;\"\n      fxFlex=\"80\"\n      fxLayoutAlign=\"start end\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <div\n        fxLayout=\"row wrap\"\n        style=\"width: 100%; height: 100%;\"\n        fxFlex=\"100\"\n        fxLayoutAlign=\"center start\"\n        [fxShow]=\"true\"\n        [fxHide]=\"false\"\n      >\n        <mat-radio-group (change)=\"onChangeRadioTwo($event, 2)\">\n          <mat-radio-button value=\"false\" required>NO</mat-radio-button>\n          <mat-radio-button value=\"true\" required color=\"#5EA73E\"\n            >YES</mat-radio-button\n          >\n        </mat-radio-group>\n      </div>\n    </div>\n    <div\n      fxLayout=\"column wrap\"\n      fxFlex=\"10\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    ></div>\n  </div>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"width: 100%; height: 100%;\"\n    fxFlex=\"10\"\n    fxLayoutAlign=\"start stretch\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100%;\"\n      fxLayoutAlign=\"  none\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <div\n        fxLayout=\"row wrap\"\n        fxLayoutAlign=\"space-around stretch\"\n        [fxShow]=\"true\"\n        [fxHide]=\"false\"\n      >\n        <label style=\"margin-right: 130px; margin-top: 20px; align: left;\">\n          <button mat-button (click)=\"onBack()\">\n            <mat-icon>keyboard_arrow_left</mat-icon>{{locales.back}}\n          </button></label\n        ><label style=\"margin-left: 20px; margin-right: 10px;\">\n          <button\n            mat-button\n            style=\"\n              width: 100px;\n              height: 50px;\n              color: #ffffff;\n              background: #5ea73e;\n              box-shadow: 1.13333px 7.93333px 23.8px rgba(94, 167, 62, 0.2);\n              border-radius: 44px;\n            \"\n            (click)=\"onNext()\"\n          >\n            {{locales.continue}}\n          </button></label\n        >\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -403,7 +403,7 @@ module.exports = "<div fxLayout=\"column wrap\" style=\"display:flex; width:100%
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column wrap\" style=\"width:100%; height:600px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"30\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"70\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n        <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"30\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/image1.png\" width=\"70px\"></div>\n      </div>\n      <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"70\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n          <div fxLayout=\"row wrap\" style=\"width:100%;margin-left:10px;\" fxFlex=\"50\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n            <div style=\"width:100%;color: #283552;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 20px; line-height: 30px; /* identical to box height */  letter-spacing: 0.5px; text-transform: capitalize;\">\n              {{locales.travel}}</div>\n          </div>\n          <div fxLayout=\"row wrap\" style=\"width:90%;margin-left:10px;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Images/Stepper4.png\" style=\"width:100%;\"></div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"margin-top:10px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%:\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%:\" fxFlex=\"80\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div class=\"question3\">\n        {{locales.question3}}</div>\n    </div>\n    <div fxLayout=\"column wrap\" class=\"question3\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%:\" fxFlex=\"80\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <mat-radio-group (change)=\"onChangeRadio($event,3)\">\n        <mat-radio-button value=\"false\" required>NO</mat-radio-button>\n        <mat-radio-button value=\"true\" required>YES</mat-radio-button>\n      </mat-radio-group>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;padding-top:10px;\" fxFlex=\"20\" fxLayoutAlign=\"center stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <form class=\"example-form\" #healthForm=\"ngForm\" [hidden]=\"!enableTextArea\" style=\"width:85%;\">\n      <mat-form-field class=\"example-full-width\">\n        <input name=\"addlinfo\" [(ngModel)]=\"addlinfo\" matInput #message maxlength=\"256\" placeholder=\"{{locales.inputhelp}}\">\n        <mat-hint align=\"end\">{{message.value.length}} / 256</mat-hint>\n      </mat-form-field>\n    </form>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"10\" fxLayoutAlign=\"space-around end\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" fxLayoutAlign=\"start start\" [fxShow]=\"true\" [fxHide]=\"false\"><label>\n        <button mat-button (click)=\"onBack()\">\n          <mat-icon>keyboard_arrow_left</mat-icon>{{locales.back}}\n        </button></label></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"margin-right:10px;\" fxLayoutAlign=\"end end\" [fxShow]=\"true\" [fxHide]=\"false\"><button mat-button style=\"width:100px;height:50px;color: #FFFFFF;background: #5EA73E; box-shadow: 1.13333px 7.93333px 23.8px rgba(94, 167, 62, 0.2); border-radius: 44px;\" (click)=\"onNext(healthForm)\" type=\"submit\" routerLink=\"/certifyinfo\">{{locales.continue}}</button></div>\n  </div>\n</div>"
+module.exports = "<div\n  fxLayout=\"column wrap\"\n  style=\"width: 100%; height: 600px;\"\n  fxLayoutAlign=\"start stretch\"\n  [fxShow]=\"true\"\n  [fxHide]=\"false\"\n>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"width: 100%;\"\n    fxFlex=\"20\"\n    fxLayoutAlign=\"start stretch\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100%; height: 100%;\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <div\n        fxLayout=\"row wrap\"\n        style=\"width: 100%;\"\n        fxFlex=\"30\"\n        fxLayoutAlign=\"start stretch\"\n        [fxShow]=\"true\"\n        [fxHide]=\"false\"\n      >\n        <div\n          fxLayout=\"column wrap\"\n          style=\"width: 100%; height: 100%;\"\n          fxFlex=\"70\"\n          fxLayoutAlign=\"start stretch\"\n          [fxShow]=\"true\"\n          [fxHide]=\"false\"\n        ></div>\n        <div\n          fxLayout=\"column wrap\"\n          style=\"width: 100%; height: 100%;\"\n          fxFlex=\"30\"\n          fxLayoutAlign=\"center center\"\n          [fxShow]=\"true\"\n          [fxHide]=\"false\"\n        >\n          <img imgSrc=\"Web/image1.png\" width=\"70px\" />\n        </div>\n      </div>\n      <div\n        fxLayout=\"row wrap\"\n        style=\"width: 100%;\"\n        fxFlex=\"70\"\n        fxLayoutAlign=\"start stretch\"\n        [fxShow]=\"true\"\n        [fxHide]=\"false\"\n      >\n        <div\n          fxLayout=\"column wrap\"\n          style=\"width: 100%;\"\n          fxFlex=\"100\"\n          fxLayoutAlign=\"start stretch\"\n          [fxShow]=\"true\"\n          [fxHide]=\"false\"\n        >\n          <div\n            fxLayout=\"row wrap\"\n            style=\"width: 100%; margin-left: 10px;\"\n            fxFlex=\"50\"\n            fxLayoutAlign=\"start stretch\"\n            [fxShow]=\"true\"\n            [fxHide]=\"false\"\n          >\n            <div\n              style=\"\n                width: 100%;\n                color: #283552;\n                font-family: Poppins;\n                font-style: normal;\n                font-weight: 600;\n                font-size: 20px;\n                line-height: 30px; /* identical to box height */\n                letter-spacing: 0.5px;\n                text-transform: capitalize;\n              \"\n            >\n              {{locales.travel}}\n            </div>\n          </div>\n          <div\n            fxLayout=\"row wrap\"\n            style=\"width: 100%; margin-left: 10px;\"\n            fxFlex=\"50\"\n            fxLayoutAlign=\"start stretch\"\n            [fxShow]=\"true\"\n            [fxHide]=\"false\"\n          >\n            <img imgSrc=\"Images/Stepper4.png\" />\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"margin-top: 10px;\"\n    fxLayoutAlign=\"start stretch\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width:100%:\"\n      fxFlex=\"10\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    ></div>\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width:100%:\"\n      fxFlex=\"80\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <div class=\"question3\">\n        {{locales.question3}}\n      </div>\n    </div>\n    <div\n      fxLayout=\"column wrap\"\n      class=\"question3\"\n      fxFlex=\"10\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    ></div>\n  </div>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"width: 100%;\"\n    fxFlex=\"10\"\n    fxLayoutAlign=\"start stretch\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  ></div>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"width: 100%;\"\n    fxFlex=\"20\"\n    fxLayoutAlign=\"start stretch\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100%;\"\n      fxFlex=\"10\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    ></div>\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width:100%:\"\n      fxFlex=\"80\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <mat-radio-group (change)=\"onChangeRadio($event,3)\">\n        <mat-radio-button value=\"false\" required>NO</mat-radio-button>\n        <mat-radio-button value=\"true\" required>YES</mat-radio-button>\n      </mat-radio-group>\n    </div>\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100%;\"\n      fxFlex=\"10\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    ></div>\n  </div>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"width: 100%; padding-top: 10px;\"\n    fxFlex=\"20\"\n    fxLayoutAlign=\"center stretch\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <form\n      class=\"example-form\"\n      #healthForm=\"ngForm\"\n      [hidden]=\"!enableTextArea\"\n      style=\"width: 85%;\"\n    >\n      <mat-form-field class=\"example-full-width\">\n        <input\n          name=\"addlinfo\"\n          [(ngModel)]=\"addlinfo\"\n          matInput\n          #message\n          maxlength=\"256\"\n          placeholder=\"{{locales.inputhelp}}\"\n        />\n        <mat-hint align=\"end\">{{message.value.length}} / 256</mat-hint>\n      </mat-form-field>\n    </form>\n  </div>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"width: 100%;\"\n    fxFlex=\"10\"\n    fxLayoutAlign=\"space-around end\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <div\n      fxLayout=\"column wrap\"\n      fxLayoutAlign=\"start start\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <label>\n        <button mat-button (click)=\"onBack()\">\n          <mat-icon>keyboard_arrow_left</mat-icon>{{locales.back}}\n        </button></label\n      >\n    </div>\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100%;\"\n      fxFlex=\"15\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    ></div>\n    <div\n      fxLayout=\"column wrap\"\n      style=\"margin-right: 10px;\"\n      fxLayoutAlign=\"end end\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <button\n        mat-button\n        style=\"\n          width: 100px;\n          height: 50px;\n          color: #ffffff;\n          background: #5ea73e;\n          box-shadow: 1.13333px 7.93333px 23.8px rgba(94, 167, 62, 0.2);\n          border-radius: 44px;\n        \"\n        (click)=\"onNext(healthForm)\"\n      >\n        {{locales.continue}}\n      </button>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -414,7 +414,7 @@ module.exports = "<div fxLayout=\"column wrap\" style=\"width:100%; height:600px
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column wrap\" style=\"width:100%, height:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <router-outlet></router-outlet>\n  </div>\n  <div fxLayout=\"column wrap\" style=\"width:100%, height:100%;\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n</div>"
+module.exports = "<div fxLayout=\"column wrap\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <div fxLayout=\"column wrap\" style=\"background-color: #3D424E; height:100vh; width: 100vw;\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\" *ngIf=\"showSplash\"><img imgSrc=\"/Android/res/drawable/screen2.png\" alt=\"splash-image\" style=\"height:100vh;width:100vw;\"></div>\n  <bh-thankyou *ngIf=\"showThankYou\"></bh-thankyou>\n</div>"
 
 /***/ }),
 
@@ -425,7 +425,7 @@ module.exports = "<div fxLayout=\"column wrap\" style=\"width:100%, height:100%;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column wrap\" style=\"display:flex; width:100%;height:100%;background-color:#F3F3F9;\" fxFlex=\"100\" fxLayoutGap=\"10px\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:80px;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <mat-toolbar style=\"margin:0;padding:0;\">\n      <div fxLayout=\"column wrap\" style=\"width:100;height:100%;\" fxFlex=\"15\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/locod1.png\" width=\"80\"></div>\n      <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"65\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div style=\"margin-top:7px;color: #52575C;width:100%;height:100%;font-family: Poppins; font-style: normal; font-weight: 500; font-size: 30px; line-height: 51px; text-align: center; letter-spacing: 0.766667px; text-transform: uppercase;\">\n          {{locales.dashboard}}</div>\n      </div>\n      <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start center\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div fxLayout=\"row wrap\" style=\"width:100%;height:100%\" fxLayoutGap=\"2px\" fxLayoutAlign=\"start center\" [fxShow]=\"true\" [fxHide]=\"false\">\n          <div fxLayout=\"column wrap\" fxFlex=\"33\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/layer21.png\" style=\"width:25px;height:40px;\"></div>\n          <div fxLayout=\"column wrap\" fxFlex=\"33\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/image1.png\" style=\"width:111;height:25;\"></div>\n          <div fxLayout=\"column wrap\" fxFlex=\"34\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><img></div>\n        </div>\n      </div>\n    </mat-toolbar>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"row wrap\" style=\"width:100%; height:130px;background: #5EA73E; border-radius: 39.4615px;\" fxFlex=\"80\" fxLayoutAlign=\"center none\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"80\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div style=\"margin-left:40px;color: #FFFFFF;letter-spacing: 0.789231px; text-transform: capitalize;width:100%;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 15px; line-height: 47px;\">\n          {{locales.hrwelcome}}</div>\n        <div style=\"margin-left:40px;color: #FFFFFF;width:100%;font-family: Poppins; font-style: normal; font-weight: normal; font-size: 10px; line-height: 33px; letter-spacing: 0.789231px;\">\n          {{locales.hrmessage2}}</div>\n      </div>\n      <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"20\" fxLayoutAlign=\"center start\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/Group.png\" style=\"height:90px;\"></div>\n    </div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:150px;\" fxFlex=\"100\" fxLayoutGap=\"20px\" fxLayoutAlign=\"center stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"30\" fxLayoutGap=\"10px\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <mat-card style=\"height:100%;margin:0;padding:0;\">\n        <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n          <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"60\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n          <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"40\" fxLayoutAlign=\"end end\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/Group_1.png\" style=\"height:80px;\"></div>\n        </div>\n      </mat-card>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" class=\"row3\" fxFlex=\"30\" fxLayoutGap=\"10px\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <mat-card style=\"height:100%;margin:0;padding:0;\">\n        <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n          <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"60\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n          <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"40\" fxLayoutAlign=\"end end\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/Maskgroup.png\" style=\"height:80px;\"></div>\n        </div>\n      </mat-card>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"30\" fxLayoutGap=\"10px\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <mat-card style=\"height:100%;margin:0;padding:0;\">\n        <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n          <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"60\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n          <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"40\" fxLayoutAlign=\"end end\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/Frame.png\" style=\"height:80px;\"></div>\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>"
+module.exports = "<div fxLayout=\"column wrap\" style=\"display:flex; width:100%;height:100%;background-color:#F3F3F9;\" fxFlex=\"100\" fxLayoutGap=\"10px\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:80px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <mat-toolbar style=\"margin:5px;;padding:0;\">\n      <div fxLayout=\"column wrap\" style=\"width:100;height:100%;margin:5px;\" fxFlex=\"15\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/locod1.png\" width=\"80\"></div>\n      <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"65\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div style=\"margin-top:7px;color: #52575C;width:100%;height:100%;font-family: Poppins; font-style: normal; font-weight: 500; font-size: 30px; line-height: 51px; text-align: center; letter-spacing: 0.766667px; text-transform: uppercase;\">\n          {{locales.dashboard}}</div>\n      </div>\n      <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start center\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div fxLayout=\"row wrap\" style=\"width:100%;height:100%\" fxLayoutGap=\"2px\" fxLayoutAlign=\"start center\" [fxShow]=\"true\" [fxHide]=\"false\">\n          <div fxLayout=\"column wrap\" fxFlex=\"33\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/layer21.png\" style=\"width:25px;height:40px;\"></div>\n          <div fxLayout=\"column wrap\" fxFlex=\"33\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/image1.png\" style=\"width:111;height:25;\"></div>\n          <div fxLayout=\"column wrap\" fxFlex=\"34\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><img></div>\n        </div>\n      </div>\n    </mat-toolbar>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:100%;\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"row wrap\" style=\"width:100%; height:200px;background: #5EA73E; border-radius: 39.4615px;\" fxFlex=\"80\" fxLayoutAlign=\"center none\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"70\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><label style=\"margin-left:40px;color: #FFFFFF;letter-spacing: 0.789231px; text-transform: capitalize;width:100%;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 15px; line-height: 47px;\">\n          {{locales.hrwelcome}}</label><label style=\"margin-left:40px;color: #FFFFFF;width:100%;font-family: Poppins; font-style: normal; font-weight: normal; font-size: 10px; line-height: 33px; letter-spacing: 0.789231px;\">\n          {{locales.hrmessage2}}</label></div>\n      <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"30\" fxLayoutAlign=\"center start\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/Group.png\" style=\"height:90px;\"></div>\n    </div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;height:100px;\" fxLayoutGap=\"10px\" fxLayoutAlign=\"center stretch\" [fxShow]=\"true\" [fxHide]=\"false\" fxLayout.xs=\"column\" fxFlexLayout.xs=\"column\"><label style=\"widht:100%; height:100%;\" class=\"filters\">\n      Filters</label><button mat-button style=\"background: #5EA73E;border-radius: 40.5882px; width:120px; height:40px;\" class=\"hrtextbutton\" (click)=\"dashboarddata()\">Global</button></div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"50\" fxLayoutGap=\"10px\" fxLayoutAlign=\"space-around center\" [fxShow]=\"true\" [fxHide]=\"false\" fxLayout.xs=\"column\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"30\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\" fxFlexOrder fxFlexOrder.xs=\"1\">\n      <mat-card style=\"width:400px; height:200px; margin:0; padding:0;\">\n        <div fxLayout=\"row wrap\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><label style=\"margin-top:15px;margin-left:15px;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 18px; line-height: 27px; letter-spacing: 0.715116px; text-transform: uppercase;    color: #52575C;\" class=\"hrqrtext\">\n            {{locales.hrq1}}</label></div>\n        <div fxLayout=\"row wrap\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n          <div fxLayout=\"column wrap\" fxFlex=\"70\" fxLayoutAlign=\"end start\" [fxShow]=\"true\" [fxHide]=\"false\">\n            <div fxLayout=\"row wrap\" fxLayoutAlign=\"space-around stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><label style=\"margin-left:25px;margin-bottom:30px;\" class=\"positive\">\n                {{locales.positive}}</label>\n              <div style=\"margin-left:30px;color: #EB5757;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 18px; line-height: 27px; letter-spacing: 0.575093px; text-transform: uppercase;\">\n                {{q1postive}}</div>\n            </div>\n            <div fxLayout=\"row wrap\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><label style=\"margin-left:25px;margin-bottom:30px;\" class=\"positive\">\n                {{locales.negative}}</label>\n              <div style=\"margin-left:20px;color: #5EA73E;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 18px; line-height: 27px; letter-spacing: 0.575093px; text-transform: uppercase;\">\n                {{q1negative}}</div>\n            </div>\n          </div>\n          <div fxLayout=\"column wrap\" fxFlex=\"30\" fxLayoutAlign=\"end end\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/Group_1.png\" style=\"margin-right:10px;margin-top:20px;\"></div>\n        </div>\n      </mat-card>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"30\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\" fxFlexOrder fxFlexOrder.xs=\"2\">\n      <mat-card style=\"width:400px; height:200px; margin:0; padding:0;\">\n        <div fxLayout=\"row wrap\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><label style=\"margin-top:15px;margin-left:15px;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 18px; line-height: 27px; letter-spacing: 0.715116px; text-transform: uppercase;    color: #52575C;\">\n            {{locales.hrq2}}</label></div>\n        <div fxLayout=\"row wrap\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n          <div fxLayout=\"column wrap\" fxFlex=\"70\" fxLayoutAlign=\"end start\" [fxShow]=\"true\" [fxHide]=\"false\">\n            <div fxLayout=\"row wrap\" fxLayoutAlign=\"space-around stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><label style=\"margin-left:25px;margin-bottom:30px;\" class=\"positive\">\n                {{locales.positive}}</label>\n              <div style=\"margin-left:30px;color: #EB5757;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 18px; line-height: 27px; letter-spacing: 0.575093px; text-transform: uppercase;\">\n                {{q2postive}}</div>\n            </div>\n            <div fxLayout=\"row wrap\" fxLayoutAlign=\"space-around stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><label style=\"margin-left:25px;margin-bottom:30px;\" class=\"positive\">\n                {{locales.negative}}</label>\n              <div style=\"margin-left:20px;color: #5EA73E;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 18px; line-height: 27px; letter-spacing: 0.575093px; text-transform: uppercase;\">\n                {{q2negative}}</div>\n            </div>\n          </div>\n          <div fxLayout=\"column wrap\" fxFlex=\"30\" fxLayoutAlign=\"end end\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/Maskgroup.png\" style=\"margin-right:10px;margin-top:20px;\"></div>\n        </div>\n      </mat-card>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"30\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\" fxFlexOrder fxFlexOrder.xs=\"3\">\n      <mat-card style=\"width:400px; height:200px;margin:0; padding:0;\">\n        <div fxLayout=\"row wrap\" style=\"margin-top:10px; margin-left:3px;\" fxLayoutAlign=\"start start\" [fxShow]=\"true\" [fxHide]=\"false\"><label style=\"margin-top:15px;margin-left:15px;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 18px; line-height: 27px; letter-spacing: 0.715116px; text-transform: uppercase;    color: #52575C;\">\n            {{locales.hrq3}}</label></div>\n        <div fxLayout=\"row wrap\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n          <div fxLayout=\"column wrap\" fxFlex=\"70\" fxLayoutAlign=\"end start\" [fxShow]=\"true\" [fxHide]=\"false\">\n            <div fxLayout=\"row wrap\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><label style=\"margin-left:25px;margin-bottom:30px;\" class=\"positive\">\n                {{locales.positive}}</label><label style=\"margin-left:30px;color: #EB5757;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 18px; line-height: 27px; letter-spacing: 0.575093px; text-transform: uppercase;\">\n                {{q3postive}}</label></div>\n            <div fxLayout=\"row wrap\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><label style=\"margin-left:25px;margin-bottom:30px;\" class=\"positive\">\n                {{locales.negative}}</label>\n              <div style=\"margin-left:20px;color: #5EA73E;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 18px; line-height: 27px; letter-spacing: 0.575093px; text-transform: uppercase;\">\n                {{q3negative}}</div>\n            </div>\n          </div>\n          <div fxLayout=\"column wrap\" fxFlex=\"30\" fxLayoutAlign=\"end end\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/Frame.png\" style=\"margin-right:10px;margin-top:20px;\"></div>\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -436,7 +436,7 @@ module.exports = "<div fxLayout=\"column wrap\" style=\"display:flex; width:100%
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column wrap\" style=\"display:flex;width:100%; height:100%;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:80px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"padding:5px;\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/image2.png\" width=\"64\"></div>\n    <div fxLayout=\"column wrap\" fxFlex=\"65\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"padding:5px;\" fxFlex=\"15\" fxLayoutAlign=\"start center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/image1.png\" style=\"margin-top:20px;\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:100px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" fxFlex=\"70\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/locod1.png\" width=\"132\"></div>\n    <div fxLayout=\"column wrap\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:40px;\" fxLayoutAlign=\"center stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" fxFlex=\"70\" fxLayoutAlign=\"start center\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div class=\"loginmessage\">\n        {{locales.loginmessage}}</div>\n    </div>\n    <div fxLayout=\"column wrap\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:300px; \" fxLayoutGap=\"10px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" fxFlex=\"70\" fxLayoutAlign=\"start center\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <form style=\"display: inline-block\">\n        <mat-form-field style=\"width:100%;\" class=\"labelmessage\" [appearance]=\"&apos;outline&apos;\" [floatLabel]=\"&apos;auto&apos;\" [hideRequiredMarker]=\"false\">\n          <input matInput name=\"{{locales.username}}\" type=\"input\" required>\n          <mat-label>{{locales.username}}</mat-label>\n        </mat-form-field>\n        <mat-form-field style=\"width:100%;\" class=\"labelmessage\" [appearance]=\"&apos;outline&apos;\" [floatLabel]=\"&apos;auto&apos;\" [hideRequiredMarker]=\"false\">\n          <input matInput name=\"{{locales.password}}\" type=\"input\" placeholder=\"Input\" required>\n          <mat-label>{{locales.password}}</mat-label>\n        </mat-form-field><button mat-raised-button style=\"width:100%;background: #5EA73E; border-radius: 30px;\" color=\"primary\">Login</button>\n        <div fxLayout=\"row wrap\" style=\"width:100%;height:30px;\" fxLayoutAlign=\"space-around stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n          <mat-checkbox style=\"margin-top:15px;font-family: Poppins; font-style: normal; font-weight: normal; font-size: 15px; line-height: 16px;letter-spacing: 0.2px;color: #25282B;\" required>{{locales.rememberme}}</mat-checkbox>\n          <div fxLayout=\"column wrap\" fxFlex=\"30\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div><span style=\"height:30px;margin-top:12px;\" class=\"forgotpassword\">\n          {{locales.forgotpassword}}</span>\n        </div>\n      </form>\n    </div>\n    <div fxLayout=\"column wrap\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n</div>"
+module.exports = "<div fxLayout=\"column wrap\" style=\"display:flex;width:100%; height:100%;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <bh-logo></bh-logo>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:100px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" fxFlex=\"70\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/locod1.png\" width=\"132\"></div>\n    <div fxLayout=\"column wrap\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:40px;\" fxLayoutAlign=\"center stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" fxFlex=\"70\" fxLayoutAlign=\"start center\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div class=\"loginmessage\">\n        {{locales.loginmessage}}</div>\n    </div>\n    <div fxLayout=\"column wrap\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:300px; \" fxLayoutGap=\"10px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" fxFlex=\"70\" fxLayoutAlign=\"start center\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <form style=\"display: inline-block\">\n        <mat-form-field style=\"width:100%;\" class=\"labelmessage\" [appearance]=\"&apos;outline&apos;\" [floatLabel]=\"&apos;auto&apos;\" [hideRequiredMarker]=\"false\">\n          <input matInput name=\"{{locales.username}}\" type=\"input\" required>\n          <mat-label>{{locales.username}}</mat-label>\n        </mat-form-field>\n        <mat-form-field style=\"width:100%;\" class=\"labelmessage\" [appearance]=\"&apos;outline&apos;\" [floatLabel]=\"&apos;auto&apos;\" [hideRequiredMarker]=\"false\">\n          <input matInput name=\"{{locales.password}}\" type=\"password\" placeholder=\"Input\" required>\n          <mat-label>{{locales.password}}</mat-label>\n        </mat-form-field><button mat-raised-button style=\"width:100%;background: #5EA73E; border-radius: 30px;\" routerLink=\"/hrdashboard\" color=\"primary\">Login</button>\n        <div fxLayout=\"row wrap\" style=\"width:100%;height:30px;\" fxLayoutAlign=\"space-around stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n          <mat-checkbox style=\"margin-top:15px;font-family: Poppins; font-style: normal; font-weight: normal; font-size: 15px; line-height: 16px;letter-spacing: 0.2px;color: #25282B;\" required>{{locales.rememberme}}</mat-checkbox>\n          <div fxLayout=\"column wrap\" fxFlex=\"30\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div><span style=\"height:30px;margin-top:12px;\" class=\"forgotpassword\">\n          {{locales.forgotpassword}}</span>\n        </div>\n      </form>\n    </div>\n    <div fxLayout=\"column wrap\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -447,7 +447,7 @@ module.exports = "<div fxLayout=\"column wrap\" style=\"display:flex;width:100%;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <div fxLayout=\"row wrap\" style=\"width:100%;height:100px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/image2.png\" style=\"width:100px; height:80px;\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"60\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/locod1.png\" style=\"width:100px;height:75px;margin-top:5px;\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"20\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/image1.png\" style=\"width:100px;\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;height:60px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"60\" fxLayoutAlign=\"start center\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <mat-form-field style=\"width:50%;solid #5EA73E; \">\n        <mat-label>Select Language</mat-label>\n        <mat-select (selectionChange)=\"doSomething($event)\">\n          <mat-option *ngFor=\"let language of languages\" [value]=\"language.value\">\n            {{language.viewValue}}\n          </mat-option>\n        </mat-select>\n      </mat-form-field>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:400px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"80\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/Group1440.png\" style=\"width:300px;height:400px;\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:50px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"30\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"40\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><label style=\"margin-top:10px;color: #5EA73E;width:100%;height:100%;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 15px; line-height: 30px;  text-align: center; letter-spacing: 0.5px; text-transform: capitalize;\">\n        <button mat-button (click)=\"letStart()\">{{locales.start}}\n          <mat-icon>keyboard_arrow_right</mat-icon>\n        </button></label></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"30\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:100px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"70\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div fxLayout=\"row wrap\" style=\"width:100%; height:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"50\" fxLayoutAlign=\"center end\" [fxShow]=\"true\" [fxHide]=\"false\">\n          <div style=\"margin-bottom:60px;color: #25282B;align-items: center; letter-spacing: 0.2px;font-family: Poppins; font-style: normal; font-weight: normal; font-size: 11px; line-height: 16px;\">\n            {{locales.develop}}</div>\n        </div>\n        <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"50\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/logo031.png\" style=\"width:80px;height:40px;\"></div>\n      </div>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n</div>"
+module.exports = "<div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <bh-logo></bh-logo>\n  <div fxLayout=\"row wrap\" style=\"width:100%;height:60px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"60\" fxLayoutAlign=\"start center\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <mat-form-field style=\"width:50%;solid #5EA73E; \">\n        <mat-label>Select Language</mat-label>\n        <mat-select (selectionChange)=\"doSomething($event)\">\n          <mat-option *ngFor=\"let language of languages\" [value]=\"language.value\">\n            {{language.viewValue}}\n          </mat-option>\n        </mat-select>\n      </mat-form-field>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:380px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"80\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/Group1440.png\" style=\"width:300px;height:400px;\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:50px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"30\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"40\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><label style=\"margin-top:10px;color: #5EA73E;width:100%;height:100%;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 15px; line-height: 30px;  text-align: center; letter-spacing: 0.5px; text-transform: capitalize;\">\n        <button mat-button (click)=\"letStart()\">{{locales.start}}\n          <mat-icon>keyboard_arrow_right</mat-icon>\n        </button></label></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"30\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:100px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"70\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div fxLayout=\"row wrap\" style=\"width:100%; height:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"50\" fxLayoutAlign=\"center end\" [fxShow]=\"true\" [fxHide]=\"false\">\n          <div style=\"margin-bottom:60px;color: #25282B;align-items: center; letter-spacing: 0.2px;font-family: Poppins; font-style: normal; font-weight: normal; font-size: 11px; line-height: 16px;\">\n            {{locales.develop}}</div>\n        </div>\n        <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"50\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/logo031.png\" style=\"width:80px;height:40px;\"></div>\n      </div>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%; height:100%;\" fxFlex=\"15\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -458,7 +458,18 @@ module.exports = "<div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column wrap\" style=\"display:flex; width:100%;height:700px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"5\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start start\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/image2.png\" style=\"width:71px; height:58px;\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"60\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/locod1.png\" style=\"width:80px; height:60px;\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/image1.png\" style=\"width:80px; height:30px;\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"5\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"5\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"35\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"35\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"5\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  <div fxLayout=\"row wrap\" style=\"color: #282E3A;width:100%;font-family: Poppins; font-style: normal; font-weight: normal; font-size: 14px; line-height: 21px; display: flex; align-items: center; text-align: center; letter-spacing: 0.4px;\" fxFlex=\"5\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"60\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div>\n        {{locales.loginmessage}}</div>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%\" fxFlex=\"5\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"30\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;padding:10px;color: #282E3A;font-family: Poppins; font-style: normal; font-weight: normal; font-size: 17px; line-height: 26px; display: flex; align-items: center; text-align: center; letter-spacing: 0.4px;\" fxFlex=\"80\" fxLayoutAlign=\"start center\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <form #form=\"ngForm\" style=\"width:100%; height:100%;\" class=\"form-group\" (ngSubmit)=\"login(form)\">\n        <mat-form-field style=\"width:100%;\" [appearance]=\"&apos;legacy&apos;\" [floatLabel]=\"&apos;auto&apos;\" [hideRequiredMarker]=\"false\">\n          <input matInput name=\"username\" type=\"input\" required ngModel>\n          <mat-label>{{locales.username}}</mat-label>\n        </mat-form-field>\n        <mat-form-field style=\"width:100%;\" [appearance]=\"&apos;legacy&apos;\" [floatLabel]=\"&apos;auto&apos;\" [hideRequiredMarker]=\"false\">\n          <input matInput name=\"password\" type=\"password\" required ngModel>\n          <mat-label>{{locales.password}}</mat-label>\n        </mat-form-field><button mat-button style=\"width:150px;height:50px;color: #FFFFFF;background: #5EA73E; box-shadow: 1.13333px 7.93333px 23.8px rgba(94, 167, 62, 0.2); border-radius: 44px;\" (click)=\"login(form)\" type=\"submit\" routerLink=\"/confirmdetails\">{{locales.login}}</button>\n      </form>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"5\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n</div>"
+module.exports = "<div fxLayout=\"column wrap\" style=\"display:flex; width:100%;height:700px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <bh-logo></bh-logo>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"5\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"5\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"35\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"35\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"5\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  <div fxLayout=\"row wrap\" style=\"color: #282E3A;width:100%;font-family: Poppins; font-style: normal; font-weight: normal; font-size: 14px; line-height: 21px; display: flex; align-items: center; text-align: center; letter-spacing: 0.4px;\" fxFlex=\"5\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"60\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div>\n        {{locales.loginmessage}}</div>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%\" fxFlex=\"5\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"30\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;padding:10px;color: #282E3A;font-family: Poppins; font-style: normal; font-weight: normal; font-size: 17px; line-height: 26px; display: flex; align-items: center; text-align: center; letter-spacing: 0.4px;\" fxFlex=\"80\" fxLayoutAlign=\"start center\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <form #form=\"ngForm\" style=\"width:100%; height:100%;\" class=\"form-group\" (ngSubmit)=\"login(form)\">\n        <mat-form-field style=\"width:100%;\" [appearance]=\"&apos;legacy&apos;\" [floatLabel]=\"&apos;auto&apos;\" [hideRequiredMarker]=\"false\">\n          <input matInput name=\"email\" type=\"text\" required ngModel>\n          <mat-label>{{locales.username}}</mat-label>\n        </mat-form-field>\n        <mat-form-field style=\"width:100%;\" [appearance]=\"&apos;legacy&apos;\" [floatLabel]=\"&apos;auto&apos;\" [hideRequiredMarker]=\"false\">\n          <input matInput name=\"password\" type=\"password\" required ngModel>\n          <mat-label>{{locales.password}}</mat-label>\n        </mat-form-field><button mat-button style=\"width:150px;height:50px;color: #FFFFFF;background: #5EA73E; box-shadow: 1.13333px 7.93333px 23.8px rgba(94, 167, 62, 0.2); border-radius: 44px;\" (click)=\"login(form)\" type=\"submit\" routerLink=\"/confirmdetails\">{{locales.login}}</button>\n      </form>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"5\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/components/logoComponent/logo.template.html":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/components/logoComponent/logo.template.html ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div fxLayout=\"column wrap\" style=\"margin-top: 30px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <div fxLayout=\"row wrap\" style=\"width:100%;padding-left: 5px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start start\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/ingredionlogo.png\" style=\"align-self:center;width:60px;margin-top:5px;\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"60\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/Carefirst.jpg\" style=\"align-self:center;height: 60px;\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/Fit4digital.png\" style=\"align-self:center; width: 100px;\"></div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -469,7 +480,7 @@ module.exports = "<div fxLayout=\"column wrap\" style=\"display:flex; width:100%
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column wrap\" style=\"width:100px;height:560px;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <div fxLayout=\"row wrap\" style=\"width:100%;height:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100px;height:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"70\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n        <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"30\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Images\\image1.png\" style=\"margin-top:5px;\"></div>\n      </div>\n      <div fxLayout=\"row wrap\" style=\"width:100%;heiht:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><label style=\"margin-left:15px;color: #283552;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 20px; line-height: 30px; /* identical to box height */  letter-spacing: 0.5px; text-transform: capitalize;\">\n          {{locales.personalinformation}}</label></div>\n      <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Images\\step1.png\" style=\"margin-left:15px;\"></div>\n    </div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;height:400px;\" fxFlex=\"50\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;margin-left:15px;\" fxFlex=\"90\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <form #personalInfo=\"ngForm\" style=\"width:100%;height:100%;\">\n        <mat-form-field style=\"width:100%;font-family: Poppins; font-style: normal; font-weight: normal; font-size: 13px; line-height: 19px; letter-spacing: 0.5px;\" [appearance]=\"&apos;legacy&apos;\" [floatLabel]=\"&apos;auto&apos;\" [hideRequiredMarker]=\"false\">\n          <input matInput [(ngModel)]=\"firstname\" name=\"firstname\" type=\"text\" placeholder=\"{{locales.firstname}}\" required #FirstName=\"ngModel\" [ngModelOptions]=\"{updateOn:&apos;change&apos;}\" pattern=\"[a-zA-Z\\s]+$\">\n\n        </mat-form-field>\n        <div *ngIf=\"FirstName.errors  &amp;&amp;  (FirstName.dirty || FirstName.touched || validclick)\" style=\"font-family: Poppins; font-style: normal; font-weight: normal; font-size: 13px; line-height: 19px; letter-spacing: 0.5px;\">\n          <span *ngIf=\"FirstName.errors.required\">\n                <small style=\"color:red;font-family:Poppins;font-style:normal;\">{{locales.lr}}</small>\n\n</span><span *ngIf=\"FirstName.errors.pattern\">\n                <small style=\"color:red;font-family:Poppins;font-style:normal;\">{{locales.pocs}}</small>\n</span></div>\n        <mat-form-field style=\"width:100%;\" [appearance]=\"&apos;legacy&apos;\" [floatLabel]=\"&apos;auto&apos;\" [hideRequiredMarker]=\"false\">\n          <input matInput [(ngModel)]=\"lastname\" name=\"lastname\" type=\"text\" placeholder=\"{{locales.lastname}}\" required #LastName=\"ngModel\" [ngModelOptions]=\"{updateOn:&apos;change&apos;}\" pattern=\"[a-zA-Z\\s]+$\">\n\n        </mat-form-field>\n        <div *ngIf=\"LastName.errors  &amp;&amp;  (LastName.dirty || LastName.touched || validclick)\">\n          <span *ngIf=\"LastName.errors.required\">\n                <small style=\"color:red;font-family:Poppins;font-style:normal;\">{{locales.lir}}</small></span><span *ngIf=\"LastName.errors.pattern\">\n                <small style=\"color:red;font-family:Poppins;font-style:normal;\">{{locales.pocs}}</small></span></div>\n        <mat-form-field style=\"font-family:Poppins;font-style:normal;width:100%;\" [appearance]=\"&apos;legacy&apos;\" [floatLabel]=\"&apos;auto&apos;\" [hideRequiredMarker]=\"false\">\n          <input matInput [(ngModel)]=\"locationName\" name=\"locationName\" type=\"text\" placeholder=\"{{locales.Location}}\" required #location=\"ngModel\" (ngModelChange)=\"locationFilter()\" [ngModelOptions]=\"{updateOn:&apos;change&apos;}\" pattern=\"[a-zA-Z0-9\\s]+$\" [matAutocomplete]=\"auto\">\n\n        </mat-form-field>\n        <mat-autocomplete #auto=\"matAutocomplete\">\n          <mat-option *ngFor=\"let location of updatelocations\" [value]=\"location.locationName\">\n            {{location.locationName}}\n          </mat-option>\n        </mat-autocomplete>\n        <div *ngIf=\"location.errors &amp;&amp; (location.dirty || location.touched || validclick)\">\n          <span *ngIf=\"location.errors.required\">\n          {{locales.lr}}</span><span *ngIf=\"location.errors.pattern\">\n          {{locales.pocs}}</span></div>\n        <mat-form-field style=\"width:100%;\">\n          <mat-label>Classify User</mat-label>\n          <mat-select (selectionChange)=\"selectUser($event)\" [(ngModel)]=\"type\" name=\"type\">\n            <mat-option *ngFor=\"let user of usertypes\" [value]=\"user.type\">\n              {{user.type}}\n            </mat-option>\n          </mat-select>\n        </mat-form-field>\n      </form>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;height:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"30\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"50\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"50\" fxLayoutAlign=\"start end\" [fxShow]=\"true\" [fxHide]=\"false\"><button mat-button style=\"margin-top: 50px;margin-right:20px;color: #FFFFFF;height: 60px;width: 134px;font-family: Poppins; font-style: normal; font-weight: 600;background: #5EA73E; box-shadow: 1.13333px 7.93333px 23.8px rgba(94, 167, 62, 0.2); border-radius: 44px;\" (click)=\"personalInfoSubmit(personalInfo)\" type=\"submit\">{{locales.cont}}</button></div>\n  </div>\n</div>"
+module.exports = "<div\n  fxLayout=\"column wrap\"\n  style=\"width: 100px; height: 560px;\"\n  fxFlex=\"100\"\n  fxLayoutAlign=\"start stretch\"\n  [fxShow]=\"true\"\n  [fxHide]=\"false\"\n>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"width: 100%; height: 100%;\"\n    fxFlex=\"20\"\n    fxLayoutAlign=\"start stretch\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100px; height: 100%;\"\n      fxFlex=\"100\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <div\n        fxLayout=\"row wrap\"\n        style=\"width: 100%;\"\n        fxFlex=\"20\"\n        fxLayoutAlign=\"start stretch\"\n        [fxShow]=\"true\"\n        [fxHide]=\"false\"\n      >\n        <div\n          fxLayout=\"column wrap\"\n          style=\"width: 100%; height: 100%;\"\n          fxFlex=\"70\"\n          fxLayoutAlign=\"start stretch\"\n          [fxShow]=\"true\"\n          [fxHide]=\"false\"\n        ></div>\n        <div\n          fxLayout=\"column wrap\"\n          style=\"width: 100%; height: 100%;\"\n          fxFlex=\"30\"\n          fxLayoutAlign=\"start stretch\"\n          [fxShow]=\"true\"\n          [fxHide]=\"false\"\n        >\n          <img imgSrc=\"Images\\image1.png\" style=\"margin-top: 5px;\" />\n        </div>\n      </div>\n      <div\n        fxLayout=\"row wrap\"\n        style=\"width: 100%; heiht: 100%;\"\n        fxFlex=\"20\"\n        fxLayoutAlign=\"start stretch\"\n        [fxShow]=\"true\"\n        [fxHide]=\"false\"\n      >\n        <label\n          style=\"\n            margin-left: 15px;\n            color: #283552;\n            font-family: Poppins;\n            font-style: normal;\n            font-weight: 600;\n            font-size: 20px;\n            line-height: 30px; /* identical to box height */\n            letter-spacing: 0.5px;\n            text-transform: capitalize;\n          \"\n        >\n          {{locales.personalinformation}}</label\n        >\n      </div>\n      <div\n        fxLayout=\"row wrap\"\n        style=\"width: 100%;\"\n        fxFlex=\"20\"\n        fxLayoutAlign=\"start stretch\"\n        [fxShow]=\"true\"\n        [fxHide]=\"false\"\n      >\n        <img imgSrc=\"Images\\step1.png\" style=\"margin-left: 15px;\" />\n      </div>\n    </div>\n  </div>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"width: 100%; height: 400px;\"\n    fxFlex=\"50\"\n    fxLayoutAlign=\"start stretch\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100%; height: 100%; margin-left: 15px;\"\n      fxFlex=\"90\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <form #personalInfo=\"ngForm\" style=\"width: 100%; height: 100%;\">\n        <mat-form-field\n          style=\"\n            width: 100%;\n            font-family: Poppins;\n            font-style: normal;\n            font-weight: normal;\n            font-size: 13px;\n            line-height: 19px;\n            letter-spacing: 0.5px;\n          \"\n          [appearance]=\"'legacy'\"\n          [floatLabel]=\"'auto'\"\n          [hideRequiredMarker]=\"false\"\n        >\n          <input\n            matInput\n            [(ngModel)]=\"firstname\"\n            name=\"firstname\"\n            type=\"text\"\n            placeholder=\"{{locales.firstname}}\"\n            required\n            #FirstName=\"ngModel\"\n            [ngModelOptions]=\"{updateOn:'change'}\"\n            pattern=\"[a-zA-Z\\s]+$\"\n          />\n        </mat-form-field>\n        <div\n          *ngIf=\"FirstName.errors  &amp;&amp;  (FirstName.dirty || FirstName.touched || validclick)\"\n          style=\"\n            font-family: Poppins;\n            font-style: normal;\n            font-weight: normal;\n            font-size: 13px;\n            line-height: 19px;\n            letter-spacing: 0.5px;\n          \"\n        >\n          <span *ngIf=\"FirstName.errors.required\">\n            <small style=\"color: red; font-family: Poppins; font-style: normal;\"\n              >{{locales.fir}}</small\n            > </span\n          ><span *ngIf=\"FirstName.errors.pattern\">\n            <small style=\"color: red; font-family: Poppins; font-style: normal;\"\n              >{{locales.pocs}}</small\n            >\n          </span>\n        </div>\n        <mat-form-field\n          style=\"width: 100%;\"\n          [appearance]=\"'legacy'\"\n          [floatLabel]=\"'auto'\"\n          [hideRequiredMarker]=\"false\"\n        >\n          <input\n            matInput\n            [(ngModel)]=\"lastname\"\n            name=\"lastname\"\n            type=\"text\"\n            placeholder=\"{{locales.lastname}}\"\n            required\n            #LastName=\"ngModel\"\n            [ngModelOptions]=\"{updateOn:'change'}\"\n            pattern=\"[a-zA-Z\\s]+$\"\n          />\n        </mat-form-field>\n        <div\n          *ngIf=\"LastName.errors  &amp;&amp;  (LastName.dirty || LastName.touched || validclick)\"\n        >\n          <span *ngIf=\"LastName.errors.required\">\n            <small style=\"color: red; font-family: Poppins; font-style: normal;\"\n              >{{locales.lir}}</small\n            ></span\n          ><span *ngIf=\"LastName.errors.pattern\">\n            <small style=\"color: red; font-family: Poppins; font-style: normal;\"\n              >{{locales.pocs}}</small\n            ></span\n          >\n        </div>\n        <mat-form-field\n          style=\"font-family: Poppins; font-style: normal; width: 100%;\"\n          [appearance]=\"'legacy'\"\n          [floatLabel]=\"'auto'\"\n          [hideRequiredMarker]=\"false\"\n        >\n          <input\n            matInput\n            [(ngModel)]=\"locationName\"\n            name=\"locationName\"\n            type=\"text\"\n            placeholder=\"{{locales.Location}}\"\n            required\n            #location=\"ngModel\"\n            (ngModelChange)=\"locationFilter()\"\n            [ngModelOptions]=\"{updateOn:'change'}\"\n            pattern=\"[a-zA-Z0-9\\s]+$\"\n            [matAutocomplete]=\"auto\"\n          />\n        </mat-form-field>\n        <mat-autocomplete #auto=\"matAutocomplete\">\n          <mat-option\n            *ngFor=\"let location of updatelocations\"\n            [value]=\"location.locationName\"\n          >\n            {{location.locationName}}\n          </mat-option>\n        </mat-autocomplete>\n        <div\n          *ngIf=\"location.errors &amp;&amp; (location.dirty || location.touched || validclick)\"\n        >\n          <span *ngIf=\"location.errors.required\"> {{locales.lr}}</span\n          ><span *ngIf=\"location.errors.pattern\"> {{locales.pocs}}</span>\n        </div>\n        <mat-form-field style=\"width: 100%;\">\n          <mat-label>Classify User</mat-label>\n          <mat-select\n            (selectionChange)=\"selectUser($event)\"\n            [(ngModel)]=\"type\"\n            name=\"type\"\n          >\n            <mat-option *ngFor=\"let user of usertypes\" [value]=\"user.type\">\n              {{user.type}}\n            </mat-option>\n          </mat-select>\n        </mat-form-field>\n      </form>\n    </div>\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100%; height: 100%;\"\n      fxFlex=\"10\"\n      fxLayoutAlign=\"start stretch\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    ></div>\n  </div>\n  <div\n    fxLayout=\"row wrap\"\n    style=\"width: 100%;\"\n    fxFlex=\"30\"\n    fxLayoutAlign=\"start stretch\"\n    [fxShow]=\"true\"\n    [fxHide]=\"false\"\n  >\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100%;\"\n      fxFlex=\"50\"\n      fxLayoutAlign=\"center center\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    ></div>\n    <div\n      fxLayout=\"column wrap\"\n      style=\"width: 100%;\"\n      fxFlex=\"50\"\n      fxLayoutAlign=\"start end\"\n      [fxShow]=\"true\"\n      [fxHide]=\"false\"\n    >\n      <button\n        mat-button\n        style=\"\n          margin-top: 50px;\n          margin-right: 20px;\n          color: #ffffff;\n          height: 60px;\n          width: 134px;\n          font-family: Poppins;\n          font-style: normal;\n          font-weight: 600;\n          background: #5ea73e;\n          box-shadow: 1.13333px 7.93333px 23.8px rgba(94, 167, 62, 0.2);\n          border-radius: 44px;\n        \"\n        (click)=\"personalInfoSubmit(personalInfo)\"\n        type=\"submit\"\n      >\n        {{locales.cont}}\n      </button>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -491,7 +502,7 @@ module.exports = "<div fxLayout=\"column wrap\" style=\"width:100%;height:100%;b
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column wrap\" style=\"display:flex; width:100%; height:100%;\" fxFlex=\"100\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:80px;\" fxLayoutGap=\"5px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/image2.png\" style=\"width:100px;\"></div>\n    <div fxLayout=\"column wrap\" fxFlex=\"60\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/locod1.png\" style=\"width:80px; height:60px;margin-top:20px;\"></div>\n    <div fxLayout=\"column wrap\" fxFlex=\"20\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/image1.png\" style=\"width:100px;\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;height:100px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  <div fxLayout=\"row wrap\" style=\"width:100%; height:100px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"60\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/Group29.png\" style=\"width:110px;height:100px;\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"80\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div style=\"color: #283552;text-align: center; letter-spacing: 0.5px; text-transform: capitalize;width:100%;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 20px; line-height: 30px;\">\n        {{locales.thankyou}}</div>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"60\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div style=\"color: #283552;width:100%;font-family: Poppins; font-style: normal; font-weight: normal; font-size: 11px; line-height: 16px; text-align: center; letter-spacing: 0.5px; text-transform: capitalize;\">\n        {{locales.thankyoumessage}}</div>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;height:100px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;height:80px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"10\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"60\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div style=\"color: #25282B;font-family: Poppins; font-style: normal; font-weight: normal; font-size: 14px; line-height: 16px;\">\n        {{locales.developedby}}</div>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n  <div fxLayout=\"row wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"60\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/logo031.png\" style=\"width:100px; height:50px;\"></div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxFlex=\"20\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\"></div>\n  </div>\n</div>"
+module.exports = "<div fxLayout=\"column wrap\" style=\"min-height:100vh;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n  <bh-logo></bh-logo>\n  <div fxLayout=\"column wrap\" style=\"margin:auto;\" fxLayoutAlign=\"start center\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"row wrap\" fxLayoutAlign=\"center stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <mat-icon class=\"bg-green done-icon\" *ngIf=\"!isAmber\">done</mat-icon>\n      <mat-icon class=\"bg-amber done-icon\" *ngIf=\"isAmber\">done</mat-icon>\n    </div>\n    <div fxLayout=\"row wrap\" style=\"width:100%;\" fxLayoutAlign=\"center stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div fxLayout=\"column wrap\" style=\"width:100%;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n        <div style=\"color: #283552;text-align: center; letter-spacing: 0.5px; text-transform: capitalize;width:100%;font-family: Poppins; font-style: normal; font-weight: 600; font-size: 20px; line-height: 30px;\">\n          {{locales.thankyou}}</div>\n      </div>\n    </div>\n    <div fxLayout=\"row wrap\" style=\"width:100%;\" fxLayoutAlign=\"center stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div style=\"color: #283552;width:60%;font-family: Poppins; font-style: normal; font-weight: normal; font-size: 11px; line-height: 16px; text-align: center; letter-spacing: 0.5px; text-transform: capitalize;\">\n        {{locales.thankyoumessage}}\n\n        <div style=\"font-size: 20px; margin-top: 30px; font-weight: 600;\">{{today}}</div>\n      </div>\n    </div>\n  </div>\n  <div fxLayout=\"column wrap\" style=\"margin-top:auto;margin-bottom:30px;\" fxLayoutAlign=\"start stretch\" [fxShow]=\"true\" [fxHide]=\"false\">\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\">\n      <div style=\"color: #25282B;font-family: Poppins; font-style: normal; font-weight: normal; font-size: 14px; line-height: 16px;\">\n        {{locales.developedby}}</div>\n    </div>\n    <div fxLayout=\"column wrap\" style=\"width:100%;\" fxLayoutAlign=\"center center\" [fxShow]=\"true\" [fxHide]=\"false\"><img imgSrc=\"Web/logo031.png\" style=\"width:100px; height:50px;\"></div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -608,8 +619,12 @@ var certifyinformationComponent = /** @class */ (function (_super) {
         _this.masterdata = masterdata;
         _this.saveuserService = saveuserService;
         _this.datasharingService = datasharingService;
+        // get the previously selected language from local storage
+        // set the language if selected
         var language = window.localStorage.getItem('language');
-        _this.localeService.language = language;
+        if (language) {
+            _this.localeService.language = language;
+        }
         return _this;
     }
     certifyinformationComponent.prototype.ngOnInit = function () { };
@@ -634,13 +649,27 @@ var certifyinformationComponent = /** @class */ (function (_super) {
             localStorage.setItem('certifyInfoChecked', data.value.accept);
             this.masterdata.userSubmit().then(function (resp) {
                 console.log('certt resp', resp);
+                // get the color code for thank you page
+                var isGreen = resp.response.every(function (v) { return v.answer === false; });
+                if (isGreen) {
+                    localStorage.setItem('colorCode', 'green');
+                }
+                else {
+                    localStorage.setItem('colorCode', 'amber');
+                }
+                // navigate to the thankyou page
                 _this.router.navigate(['/thankyou']);
             }).catch(function (err) {
                 console.log('cert err', err);
             });
         }
         else {
-            this.datasharingService.openSnackBar('Please select Terms and Conditions', "X");
+            if (this.accept == undefined) {
+                this.datasharingService.openSnackBar('Please select Terms and Conditions', "X");
+            }
+            else {
+                this.datasharingService.openSnackBar('Please provide required information', "X");
+            }
         }
     };
     certifyinformationComponent.prototype.onBack = function () {
@@ -714,9 +743,13 @@ var confirmdetailsComponent = /** @class */ (function (_super) {
         _this.datash = datash;
         _this.masterdata = masterdata;
         _this.datasharingService = datasharingService;
-        _this.defaultLocationName = 'Westchester';
-        var language = window.localStorage.getItem('language');
-        _this.localeService.language = language;
+        _this.defaultLocationName = "Westchester";
+        // get the previously selected language from local storage
+        // set the language if selected
+        var language = window.localStorage.getItem("language");
+        if (language) {
+            _this.localeService.language = language;
+        }
         return _this;
     }
     confirmdetailsComponent.prototype.ngOnInit = function () {
@@ -726,7 +759,7 @@ var confirmdetailsComponent = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         this.locationName = this.defaultLocationName.slice(0);
-                        this.phone = '817930010987';
+                        this.phone = "817930010987";
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 3, , 4]);
@@ -761,26 +794,31 @@ var confirmdetailsComponent = /** @class */ (function (_super) {
         console.log(this.defaultLocationName, data.value.locationName);
         if (data.valid === true) {
             for (var i = 0; i <= this.totallocations.length; i++) {
-                if ((this.totallocations[i] && this.totallocations[i].locationName === this.locationName) || this.defaultLocationName === data.value.locationName) {
-                    console.log('valid success');
+                if ((this.totallocations[i] &&
+                    this.totallocations[i].locationName === this.locationName) ||
+                    this.defaultLocationName === data.value.locationName) {
+                    console.log("valid success");
                     this.masterdata.locationName = data.value.locationName;
                     this.masterdata.phone = data.value.phone;
                     this.masterdata.locationNameTwo = data.value.locationName;
                     this.masterdata.userType = data.value.type;
                     var confirmdetailsObj = {
-                        email: 'bhsarat@gmail.com',
+                        email: "bhsarat@gmail.com",
                         locationName: this.masterdata.locationName,
-                        phone: this.masterdata.phone
+                        phone: this.masterdata.phone,
                     };
                     //calling confirm details api
-                    this.userdataservice.userDetails(confirmdetailsObj).then(function (result) {
+                    this.userdataservice
+                        .userDetails(confirmdetailsObj)
+                        .then(function (result) {
                         console.log(result);
-                        _this.router.navigate(['/healthinfo']);
-                    }).catch(function (err) {
-                        console.log('error', err);
+                        _this.router.navigate(["/healthinfo"]);
+                    })
+                        .catch(function (err) {
+                        console.log("error", err);
                     });
-                    localStorage.setItem('locationName', confirmdetailsObj.locationName);
-                    localStorage.setItem('phone', confirmdetailsObj.phone);
+                    localStorage.setItem("locationName", confirmdetailsObj.locationName);
+                    localStorage.setItem("phone", confirmdetailsObj.phone);
                     break;
                 }
             }
@@ -793,7 +831,9 @@ var confirmdetailsComponent = /** @class */ (function (_super) {
     confirmdetailsComponent.prototype.filter = function (values) {
         var _this = this;
         // console.log(values);
-        return values.filter(function (location) { return location.locationName.includes(_this.locationName); });
+        return values.filter(function (location) {
+            return location.locationName.includes(_this.locationName);
+        });
     };
     confirmdetailsComponent.ctorParameters = function () { return [
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
@@ -805,12 +845,15 @@ var confirmdetailsComponent = /** @class */ (function (_super) {
     ]; };
     confirmdetailsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'bh-confirmdetails',
-            template: __webpack_require__(/*! raw-loader!./confirmdetails.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/confirmdetailsComponent/confirmdetails.template.html")
+            selector: "bh-confirmdetails",
+            template: __webpack_require__(/*! raw-loader!./confirmdetails.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/confirmdetailsComponent/confirmdetails.template.html"),
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], app_sd_services_userdetails__WEBPACK_IMPORTED_MODULE_5__["userdetails"], app_sd_services_saveuserresponse__WEBPACK_IMPORTED_MODULE_6__["saveuserresponse"],
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            app_sd_services_userdetails__WEBPACK_IMPORTED_MODULE_5__["userdetails"],
+            app_sd_services_saveuserresponse__WEBPACK_IMPORTED_MODULE_6__["saveuserresponse"],
             app_services_datasharing_datasharing_service__WEBPACK_IMPORTED_MODULE_4__["datasharingService"],
-            _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_7__["masterdataService"], app_services_datasharing_datasharing_service__WEBPACK_IMPORTED_MODULE_4__["datasharingService"]])
+            _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_7__["masterdataService"],
+            app_services_datasharing_datasharing_service__WEBPACK_IMPORTED_MODULE_4__["datasharingService"]])
     ], confirmdetailsComponent);
     return confirmdetailsComponent;
 }(_app_baseClasses_nBase_component__WEBPACK_IMPORTED_MODULE_2__["NBaseComponent"]));
@@ -854,8 +897,12 @@ var contactinformationComponent = /** @class */ (function (_super) {
         var _this = _super.call(this) || this;
         _this.router = router;
         _this.masterdata = masterdata;
+        // get the previously selected language from local storage
+        // set the language if selected
         var language = window.localStorage.getItem('language');
-        _this.localeService.language = language;
+        if (language) {
+            _this.localeService.language = language;
+        }
         return _this;
     }
     contactinformationComponent.prototype.ngOnInit = function () {
@@ -930,7 +977,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _app_baseClasses_nBase_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../app/baseClasses/nBase.component */ "./baseClasses/nBase.component.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/masterdata/masterdata.service */ "./src/app/services/masterdata/masterdata.service.ts");
+/* harmony import */ var app_services_datasharing_datasharing_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/services/datasharing/datasharing.service */ "./src/app/services/datasharing/datasharing.service.ts");
+/* harmony import */ var _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/masterdata/masterdata.service */ "./src/app/services/masterdata/masterdata.service.ts");
 
 /*DEFAULT GENERATED TEMPLATE. DO NOT CHANGE SELECTOR TEMPLATE_URL AND CLASS NAME*/
 
@@ -945,29 +993,35 @@ Legacy Service import Example :
 import { HeroService } from '../../services/hero/hero.service';
 */
 
+
 var healthinfoComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](healthinfoComponent, _super);
-    function healthinfoComponent(router, masterdata) {
+    function healthinfoComponent(router, masterdata, datasharingService) {
         var _this = _super.call(this) || this;
         _this.router = router;
         _this.masterdata = masterdata;
+        _this.datasharingService = datasharingService;
         _this.answer = '';
         _this.shortTextOne = "had fever";
         _this.shortTextTwo = "had Personal Contact";
+        _this.showError = false;
+        // get the previously selected language from local storage
+        // set the language if selected
         var language = window.localStorage.getItem('language');
-        _this.localeService.language = language;
-        console.log(language);
+        if (language) {
+            _this.localeService.language = language;
+        }
         return _this;
     }
     healthinfoComponent.prototype.ngOnInit = function () { };
     healthinfoComponent.prototype.onChangeRadio = function (e, questionIndex) {
         console.log('onChangeRadio called...');
         console.log("Question Index", questionIndex);
-        var val = e.value;
-        this.answer = val;
-        console.log("ths.ans", val);
+        this.val1 = e.value;
+        this.answer = this.val1;
+        console.log("ths.ans", this.val1);
         if (questionIndex == '1') {
-            this.masterdata.answer1 = val;
+            this.masterdata.answer1 = this.val1;
             this.masterdata.questionId = questionIndex;
             this.masterdata.shortTextOne = this.shortTextOne;
             localStorage.setItem('answer1', JSON.stringify({ "questionId": this.masterdata.questionId,
@@ -975,8 +1029,15 @@ var healthinfoComponent = /** @class */ (function (_super) {
                 "shortText": this.shortTextOne
             }));
         }
+    };
+    healthinfoComponent.prototype.onChangeRadioTwo = function (e, questionIndex) {
+        console.log('onChangeRadio2 called...');
+        console.log("Question Index", questionIndex);
+        this.val2 = e.value;
+        this.answer = this.val2;
+        console.log("ths.ans", this.val2);
         if (questionIndex == '2') {
-            this.masterdata.answer2 = val;
+            this.masterdata.answer2 = this.val2;
             this.masterdata.questionId2 = questionIndex;
             this.masterdata.shortTextTwo = this.shortTextTwo;
             localStorage.setItem('answer2', JSON.stringify({ "questionId": this.masterdata.questionId2,
@@ -989,18 +1050,25 @@ var healthinfoComponent = /** @class */ (function (_super) {
         this.router.navigate(['/landingpage']);
     };
     healthinfoComponent.prototype.onNext = function () {
-        this.router.navigate(['/hinfonext']);
+        console.log('val1', this.val1, 'val2', this.val2);
+        if (this.val1 && this.val2) {
+            this.router.navigate(['/hinfonext']);
+        }
+        else {
+            this.datasharingService.openSnackBar('Please answer for questions', 'X');
+        }
     };
     healthinfoComponent.ctorParameters = function () { return [
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-        { type: _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_4__["masterdataService"] }
+        { type: _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_5__["masterdataService"] },
+        { type: app_services_datasharing_datasharing_service__WEBPACK_IMPORTED_MODULE_4__["datasharingService"] }
     ]; };
     healthinfoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'bh-healthinfo',
             template: __webpack_require__(/*! raw-loader!./healthinfo.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/healthinfoComponent/healthinfo.template.html")
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_4__["masterdataService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_5__["masterdataService"], app_services_datasharing_datasharing_service__WEBPACK_IMPORTED_MODULE_4__["datasharingService"]])
     ], healthinfoComponent);
     return healthinfoComponent;
 }(_app_baseClasses_nBase_component__WEBPACK_IMPORTED_MODULE_2__["NBaseComponent"]));
@@ -1024,6 +1092,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_baseClasses_nBase_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../app/baseClasses/nBase.component */ "./baseClasses/nBase.component.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/masterdata/masterdata.service */ "./src/app/services/masterdata/masterdata.service.ts");
+/* harmony import */ var app_services_datasharing_datasharing_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/services/datasharing/datasharing.service */ "./src/app/services/datasharing/datasharing.service.ts");
 
 /*DEFAULT GENERATED TEMPLATE. DO NOT CHANGE SELECTOR TEMPLATE_URL AND CLASS NAME*/
 
@@ -1034,70 +1103,97 @@ Client Service import Example:
 import { servicename } from 'app/sd-services/servicename';
 */
 
+
 /*
 Legacy Service import Example :
 import { HeroService } from '../../services/hero/hero.service';
 */
 var healthinfonextComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](healthinfonextComponent, _super);
-    function healthinfonextComponent(router, masterdata) {
+    function healthinfonextComponent(router, masterdata, datasharingService) {
         var _this = _super.call(this) || this;
         _this.router = router;
         _this.masterdata = masterdata;
-        _this.answer = '';
+        _this.datasharingService = datasharingService;
+        _this.answer = "";
         _this.shortTextThree = "Travelled Outside Country";
         _this.enableTextArea = false;
-        var language = window.localStorage.getItem('language');
-        _this.localeService.language = language;
+        // get the previously selected language from local storage
+        // set the language if selected
+        var language = window.localStorage.getItem("language");
+        if (language) {
+            _this.localeService.language = language;
+        }
         return _this;
     }
-    healthinfonextComponent.prototype.ngOnInit = function () {
-    };
+    healthinfonextComponent.prototype.ngOnInit = function () { };
     //question :boolean = false;
     healthinfonextComponent.prototype.onChangeRadio = function (e, questionIndex) {
-        console.log('onChangeRadio called...');
+        console.log("onChangeRadio called...");
         console.log("Question Index", questionIndex);
-        var val = e.value;
-        this.answer = val;
+        this.val3 = e.value;
+        this.answer = this.val3;
         // if(this.answer == YES){
         //     this.question = true;
         // }
-        console.log({ val: val });
-        if (questionIndex == '3') {
-            if (e.value == 'true') {
+        console.log(this.val3);
+        if (questionIndex == "3") {
+            if (e.value == "true") {
                 this.enableTextArea = true;
             }
             else {
                 this.enableTextArea = false;
             }
-            this.masterdata.answer3 = val;
+            this.masterdata.answer3 = this.val3;
             this.masterdata.questionId3 = questionIndex;
             this.masterdata.shortTextThree = this.shortTextThree;
-            localStorage.setItem('answer3', JSON.stringify({ "questionId": this.masterdata.questionId3,
-                "answer": this.masterdata.answer1,
-                "shortText": this.shortTextThree,
-                "addlInfo": this.masterdata.addlInfo
+            localStorage.setItem("answer3", JSON.stringify({
+                questionId: this.masterdata.questionId3,
+                answer: this.masterdata.answer1,
+                shortText: this.shortTextThree,
+                addlInfo: this.masterdata.addlInfo,
             }));
         }
     };
     healthinfonextComponent.prototype.onBack = function () {
-        this.router.navigate(['/healthinfo']);
+        this.router.navigate(["/healthinfo"]);
     };
     healthinfonextComponent.prototype.onNext = function (form) {
-        console.log("addlinfo", form.value);
+        console.log(this.val3);
         this.masterdata.addlInfo = form.value.addlinfo;
-        this.router.navigate(['/certifyinfo']);
+        if (this.val3 != undefined && (this.val3 || !this.val3)) {
+            console.log(this.val3);
+            if (this.val3 == "true") {
+                console.log(form.value.addlinfo, typeof this.val3);
+                if (this.val3 == "true" && form.value.addlinfo != undefined) {
+                    this.router.navigate(["/certifyinfo"]);
+                }
+                else if (form.value.addlinfo == undefined) {
+                    this.datasharingService.openSnackBar("Please answer locations", "X");
+                }
+            }
+            else {
+                console.log("im here ");
+                this.router.navigate(["/certifyinfo"]);
+            }
+        }
+        else {
+            this.datasharingService.openSnackBar("Please select option ", "X");
+        }
     };
     healthinfonextComponent.ctorParameters = function () { return [
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-        { type: _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_4__["masterdataService"] }
+        { type: _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_4__["masterdataService"] },
+        { type: app_services_datasharing_datasharing_service__WEBPACK_IMPORTED_MODULE_5__["datasharingService"] }
     ]; };
     healthinfonextComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'bh-healthinfonext',
-            template: __webpack_require__(/*! raw-loader!./healthinfonext.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/healthinfonextComponent/healthinfonext.template.html")
+            selector: "bh-healthinfonext",
+            template: __webpack_require__(/*! raw-loader!./healthinfonext.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/healthinfonextComponent/healthinfonext.template.html"),
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_4__["masterdataService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_4__["masterdataService"],
+            app_services_datasharing_datasharing_service__WEBPACK_IMPORTED_MODULE_5__["datasharingService"]])
     ], healthinfonextComponent);
     return healthinfonextComponent;
 }(_app_baseClasses_nBase_component__WEBPACK_IMPORTED_MODULE_2__["NBaseComponent"]));
@@ -1119,8 +1215,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _app_baseClasses_nBase_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../app/baseClasses/nBase.component */ "./baseClasses/nBase.component.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var app_sd_services_saveuserresponse__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/sd-services/saveuserresponse */ "./src/app/sd-services/saveuserresponse.ts");
 
 /*DEFAULT GENERATED TEMPLATE. DO NOT CHANGE SELECTOR TEMPLATE_URL AND CLASS NAME*/
+
+
 
 
 /*
@@ -1133,26 +1233,72 @@ import { HeroService } from '../../services/hero/hero.service';
 */
 var homeComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](homeComponent, _super);
-    function homeComponent() {
-        return _super.call(this) || this;
+    function homeComponent(userService, router) {
+        var _this = _super.call(this) || this;
+        _this.userService = userService;
+        _this.router = router;
+        _this.showSplash = true;
+        _this.showThankYou = false;
+        return _this;
     }
     homeComponent.prototype.ngOnInit = function () {
+        this.fetchUserResponse();
     };
-    homeComponent.prototype.toggle = function () {
-        this.localeService.language = 'en';
+    // check if the user has submitted response for the day
+    // if user has submitted already then we set showThankYou = true
+    // otherwise showLanding = true
+    homeComponent.prototype.fetchUserResponse = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var username, bh, hasSubmitted, colorCode, err_1;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        username = localStorage.getItem('username');
+                        if (!username) {
+                            return [2 /*return*/];
+                        }
+                        return [4 /*yield*/, this.userService.getIfUserSubmitted(username)];
+                    case 1:
+                        bh = _a.sent();
+                        console.log(bh);
+                        hasSubmitted = "no";
+                        colorCode = "green";
+                        if (bh.local && bh.local.result) {
+                            hasSubmitted = bh.local.result.updated;
+                            colorCode = bh.local.result.colorCode;
+                        }
+                        // save the colorCode in localStorage
+                        window.localStorage.setItem('colorCode', colorCode);
+                        // hide splash screen
+                        this.showSplash = false;
+                        // when user already submitted show Thank You screen 
+                        if (hasSubmitted === "yes") {
+                            this.showThankYou = true;
+                            return [2 /*return*/];
+                        }
+                        // otherwise show landing page 
+                        this.router.navigate(['/landingpage']);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        err_1 = _a.sent();
+                        console.error(err_1);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
     };
-    homeComponent.prototype.toggle1 = function () {
-        this.localeService.language = 'fr';
-    };
-    homeComponent.prototype.toggle2 = function () {
-        this.localeService.language = 'ar';
-    };
+    homeComponent.ctorParameters = function () { return [
+        { type: app_sd_services_saveuserresponse__WEBPACK_IMPORTED_MODULE_4__["saveuserresponse"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+    ]; };
     homeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'bh-home',
             template: __webpack_require__(/*! raw-loader!./home.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/homeComponent/home.template.html")
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [app_sd_services_saveuserresponse__WEBPACK_IMPORTED_MODULE_4__["saveuserresponse"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], homeComponent);
     return homeComponent;
 }(_app_baseClasses_nBase_component__WEBPACK_IMPORTED_MODULE_2__["NBaseComponent"]));
@@ -1174,6 +1320,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _app_baseClasses_nBase_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../app/baseClasses/nBase.component */ "./baseClasses/nBase.component.ts");
+/* harmony import */ var app_sd_services_hrdashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/sd-services/hrdashboard */ "./src/app/sd-services/hrdashboard.ts");
 
 /*DEFAULT GENERATED TEMPLATE. DO NOT CHANGE SELECTOR TEMPLATE_URL AND CLASS NAME*/
 
@@ -1181,24 +1328,67 @@ __webpack_require__.r(__webpack_exports__);
 /*
 Client Service import Example:
 import { servicename } from 'app/sd-services/servicename';
+
 */
+
 /*
 Legacy Service import Example :
 import { HeroService } from '../../services/hero/hero.service';
 */
 var hrdashboardComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](hrdashboardComponent, _super);
-    function hrdashboardComponent() {
-        return _super.call(this) || this;
+    function hrdashboardComponent(hrdashboard) {
+        var _this = _super.call(this) || this;
+        _this.hrdashboard = hrdashboard;
+        _this.name = "Angular";
+        _this.foods = [
+            { value: "steak-0", viewValue: "Steak" },
+            { value: "pizza-1", viewValue: "Pizza" },
+            { value: "tacos-2", viewValue: "Tacos" },
+        ];
+        var language = window.localStorage.getItem("language");
+        if (language) {
+            _this.localeService.language = language;
+        }
+        return _this;
     }
     hrdashboardComponent.prototype.ngOnInit = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var dashboard, err_1;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.hrdashboard.hrDashboard()];
+                    case 1:
+                        dashboard = _a.sent();
+                        this.q2postive = dashboard.local.result.q1_count.postive[0].postive.toString();
+                        this.q2negative = dashboard.local.result.q1_count.negative[0].negative;
+                        //q2
+                        this.q3postive = dashboard.local.result.q2_count.positive[0].postive;
+                        this.q3negative = dashboard.local.result.q2_count.negative[0].negative;
+                        //q3
+                        this.q1postive = dashboard.local.result.q3_count.positive[0].postive;
+                        this.q1negative = dashboard.local.result.q3_count.negative[0].negative;
+                        return [3 /*break*/, 3];
+                    case 2:
+                        err_1 = _a.sent();
+                        console.error(err_1);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
     };
+    hrdashboardComponent.ctorParameters = function () { return [
+        { type: app_sd_services_hrdashboard__WEBPACK_IMPORTED_MODULE_3__["hrdashboard"] }
+    ]; };
     hrdashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'bh-hrdashboard',
-            template: __webpack_require__(/*! raw-loader!./hrdashboard.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/hrdashboardComponent/hrdashboard.template.html")
+            selector: "bh-hrdashboard",
+            template: __webpack_require__(/*! raw-loader!./hrdashboard.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/hrdashboardComponent/hrdashboard.template.html"),
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [app_sd_services_hrdashboard__WEBPACK_IMPORTED_MODULE_3__["hrdashboard"]])
     ], hrdashboardComponent);
     return hrdashboardComponent;
 }(_app_baseClasses_nBase_component__WEBPACK_IMPORTED_MODULE_2__["NBaseComponent"]));
@@ -1236,8 +1426,12 @@ var hrloginComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](hrloginComponent, _super);
     function hrloginComponent() {
         var _this = _super.call(this) || this;
+        // get the previously selected language from local storage
+        // set the language if selected
         var language = window.localStorage.getItem('language');
-        _this.localeService.language = language;
+        if (language) {
+            _this.localeService.language = language;
+        }
         return _this;
     }
     hrloginComponent.prototype.ngOnInit = function () {
@@ -1290,36 +1484,36 @@ var landingpageComponent = /** @class */ (function (_super) {
         _this.router = router;
         _this.href = "";
         _this.languages = [
-            { value: 'en', viewValue: 'English' },
-            { value: 'es', viewValue: 'Spanish' },
-            { value: 'pt', viewValue: 'Portuguese' },
-            { value: 'ko', viewValue: 'Korean' },
-            { value: 'th', viewValue: 'Thai' },
-            { value: 'zh-CN', viewValue: 'CHINESE' }
-            // {value: 'zh-TW', viewValue: 'CHINESE (TRADITIONAL)'}
+            { value: "en", viewValue: "English" },
+            { value: "es", viewValue: "Spanish" },
+            { value: "pt", viewValue: "Portuguese" },
+            { value: "ko", viewValue: "Korean" },
+            { value: "th", viewValue: "Thai" },
+            { value: "zh-CN", viewValue: "CHINESE" },
         ];
-        var language = window.localStorage.getItem('language');
-        _this.localeService.language = language;
+        // get the previously selected language from local storage
+        // set the language if selected
+        var language = window.localStorage.getItem("language");
+        if (language) {
+            _this.localeService.language = language;
+        }
         return _this;
     }
-    landingpageComponent.prototype.ngOnInit = function () {
-    };
+    landingpageComponent.prototype.ngOnInit = function () { };
     landingpageComponent.prototype.doSomething = function (event) {
         //console.log(event.value);
-        window.localStorage.setItem('language', event.value);
-        var language = window.localStorage.getItem('language');
+        window.localStorage.setItem("language", event.value);
+        var language = window.localStorage.getItem("language");
         console.log(language);
         this.localeService.language = language;
     };
     landingpageComponent.prototype.letStart = function () {
-        console.log('Lets Starts is working');
-        this.href = this.router.url;
-        console.log(this.router.url);
-        if (this.router.url == '/landingpage') {
-            this.router.navigate(['/login']);
+        console.log("Lets Starts is working");
+        if (this.router.url == "/landingpage") {
+            this.router.navigate(["/login"]);
         }
         else {
-            this.router.navigate(['/personalinfo']);
+            this.router.navigate(["/personalinfo"]);
         }
     };
     landingpageComponent.ctorParameters = function () { return [
@@ -1327,8 +1521,8 @@ var landingpageComponent = /** @class */ (function (_super) {
     ]; };
     landingpageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'bh-landingpage',
-            template: __webpack_require__(/*! raw-loader!./landingpage.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/landingpageComponent/landingpage.template.html")
+            selector: "bh-landingpage",
+            template: __webpack_require__(/*! raw-loader!./landingpage.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/landingpageComponent/landingpage.template.html"),
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], landingpageComponent);
@@ -1377,27 +1571,35 @@ var loginComponent = /** @class */ (function (_super) {
         _this.router = router;
         _this.masterdata = masterdata;
         _this.saveuserService = saveuserService;
-        var language = window.localStorage.getItem('language');
-        _this.localeService.language = language;
+        var language = window.localStorage.getItem("language");
+        if (language) {
+            _this.localeService.language = language;
+        }
         return _this;
     }
-    loginComponent.prototype.ngOnInit = function () {
-    };
+    loginComponent.prototype.ngOnInit = function () { };
     loginComponent.prototype.login = function (form) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var formdata;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 console.log(form.value);
-                this.masterdata.username = form.value.username;
+                this.masterdata.email = form.value.email;
                 this.masterdata.password = form.value.password;
                 console.log(this.masterdata);
                 formdata = {
-                    username: form.value.username,
-                    password: form.value.password
+                    username: form.value.email,
+                    password: form.value.password,
                 };
-                localStorage.setItem('username', this.masterdata.username);
-                localStorage.setItem('password', this.masterdata.password);
-                this.router.navigate(['/confirmdetails']);
+                localStorage.setItem("username", this.masterdata.email);
+                localStorage.setItem("password", this.masterdata.password);
+                console.log(form.email);
+                if (form.value.email == "craig.shirley@ingredion.com") {
+                    this.router.navigate(["/hrdashboard"]);
+                    console.log("craig");
+                }
+                else {
+                    this.router.navigate(["/confirmdetails"]);
+                }
                 return [2 /*return*/];
             });
         });
@@ -1409,12 +1611,60 @@ var loginComponent = /** @class */ (function (_super) {
     ]; };
     loginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'bh-login',
-            template: __webpack_require__(/*! raw-loader!./login.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/loginComponent/login.template.html")
+            selector: "bh-login",
+            template: __webpack_require__(/*! raw-loader!./login.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/loginComponent/login.template.html"),
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_4__["masterdataService"], app_sd_services_saveuserresponse__WEBPACK_IMPORTED_MODULE_5__["saveuserresponse"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_4__["masterdataService"],
+            app_sd_services_saveuserresponse__WEBPACK_IMPORTED_MODULE_5__["saveuserresponse"]])
     ], loginComponent);
     return loginComponent;
+}(_app_baseClasses_nBase_component__WEBPACK_IMPORTED_MODULE_2__["NBaseComponent"]));
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/logoComponent/logo.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/components/logoComponent/logo.component.ts ***!
+  \************************************************************/
+/*! exports provided: logoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logoComponent", function() { return logoComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _app_baseClasses_nBase_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../app/baseClasses/nBase.component */ "./baseClasses/nBase.component.ts");
+
+/*DEFAULT GENERATED TEMPLATE. DO NOT CHANGE SELECTOR TEMPLATE_URL AND CLASS NAME*/
+
+
+/*
+Client Service import Example:
+import { servicename } from 'app/sd-services/servicename';
+*/
+/*
+Legacy Service import Example :
+import { HeroService } from '../../services/hero/hero.service';
+*/
+var logoComponent = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](logoComponent, _super);
+    function logoComponent() {
+        return _super.call(this) || this;
+    }
+    logoComponent.prototype.ngOnInit = function () {
+    };
+    logoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'bh-logo',
+            template: __webpack_require__(/*! raw-loader!./logo.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/logoComponent/logo.template.html")
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], logoComponent);
+    return logoComponent;
 }(_app_baseClasses_nBase_component__WEBPACK_IMPORTED_MODULE_2__["NBaseComponent"]));
 
 
@@ -1462,24 +1712,27 @@ var pageinformationComponent = /** @class */ (function (_super) {
         _this.datash = datash;
         _this.getlocation = getlocation;
         _this.masterdata = masterdata;
-        _this.defaultLocationName = 'India';
+        _this.defaultLocationName = "India";
         _this.languages = [
-            { value: 'en', viewValue: 'English' },
-            { value: 'es', viewValue: 'Spanish' },
-            { value: 'pt', viewValue: 'Portuguese' },
-            { value: 'ko', viewValue: 'Korean' },
-            { value: 'th', viewValue: 'Thai' },
-            { value: 'zh-CN', viewValue: 'CHINESE' }
-            // {value: 'zh-TW', viewValue: 'CHINESE (TRADITIONAL)'}
+            { value: "en", viewValue: "English" },
+            { value: "es", viewValue: "Spanish" },
+            { value: "pt", viewValue: "Portuguese" },
+            { value: "ko", viewValue: "Korean" },
+            { value: "th", viewValue: "Thai" },
+            { value: "zh-CN", viewValue: "CHINESE" },
         ];
-        var language = window.localStorage.getItem('language');
-        _this.localeService.language = language;
+        // get the previously selected language from local storage
+        // set the language if selected
+        var language = window.localStorage.getItem("language");
+        if (language) {
+            _this.localeService.language = language;
+        }
         return _this;
     }
     pageinformationComponent.prototype.doSomething = function (event) {
         //console.log(event.value);
-        window.localStorage.setItem('language', event.value);
-        var language = window.localStorage.getItem('language');
+        window.localStorage.setItem("language", event.value);
+        var language = window.localStorage.getItem("language");
         console.log(language);
         this.localeService.language = language;
     };
@@ -1526,9 +1779,11 @@ var pageinformationComponent = /** @class */ (function (_super) {
         this.masterdata.userType = data.value.type;
         if (data.valid === true) {
             for (var i = 0; i <= this.totallocations.length; i++) {
-                if ((this.totallocations[i] && this.totallocations[i].locationName === this.locationName) || this.defaultLocationName === data.value.locationName) {
-                    console.log('valid success');
-                    this.router.navigate(['/contactinfo']);
+                if ((this.totallocations[i] &&
+                    this.totallocations[i].locationName === this.locationName) ||
+                    this.defaultLocationName === data.value.locationName) {
+                    console.log("valid success");
+                    this.router.navigate(["/contactinfo"]);
                     break;
                 }
             }
@@ -1541,12 +1796,14 @@ var pageinformationComponent = /** @class */ (function (_super) {
     };
     pageinformationComponent.prototype.filter = function (values) {
         var _this = this;
-        return values.filter(function (location) { return location.locationName.includes(_this.locationName); });
+        return values.filter(function (location) {
+            return location.locationName.includes(_this.locationName);
+        });
     };
     pageinformationComponent.prototype.selectUser = function (event) {
         //console.log(event.value);
-        window.localStorage.setItem('usertype', event.value);
-        var usertype = window.localStorage.getItem('usertype');
+        window.localStorage.setItem("usertype", event.value);
+        var usertype = window.localStorage.getItem("usertype");
         console.log(usertype);
     };
     pageinformationComponent.ctorParameters = function () { return [
@@ -1557,11 +1814,13 @@ var pageinformationComponent = /** @class */ (function (_super) {
     ]; };
     pageinformationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'bh-pageinformation',
-            template: __webpack_require__(/*! raw-loader!./pageinformation.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/pageinformationComponent/pageinformation.template.html")
+            selector: "bh-pageinformation",
+            template: __webpack_require__(/*! raw-loader!./pageinformation.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/pageinformationComponent/pageinformation.template.html"),
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _services_datasharing_datasharing_service__WEBPACK_IMPORTED_MODULE_4__["datasharingService"],
-            app_sd_services_saveuserresponse__WEBPACK_IMPORTED_MODULE_5__["saveuserresponse"], _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_6__["masterdataService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _services_datasharing_datasharing_service__WEBPACK_IMPORTED_MODULE_4__["datasharingService"],
+            app_sd_services_saveuserresponse__WEBPACK_IMPORTED_MODULE_5__["saveuserresponse"],
+            _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_6__["masterdataService"]])
     ], pageinformationComponent);
     return pageinformationComponent;
 }(_app_baseClasses_nBase_component__WEBPACK_IMPORTED_MODULE_2__["NBaseComponent"]));
@@ -1645,16 +1904,67 @@ var thankyouComponent = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](thankyouComponent, _super);
     function thankyouComponent() {
         var _this = _super.call(this) || this;
-        var language = window.localStorage.getItem('language');
-        _this.localeService.language = language;
+        // this property determine the background color of the tick mark icon circle
+        // when this property is set to true
+        // the backround color of the circle will change to amber otherwise green
+        _this.isAmber = false;
+        _this.today = "";
+        // get the previously selected language from local storage
+        // set the language if selected
+        var language = window.localStorage.getItem("language");
+        if (language) {
+            _this.localeService.language = language;
+        }
+        // get the color code from localstorage
+        var color = window.localStorage.getItem("colorCode");
+        _this.isAmber = color === "amber";
         return _this;
     }
+    // returns today's date in DD-MMM-YYYY format
+    // which can be shown in the UI
+    thankyouComponent.prototype.getDay = function () {
+        var dt = new Date();
+        var date = dt.getDate();
+        var month = dt.getMonth();
+        var year = dt.getFullYear();
+        var dateStr = date < 10 ? "0" + date : date + "";
+        var monthStr = month === 0
+            ? "JAN"
+            : month === 1
+                ? "FEB"
+                : month === 2
+                    ? "MAR"
+                    : month === 3
+                        ? "APR"
+                        : month === 4
+                            ? "MAY"
+                            : month === 5
+                                ? "JUN"
+                                : month === 6
+                                    ? "JUL"
+                                    : month === 7
+                                        ? "AUG"
+                                        : month === 8
+                                            ? "SEP"
+                                            : month === 9
+                                                ? "OCT"
+                                                : month === 10
+                                                    ? "NOV"
+                                                    : month === 11
+                                                        ? "DEC"
+                                                        : "";
+        var dayStr = dateStr + "-" + monthStr + "-" + year;
+        return dayStr;
+    };
     thankyouComponent.prototype.ngOnInit = function () {
+        // set today
+        this.today = this.getDay();
+        console.log(this.today);
     };
     thankyouComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'bh-thankyou',
-            template: __webpack_require__(/*! raw-loader!./thankyou.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/thankyouComponent/thankyou.template.html")
+            selector: "bh-thankyou",
+            template: __webpack_require__(/*! raw-loader!./thankyou.template.html */ "./node_modules/raw-loader/index.js!./src/app/components/thankyouComponent/thankyou.template.html"),
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], thankyouComponent);
@@ -1690,22 +2000,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _n_services_n_localeResources_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../n-services/n-localeResources.service */ "./src/app/n-services/n-localeResources.service.ts");
 /* harmony import */ var neutrinos_seed_services__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! neutrinos-seed-services */ "./node_modules/neutrinos-seed-services/fesm5/neutrinos-seed-services.js");
 /* harmony import */ var _directives_artImgSrc_directive__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../directives/artImgSrc.directive */ "./src/app/directives/artImgSrc.directive.ts");
-/* harmony import */ var _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/masterdata/masterdata.service */ "./src/app/services/masterdata/masterdata.service.ts");
-/* harmony import */ var _components_healthinfonextComponent_healthinfonext_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/healthinfonextComponent/healthinfonext.component */ "./src/app/components/healthinfonextComponent/healthinfonext.component.ts");
-/* harmony import */ var _components_contactinformationComponent_contactinformation_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/contactinformationComponent/contactinformation.component */ "./src/app/components/contactinformationComponent/contactinformation.component.ts");
-/* harmony import */ var _components_confirmdetailsComponent_confirmdetails_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/confirmdetailsComponent/confirmdetails.component */ "./src/app/components/confirmdetailsComponent/confirmdetails.component.ts");
-/* harmony import */ var _components_certifyinformationComponent_certifyinformation_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/certifyinformationComponent/certifyinformation.component */ "./src/app/components/certifyinformationComponent/certifyinformation.component.ts");
-/* harmony import */ var _services_datasharing_datasharing_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../services/datasharing/datasharing.service */ "./src/app/services/datasharing/datasharing.service.ts");
-/* harmony import */ var _components_pageinformationComponent_pageinformation_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../components/pageinformationComponent/pageinformation.component */ "./src/app/components/pageinformationComponent/pageinformation.component.ts");
-/* harmony import */ var _services_language_language_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../services/language/language.service */ "./src/app/services/language/language.service.ts");
-/* harmony import */ var _components_splashComponent_splash_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../components/splashComponent/splash.component */ "./src/app/components/splashComponent/splash.component.ts");
-/* harmony import */ var _components_loginComponent_login_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../components/loginComponent/login.component */ "./src/app/components/loginComponent/login.component.ts");
-/* harmony import */ var _components_thankyouComponent_thankyou_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../components/thankyouComponent/thankyou.component */ "./src/app/components/thankyouComponent/thankyou.component.ts");
-/* harmony import */ var _components_healthinfoComponent_healthinfo_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../components/healthinfoComponent/healthinfo.component */ "./src/app/components/healthinfoComponent/healthinfo.component.ts");
-/* harmony import */ var _components_landingpageComponent_landingpage_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../components/landingpageComponent/landingpage.component */ "./src/app/components/landingpageComponent/landingpage.component.ts");
-/* harmony import */ var _components_hrdashboardComponent_hrdashboard_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../components/hrdashboardComponent/hrdashboard.component */ "./src/app/components/hrdashboardComponent/hrdashboard.component.ts");
-/* harmony import */ var _components_hrloginComponent_hrlogin_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../components/hrloginComponent/hrlogin.component */ "./src/app/components/hrloginComponent/hrlogin.component.ts");
-/* harmony import */ var _components_homeComponent_home_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../components/homeComponent/home.component */ "./src/app/components/homeComponent/home.component.ts");
+/* harmony import */ var _components_logoComponent_logo_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/logoComponent/logo.component */ "./src/app/components/logoComponent/logo.component.ts");
+/* harmony import */ var _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/masterdata/masterdata.service */ "./src/app/services/masterdata/masterdata.service.ts");
+/* harmony import */ var _components_healthinfonextComponent_healthinfonext_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/healthinfonextComponent/healthinfonext.component */ "./src/app/components/healthinfonextComponent/healthinfonext.component.ts");
+/* harmony import */ var _components_contactinformationComponent_contactinformation_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/contactinformationComponent/contactinformation.component */ "./src/app/components/contactinformationComponent/contactinformation.component.ts");
+/* harmony import */ var _components_confirmdetailsComponent_confirmdetails_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/confirmdetailsComponent/confirmdetails.component */ "./src/app/components/confirmdetailsComponent/confirmdetails.component.ts");
+/* harmony import */ var _components_certifyinformationComponent_certifyinformation_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/certifyinformationComponent/certifyinformation.component */ "./src/app/components/certifyinformationComponent/certifyinformation.component.ts");
+/* harmony import */ var _services_datasharing_datasharing_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../services/datasharing/datasharing.service */ "./src/app/services/datasharing/datasharing.service.ts");
+/* harmony import */ var _components_pageinformationComponent_pageinformation_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../components/pageinformationComponent/pageinformation.component */ "./src/app/components/pageinformationComponent/pageinformation.component.ts");
+/* harmony import */ var _services_language_language_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../services/language/language.service */ "./src/app/services/language/language.service.ts");
+/* harmony import */ var _components_splashComponent_splash_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../components/splashComponent/splash.component */ "./src/app/components/splashComponent/splash.component.ts");
+/* harmony import */ var _components_loginComponent_login_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../components/loginComponent/login.component */ "./src/app/components/loginComponent/login.component.ts");
+/* harmony import */ var _components_thankyouComponent_thankyou_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../components/thankyouComponent/thankyou.component */ "./src/app/components/thankyouComponent/thankyou.component.ts");
+/* harmony import */ var _components_healthinfoComponent_healthinfo_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../components/healthinfoComponent/healthinfo.component */ "./src/app/components/healthinfoComponent/healthinfo.component.ts");
+/* harmony import */ var _components_landingpageComponent_landingpage_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../components/landingpageComponent/landingpage.component */ "./src/app/components/landingpageComponent/landingpage.component.ts");
+/* harmony import */ var _components_hrdashboardComponent_hrdashboard_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../components/hrdashboardComponent/hrdashboard.component */ "./src/app/components/hrdashboardComponent/hrdashboard.component.ts");
+/* harmony import */ var _components_hrloginComponent_hrlogin_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../components/hrloginComponent/hrlogin.component */ "./src/app/components/hrloginComponent/hrlogin.component.ts");
+/* harmony import */ var _components_homeComponent_home_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../components/homeComponent/home.component */ "./src/app/components/homeComponent/home.component.ts");
 
 
 
@@ -1716,10 +2027,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-window['neutrinos'] = {
-    environments: _environments_environment__WEBPACK_IMPORTED_MODULE_5__["environment"]
+window["neutrinos"] = {
+    environments: _environments_environment__WEBPACK_IMPORTED_MODULE_5__["environment"],
 };
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-logoComponent
+
 //CORE_REFERENCE_IMPORT-masterdataService
 
 //CORE_REFERENCE_IMPORT-healthinfonextComponent
@@ -1761,20 +2074,18 @@ function startupServiceFactory(startupService) {
     return function () { return startupService.getDataSource(); };
 }
 /**
-*bootstrap for @NgModule
-*/
-var appBootstrap = [
-    _layout_layout_component__WEBPACK_IMPORTED_MODULE_1__["LayoutComponent"],
-];
+ *bootstrap for @NgModule
+ */
+var appBootstrap = [_layout_layout_component__WEBPACK_IMPORTED_MODULE_1__["LayoutComponent"]];
 /**
-*Entry Components for @NgModule
-*/
+ *Entry Components for @NgModule
+ */
 var appEntryComponents = [
 //CORE_REFERENCE_PUSH_TO_ENTRY_ARRAY
 ];
 /**
-*declarations for @NgModule
-*/
+ *declarations for @NgModule
+ */
 var appDeclarations = [
     _directives_imgSrc_directive__WEBPACK_IMPORTED_MODULE_2__["ImgSrcDirective"],
     _layout_layout_component__WEBPACK_IMPORTED_MODULE_1__["LayoutComponent"],
@@ -1782,36 +2093,38 @@ var appDeclarations = [
     _n_components_nMapComponent_n_map_component__WEBPACK_IMPORTED_MODULE_6__["NMapComponent"],
     _directives_artImgSrc_directive__WEBPACK_IMPORTED_MODULE_9__["ArtImgSrcDirective"],
     //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+    //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-logoComponent
+    _components_logoComponent_logo_component__WEBPACK_IMPORTED_MODULE_10__["logoComponent"],
     //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-healthinfonextComponent
-    _components_healthinfonextComponent_healthinfonext_component__WEBPACK_IMPORTED_MODULE_11__["healthinfonextComponent"],
+    _components_healthinfonextComponent_healthinfonext_component__WEBPACK_IMPORTED_MODULE_12__["healthinfonextComponent"],
     //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-contactinformationComponent
-    _components_contactinformationComponent_contactinformation_component__WEBPACK_IMPORTED_MODULE_12__["contactinformationComponent"],
+    _components_contactinformationComponent_contactinformation_component__WEBPACK_IMPORTED_MODULE_13__["contactinformationComponent"],
     //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-confirmdetailsComponent
-    _components_confirmdetailsComponent_confirmdetails_component__WEBPACK_IMPORTED_MODULE_13__["confirmdetailsComponent"],
+    _components_confirmdetailsComponent_confirmdetails_component__WEBPACK_IMPORTED_MODULE_14__["confirmdetailsComponent"],
     //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-certifyinformationComponent
-    _components_certifyinformationComponent_certifyinformation_component__WEBPACK_IMPORTED_MODULE_14__["certifyinformationComponent"],
+    _components_certifyinformationComponent_certifyinformation_component__WEBPACK_IMPORTED_MODULE_15__["certifyinformationComponent"],
     //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-pageinformationComponent
-    _components_pageinformationComponent_pageinformation_component__WEBPACK_IMPORTED_MODULE_16__["pageinformationComponent"],
+    _components_pageinformationComponent_pageinformation_component__WEBPACK_IMPORTED_MODULE_17__["pageinformationComponent"],
     //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-splashComponent
-    _components_splashComponent_splash_component__WEBPACK_IMPORTED_MODULE_18__["splashComponent"],
+    _components_splashComponent_splash_component__WEBPACK_IMPORTED_MODULE_19__["splashComponent"],
     //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-loginComponent
-    _components_loginComponent_login_component__WEBPACK_IMPORTED_MODULE_19__["loginComponent"],
+    _components_loginComponent_login_component__WEBPACK_IMPORTED_MODULE_20__["loginComponent"],
     //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-thankyouComponent
-    _components_thankyouComponent_thankyou_component__WEBPACK_IMPORTED_MODULE_20__["thankyouComponent"],
+    _components_thankyouComponent_thankyou_component__WEBPACK_IMPORTED_MODULE_21__["thankyouComponent"],
     //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-healthinfoComponent
-    _components_healthinfoComponent_healthinfo_component__WEBPACK_IMPORTED_MODULE_21__["healthinfoComponent"],
+    _components_healthinfoComponent_healthinfo_component__WEBPACK_IMPORTED_MODULE_22__["healthinfoComponent"],
     //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-landingpageComponent
-    _components_landingpageComponent_landingpage_component__WEBPACK_IMPORTED_MODULE_22__["landingpageComponent"],
+    _components_landingpageComponent_landingpage_component__WEBPACK_IMPORTED_MODULE_23__["landingpageComponent"],
     //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-hrdashboardComponent
-    _components_hrdashboardComponent_hrdashboard_component__WEBPACK_IMPORTED_MODULE_23__["hrdashboardComponent"],
+    _components_hrdashboardComponent_hrdashboard_component__WEBPACK_IMPORTED_MODULE_24__["hrdashboardComponent"],
     //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-hrloginComponent
-    _components_hrloginComponent_hrlogin_component__WEBPACK_IMPORTED_MODULE_24__["hrloginComponent"],
+    _components_hrloginComponent_hrlogin_component__WEBPACK_IMPORTED_MODULE_25__["hrloginComponent"],
     //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-homeComponent
-    _components_homeComponent_home_component__WEBPACK_IMPORTED_MODULE_25__["homeComponent"],
+    _components_homeComponent_home_component__WEBPACK_IMPORTED_MODULE_26__["homeComponent"],
 ];
 /**
-* provider for @NgModuke
-*/
+ * provider for @NgModuke
+ */
 var appProviders = [
     _n_services_n_dataSorce_service__WEBPACK_IMPORTED_MODULE_4__["NDataSourceService"],
     _n_services_n_localeResources_service__WEBPACK_IMPORTED_MODULE_7__["NLocaleResource"],
@@ -1820,22 +2133,22 @@ var appProviders = [
         provide: _angular_core__WEBPACK_IMPORTED_MODULE_3__["APP_INITIALIZER"],
         useFactory: startupServiceFactory,
         deps: [_n_services_n_dataSorce_service__WEBPACK_IMPORTED_MODULE_4__["NDataSourceService"]],
-        multi: true
+        multi: true,
     },
     neutrinos_seed_services__WEBPACK_IMPORTED_MODULE_8__["NAuthGuardService"],
     //CORE_REFERENCE_PUSH_TO_PRO_ARRAY
     //CORE_REFERENCE_PUSH_TO_PRO_ARRAY-masterdataService
-    _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_10__["masterdataService"],
+    _services_masterdata_masterdata_service__WEBPACK_IMPORTED_MODULE_11__["masterdataService"],
     //CORE_REFERENCE_PUSH_TO_PRO_ARRAY-datasharingService
-    _services_datasharing_datasharing_service__WEBPACK_IMPORTED_MODULE_15__["datasharingService"],
+    _services_datasharing_datasharing_service__WEBPACK_IMPORTED_MODULE_16__["datasharingService"],
     //CORE_REFERENCE_PUSH_TO_PRO_ARRAY-languageService
-    _services_language_language_service__WEBPACK_IMPORTED_MODULE_17__["languageService"],
+    _services_language_language_service__WEBPACK_IMPORTED_MODULE_18__["languageService"],
 ];
 /**
-* Routes available for bApp
-*/
+ * Routes available for bApp
+ */
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_START
-var appRoutes = [{ path: 'home', component: _components_homeComponent_home_component__WEBPACK_IMPORTED_MODULE_25__["homeComponent"] }, { path: 'hrlogin', component: _components_hrloginComponent_hrlogin_component__WEBPACK_IMPORTED_MODULE_24__["hrloginComponent"] }, { path: 'hrdashboard', component: _components_hrdashboardComponent_hrdashboard_component__WEBPACK_IMPORTED_MODULE_23__["hrdashboardComponent"] }, { path: 'landingpage', component: _components_landingpageComponent_landingpage_component__WEBPACK_IMPORTED_MODULE_22__["landingpageComponent"] }, { path: 'healthinfo', component: _components_healthinfoComponent_healthinfo_component__WEBPACK_IMPORTED_MODULE_21__["healthinfoComponent"] }, { path: 'thankyou', component: _components_thankyouComponent_thankyou_component__WEBPACK_IMPORTED_MODULE_20__["thankyouComponent"] }, { path: 'login', component: _components_loginComponent_login_component__WEBPACK_IMPORTED_MODULE_19__["loginComponent"] }, { path: 'splash', component: _components_splashComponent_splash_component__WEBPACK_IMPORTED_MODULE_18__["splashComponent"] }, { path: 'personalinfo', component: _components_pageinformationComponent_pageinformation_component__WEBPACK_IMPORTED_MODULE_16__["pageinformationComponent"] }, { path: 'contactinfo', component: _components_contactinformationComponent_contactinformation_component__WEBPACK_IMPORTED_MODULE_12__["contactinformationComponent"] }, { path: 'certifyinfo', component: _components_certifyinformationComponent_certifyinformation_component__WEBPACK_IMPORTED_MODULE_14__["certifyinformationComponent"] }, { path: 'confirmdetails', component: _components_confirmdetailsComponent_confirmdetails_component__WEBPACK_IMPORTED_MODULE_13__["confirmdetailsComponent"] }, { path: 'hinfonext', component: _components_healthinfonextComponent_healthinfonext_component__WEBPACK_IMPORTED_MODULE_11__["healthinfonextComponent"] }, { path: 'landpage', component: _components_landingpageComponent_landingpage_component__WEBPACK_IMPORTED_MODULE_22__["landingpageComponent"] }, { path: '', redirectTo: '/landingpage', pathMatch: 'full' }, { path: '**', component: _not_found_component__WEBPACK_IMPORTED_MODULE_0__["PageNotFoundComponent"] }];
+var appRoutes = [{ path: 'home', component: _components_homeComponent_home_component__WEBPACK_IMPORTED_MODULE_26__["homeComponent"] }, { path: 'hrlogin', component: _components_hrloginComponent_hrlogin_component__WEBPACK_IMPORTED_MODULE_25__["hrloginComponent"] }, { path: 'hrdashboard', component: _components_hrdashboardComponent_hrdashboard_component__WEBPACK_IMPORTED_MODULE_24__["hrdashboardComponent"] }, { path: 'landingpage', component: _components_landingpageComponent_landingpage_component__WEBPACK_IMPORTED_MODULE_23__["landingpageComponent"] }, { path: 'healthinfo', component: _components_healthinfoComponent_healthinfo_component__WEBPACK_IMPORTED_MODULE_22__["healthinfoComponent"] }, { path: 'thankyou', component: _components_thankyouComponent_thankyou_component__WEBPACK_IMPORTED_MODULE_21__["thankyouComponent"] }, { path: 'login', component: _components_loginComponent_login_component__WEBPACK_IMPORTED_MODULE_20__["loginComponent"] }, { path: 'splash', component: _components_splashComponent_splash_component__WEBPACK_IMPORTED_MODULE_19__["splashComponent"] }, { path: 'personalinfo', component: _components_pageinformationComponent_pageinformation_component__WEBPACK_IMPORTED_MODULE_17__["pageinformationComponent"] }, { path: 'contactinfo', component: _components_contactinformationComponent_contactinformation_component__WEBPACK_IMPORTED_MODULE_13__["contactinformationComponent"] }, { path: 'certifyinfo', component: _components_certifyinformationComponent_certifyinformation_component__WEBPACK_IMPORTED_MODULE_15__["certifyinformationComponent"] }, { path: 'confirmdetails', component: _components_confirmdetailsComponent_confirmdetails_component__WEBPACK_IMPORTED_MODULE_14__["confirmdetailsComponent"] }, { path: 'hinfonext', component: _components_healthinfonextComponent_healthinfonext_component__WEBPACK_IMPORTED_MODULE_12__["healthinfonextComponent"] }, { path: 'landpage', component: _components_landingpageComponent_landingpage_component__WEBPACK_IMPORTED_MODULE_23__["landingpageComponent"] }, { path: '', redirectTo: '/home', pathMatch: 'full' }, { path: '**', component: _not_found_component__WEBPACK_IMPORTED_MODULE_0__["PageNotFoundComponent"] }];
 // CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY_END
 
 
@@ -2062,10 +2375,13 @@ var appImportModules = [
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sdProviders", function() { return sdProviders; });
 /* harmony import */ var app_n_services_SDBaseService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! app/n-services/SDBaseService */ "./src/app/n-services/SDBaseService.ts");
-/* harmony import */ var _sd_services_userdetails__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../sd-services/userdetails */ "./src/app/sd-services/userdetails.ts");
-/* harmony import */ var _sd_services_saveuserresponse__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sd-services/saveuserresponse */ "./src/app/sd-services/saveuserresponse.ts");
+/* harmony import */ var _sd_services_hrdashboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../sd-services/hrdashboard */ "./src/app/sd-services/hrdashboard.ts");
+/* harmony import */ var _sd_services_userdetails__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sd-services/userdetails */ "./src/app/sd-services/userdetails.ts");
+/* harmony import */ var _sd_services_saveuserresponse__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../sd-services/saveuserresponse */ "./src/app/sd-services/saveuserresponse.ts");
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-hrdashboard
+
 //CORE_REFERENCE_IMPORT-userdetails
 
 //CORE_REFERENCE_IMPORT-saveuserresponse
@@ -2073,10 +2389,12 @@ __webpack_require__.r(__webpack_exports__);
 var sdProviders = [
     app_n_services_SDBaseService__WEBPACK_IMPORTED_MODULE_0__["SDBaseService"],
     //CORE_REFERENCE_PUSH_TO_SD_ARRAY
+    //CORE_REFERENCE_PUSH_TO_SD_ARRAY-hrdashboard
+    _sd_services_hrdashboard__WEBPACK_IMPORTED_MODULE_1__["hrdashboard"],
     //CORE_REFERENCE_PUSH_TO_SD_ARRAY-userdetails
-    _sd_services_userdetails__WEBPACK_IMPORTED_MODULE_1__["userdetails"],
+    _sd_services_userdetails__WEBPACK_IMPORTED_MODULE_2__["userdetails"],
     //CORE_REFERENCE_PUSH_TO_SD_ARRAY-saveuserresponse
-    _sd_services_saveuserresponse__WEBPACK_IMPORTED_MODULE_2__["saveuserresponse"]
+    _sd_services_saveuserresponse__WEBPACK_IMPORTED_MODULE_3__["saveuserresponse"]
 ];
 
 
@@ -2941,6 +3259,179 @@ var PageNotFoundComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/sd-services/hrdashboard.ts":
+/*!********************************************!*\
+  !*** ./src/app/sd-services/hrdashboard.ts ***!
+  \********************************************/
+/*! exports provided: hrdashboard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hrdashboard", function() { return hrdashboard; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _app_n_services_SDBaseService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../app/n-services/SDBaseService */ "./src/app/n-services/SDBaseService.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+/*DEFAULT GENERATED TEMPLATE. DO NOT CHANGE CLASS NAME*/
+
+//CORE_REFERENCE_IMPORTS
+
+
+
+var hrdashboard = /** @class */ (function () {
+    function hrdashboard(sdService, router, matSnackBar) {
+        this.sdService = sdService;
+        this.router = router;
+        this.matSnackBar = matSnackBar;
+    }
+    //   service flows_hrdashboard
+    hrdashboard.prototype.hrDashboard = function () {
+        var others = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            others[_i] = arguments[_i];
+        }
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var bh, outputVariables, e_1;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        bh = { input: {}, local: { result: undefined, apiURL: undefined } };
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 5]);
+                        bh = this.sdService.__constructDefault(bh);
+                        return [4 /*yield*/, this.sd_kamBbrZpnMvR8rdb(bh)];
+                    case 2:
+                        bh = _a.sent();
+                        outputVariables = {
+                            input: {},
+                            local: {
+                                result: bh.local.result
+                            }
+                        };
+                        //End formatting output variables
+                        return [2 /*return*/, outputVariables];
+                    case 3:
+                        e_1 = _a.sent();
+                        return [4 /*yield*/, this.errorHandler(bh, e_1, 'sd_Jztg3nB5PDL8fsTd')];
+                    case 4: return [2 /*return*/, _a.sent()];
+                    case 5: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    //appendnew_flow_hrdashboard_Start
+    hrdashboard.prototype.sd_kamBbrZpnMvR8rdb = function (bh) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var e_2;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 4]);
+                        bh.local.apiURL = bh.system.environment.properties.ssdURL + "/api/dashboard";
+                        return [4 /*yield*/, this.sd_WgjyYUaFO0rOcUFb(bh)];
+                    case 1:
+                        bh = _a.sent();
+                        //appendnew_next_sd_kamBbrZpnMvR8rdb
+                        return [2 /*return*/, bh];
+                    case 2:
+                        e_2 = _a.sent();
+                        return [4 /*yield*/, this.errorHandler(bh, e_2, 'sd_kamBbrZpnMvR8rdb')];
+                    case 3: return [2 /*return*/, _a.sent()];
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    hrdashboard.prototype.sd_WgjyYUaFO0rOcUFb = function (bh) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var requestOptions, _a, e_3;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _b.trys.push([0, 2, , 4]);
+                        requestOptions = {
+                            url: bh.local.apiURL,
+                            method: 'post',
+                            responseType: 'json',
+                            reportProgress: undefined,
+                            headers: {},
+                            params: {},
+                            body: undefined
+                        };
+                        _a = bh.local;
+                        return [4 /*yield*/, this.sdService.nHttpRequest(requestOptions)];
+                    case 1:
+                        _a.result = _b.sent();
+                        this.sd_YpkWzoDaVvv9eMUU(bh);
+                        //appendnew_next_sd_WgjyYUaFO0rOcUFb
+                        return [2 /*return*/, bh];
+                    case 2:
+                        e_3 = _b.sent();
+                        return [4 /*yield*/, this.errorHandler(bh, e_3, 'sd_WgjyYUaFO0rOcUFb')];
+                    case 3: return [2 /*return*/, _b.sent()];
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    hrdashboard.prototype.sd_YpkWzoDaVvv9eMUU = function (bh) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var e_4;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 1, , 3]);
+                        console.log(new Date().toLocaleTimeString(), bh.local.result);
+                        //appendnew_next_sd_YpkWzoDaVvv9eMUU
+                        return [2 /*return*/, bh];
+                    case 1:
+                        e_4 = _a.sent();
+                        return [4 /*yield*/, this.errorHandler(bh, e_4, 'sd_YpkWzoDaVvv9eMUU')];
+                    case 2: return [2 /*return*/, _a.sent()];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    //appendnew_node
+    hrdashboard.prototype.errorHandler = function (bh, e, src) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                console.error(e);
+                bh.error = e;
+                bh.errorSource = src;
+                if (false
+                /*appendnew_next_Catch*/
+                ) {}
+                else {
+                    throw e;
+                }
+                return [2 /*return*/];
+            });
+        });
+    };
+    hrdashboard.ctorParameters = function () { return [
+        { type: _app_n_services_SDBaseService__WEBPACK_IMPORTED_MODULE_2__["SDBaseService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+        { type: _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSnackBar"] }
+    ]; };
+    hrdashboard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_app_n_services_SDBaseService__WEBPACK_IMPORTED_MODULE_2__["SDBaseService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSnackBar"]])
+    ], hrdashboard);
+    return hrdashboard;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/sd-services/saveuserresponse.ts":
 /*!*************************************************!*\
   !*** ./src/app/sd-services/saveuserresponse.ts ***!
@@ -3044,10 +3535,46 @@ var saveuserresponse = /** @class */ (function () {
             });
         });
     };
+    saveuserresponse.prototype.getIfUserSubmitted = function (email) {
+        if (email === void 0) { email = ''; }
+        var others = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            others[_i - 1] = arguments[_i];
+        }
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var bh, outputVariables, e_3;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        bh = { input: { email: email }, local: { result: undefined } };
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 5]);
+                        bh = this.sdService.__constructDefault(bh);
+                        return [4 /*yield*/, this.sd_Og123zKXVRzX2ldq(bh)];
+                    case 2:
+                        bh = _a.sent();
+                        outputVariables = {
+                            input: {},
+                            local: {
+                                result: bh.local.result
+                            }
+                        };
+                        //End formatting output variables
+                        return [2 /*return*/, outputVariables];
+                    case 3:
+                        e_3 = _a.sent();
+                        return [4 /*yield*/, this.errorHandler(bh, e_3, 'sd_UT6P090uRaDXp7Bs')];
+                    case 4: return [2 /*return*/, _a.sent()];
+                    case 5: return [2 /*return*/];
+                }
+            });
+        });
+    };
     //appendnew_flow_saveuserresponse_Start
     saveuserresponse.prototype.sd_p4EvIXbAOEeVOVuZ = function (bh) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var e_3;
+            var e_4;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3059,8 +3586,8 @@ var saveuserresponse = /** @class */ (function () {
                         //appendnew_next_sd_p4EvIXbAOEeVOVuZ
                         return [2 /*return*/, bh];
                     case 2:
-                        e_3 = _a.sent();
-                        return [4 /*yield*/, this.errorHandler(bh, e_3, 'sd_p4EvIXbAOEeVOVuZ')];
+                        e_4 = _a.sent();
+                        return [4 /*yield*/, this.errorHandler(bh, e_4, 'sd_p4EvIXbAOEeVOVuZ')];
                     case 3: return [2 /*return*/, _a.sent()];
                     case 4: return [2 /*return*/];
                 }
@@ -3069,7 +3596,7 @@ var saveuserresponse = /** @class */ (function () {
     };
     saveuserresponse.prototype.sd_yHzOyr3hOiBVBVi3 = function (bh) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var e_4;
+            var e_5;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3081,8 +3608,8 @@ var saveuserresponse = /** @class */ (function () {
                         //appendnew_next_sd_yHzOyr3hOiBVBVi3
                         return [2 /*return*/, bh];
                     case 2:
-                        e_4 = _a.sent();
-                        return [4 /*yield*/, this.errorHandler(bh, e_4, 'sd_yHzOyr3hOiBVBVi3')];
+                        e_5 = _a.sent();
+                        return [4 /*yield*/, this.errorHandler(bh, e_5, 'sd_yHzOyr3hOiBVBVi3')];
                     case 3: return [2 /*return*/, _a.sent()];
                     case 4: return [2 /*return*/];
                 }
@@ -3091,7 +3618,7 @@ var saveuserresponse = /** @class */ (function () {
     };
     saveuserresponse.prototype.sd_FcFvtFytCkN7uU9N = function (bh) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var requestOptions, _a, e_5;
+            var requestOptions, _a, e_6;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_b) {
                 switch (_b.label) {
                     case 0:
@@ -3113,8 +3640,8 @@ var saveuserresponse = /** @class */ (function () {
                         //appendnew_next_sd_FcFvtFytCkN7uU9N
                         return [2 /*return*/, bh];
                     case 2:
-                        e_5 = _b.sent();
-                        return [4 /*yield*/, this.errorHandler(bh, e_5, 'sd_FcFvtFytCkN7uU9N')];
+                        e_6 = _b.sent();
+                        return [4 /*yield*/, this.errorHandler(bh, e_6, 'sd_FcFvtFytCkN7uU9N')];
                     case 3: return [2 /*return*/, _b.sent()];
                     case 4: return [2 /*return*/];
                 }
@@ -3123,7 +3650,7 @@ var saveuserresponse = /** @class */ (function () {
     };
     saveuserresponse.prototype.sd_xpG8uIqE7dWEgS0F = function (bh) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var e_6;
+            var e_7;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3132,8 +3659,8 @@ var saveuserresponse = /** @class */ (function () {
                         //appendnew_next_sd_xpG8uIqE7dWEgS0F
                         return [2 /*return*/, bh];
                     case 1:
-                        e_6 = _a.sent();
-                        return [4 /*yield*/, this.errorHandler(bh, e_6, 'sd_xpG8uIqE7dWEgS0F')];
+                        e_7 = _a.sent();
+                        return [4 /*yield*/, this.errorHandler(bh, e_7, 'sd_xpG8uIqE7dWEgS0F')];
                     case 2: return [2 /*return*/, _a.sent()];
                     case 3: return [2 /*return*/];
                 }
@@ -3142,7 +3669,7 @@ var saveuserresponse = /** @class */ (function () {
     };
     saveuserresponse.prototype.sd_edbqgcUOheevvEDW = function (bh) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var e_7;
+            var e_8;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3151,32 +3678,8 @@ var saveuserresponse = /** @class */ (function () {
                         //appendnew_next_sd_edbqgcUOheevvEDW
                         return [2 /*return*/, bh];
                     case 1:
-                        e_7 = _a.sent();
-                        return [4 /*yield*/, this.errorHandler(bh, e_7, 'sd_edbqgcUOheevvEDW')];
-                    case 2: return [2 /*return*/, _a.sent()];
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    saveuserresponse.prototype.sd_pqpa2i6ZNAJjfwpC = function (bh) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var e_8;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 1, , 3]);
-                        this.matSnackBar.open('Error at Backend', '', {
-                            duration: 3000,
-                            direction: 'ltr',
-                            horizontalPosition: 'center',
-                            verticalPosition: 'bottom'
-                        });
-                        //appendnew_next_sd_pqpa2i6ZNAJjfwpC
-                        return [2 /*return*/, bh];
-                    case 1:
                         e_8 = _a.sent();
-                        return [4 /*yield*/, this.errorHandler(bh, e_8, 'sd_pqpa2i6ZNAJjfwpC')];
+                        return [4 /*yield*/, this.errorHandler(bh, e_8, 'sd_edbqgcUOheevvEDW')];
                     case 2: return [2 /*return*/, _a.sent()];
                     case 3: return [2 /*return*/];
                 }
@@ -3256,6 +3759,80 @@ var saveuserresponse = /** @class */ (function () {
             });
         });
     };
+    saveuserresponse.prototype.sd_Og123zKXVRzX2ldq = function (bh) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var email, e_12;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 4]);
+                        email = bh.input.email;
+                        bh.local.apiURL = bh.system.environment.properties.ssdURL + "/api/userflag?email=" + email;
+                        return [4 /*yield*/, this.sd_DIoisxysFNjLhDvY(bh)];
+                    case 1:
+                        bh = _a.sent();
+                        //appendnew_next_sd_Og123zKXVRzX2ldq
+                        return [2 /*return*/, bh];
+                    case 2:
+                        e_12 = _a.sent();
+                        return [4 /*yield*/, this.errorHandler(bh, e_12, 'sd_Og123zKXVRzX2ldq')];
+                    case 3: return [2 /*return*/, _a.sent()];
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    saveuserresponse.prototype.sd_DIoisxysFNjLhDvY = function (bh) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var requestOptions, _a, e_13;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _b.trys.push([0, 2, , 4]);
+                        requestOptions = {
+                            url: bh.local.apiURL,
+                            method: 'get',
+                            responseType: 'json',
+                            reportProgress: undefined,
+                            headers: {},
+                            params: {},
+                            body: undefined
+                        };
+                        _a = bh.local;
+                        return [4 /*yield*/, this.sdService.nHttpRequest(requestOptions)];
+                    case 1:
+                        _a.result = _b.sent();
+                        this.sd_OhLN2vw7EWihaLcR(bh);
+                        //appendnew_next_sd_DIoisxysFNjLhDvY
+                        return [2 /*return*/, bh];
+                    case 2:
+                        e_13 = _b.sent();
+                        return [4 /*yield*/, this.errorHandler(bh, e_13, 'sd_DIoisxysFNjLhDvY')];
+                    case 3: return [2 /*return*/, _b.sent()];
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    saveuserresponse.prototype.sd_OhLN2vw7EWihaLcR = function (bh) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var e_14;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 1, , 3]);
+                        console.log(new Date().toLocaleTimeString(), bh.local.result);
+                        //appendnew_next_sd_OhLN2vw7EWihaLcR
+                        return [2 /*return*/, bh];
+                    case 1:
+                        e_14 = _a.sent();
+                        return [4 /*yield*/, this.errorHandler(bh, e_14, 'sd_OhLN2vw7EWihaLcR')];
+                    case 2: return [2 /*return*/, _a.sent()];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
     //appendnew_node
     saveuserresponse.prototype.errorHandler = function (bh, e, src) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
@@ -3287,15 +3864,9 @@ var saveuserresponse = /** @class */ (function () {
     saveuserresponse.prototype.sd_JvVnSwB12u0QvrzM = function (bh) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        this.sd_edbqgcUOheevvEDW(bh);
-                        return [4 /*yield*/, this.sd_pqpa2i6ZNAJjfwpC(bh)];
-                    case 1:
-                        bh = _a.sent();
-                        //appendnew_next_sd_JvVnSwB12u0QvrzM
-                        return [2 /*return*/, true];
-                }
+                this.sd_edbqgcUOheevvEDW(bh);
+                //appendnew_next_sd_JvVnSwB12u0QvrzM
+                return [2 /*return*/, true];
             });
         });
     };
@@ -3459,34 +4030,9 @@ var userdetails = /** @class */ (function () {
             });
         });
     };
-    userdetails.prototype.sd_pdZvOYcto7hjEMEh = function (bh) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var e_5;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 1, , 3]);
-                        this.matSnackBar.open('Error in Backend for ConfirmDetails', '', {
-                            duration: 2000,
-                            direction: 'ltr',
-                            horizontalPosition: 'center',
-                            verticalPosition: 'bottom'
-                        });
-                        this.sd_9bNLEihqbGQ8hBkz(bh);
-                        //appendnew_next_sd_pdZvOYcto7hjEMEh
-                        return [2 /*return*/, bh];
-                    case 1:
-                        e_5 = _a.sent();
-                        return [4 /*yield*/, this.errorHandler(bh, e_5, 'sd_pdZvOYcto7hjEMEh')];
-                    case 2: return [2 /*return*/, _a.sent()];
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
     userdetails.prototype.sd_9bNLEihqbGQ8hBkz = function (bh) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var e_6;
+            var e_5;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -3495,8 +4041,8 @@ var userdetails = /** @class */ (function () {
                         //appendnew_next_sd_9bNLEihqbGQ8hBkz
                         return [2 /*return*/, bh];
                     case 1:
-                        e_6 = _a.sent();
-                        return [4 /*yield*/, this.errorHandler(bh, e_6, 'sd_9bNLEihqbGQ8hBkz')];
+                        e_5 = _a.sent();
+                        return [4 /*yield*/, this.errorHandler(bh, e_5, 'sd_9bNLEihqbGQ8hBkz')];
                     case 2: return [2 /*return*/, _a.sent()];
                     case 3: return [2 /*return*/];
                 }
@@ -3534,13 +4080,9 @@ var userdetails = /** @class */ (function () {
     userdetails.prototype.sd_fppaVeWTVfJkSBcU = function (bh) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.sd_pdZvOYcto7hjEMEh(bh)];
-                    case 1:
-                        bh = _a.sent();
-                        //appendnew_next_sd_fppaVeWTVfJkSBcU
-                        return [2 /*return*/, true];
-                }
+                this.sd_9bNLEihqbGQ8hBkz(bh);
+                //appendnew_next_sd_fppaVeWTVfJkSBcU
+                return [2 /*return*/, true];
             });
         });
     };
@@ -3588,7 +4130,7 @@ var datasharingService = /** @class */ (function () {
     }
     datasharingService.prototype.getusertypes = function () {
         // sample json data
-        return this.usertypes = [
+        return (this.usertypes = [
             {
                 type: "vendor",
             },
@@ -3597,16 +4139,16 @@ var datasharingService = /** @class */ (function () {
             },
             {
                 type: "visitor",
-            }
-        ];
+            },
+        ]);
         console.log("user name", this.usertypes[0].name);
     };
     datasharingService.prototype.openSnackBar = function (message, action) {
         this.snackBar.open(message, action, {
             duration: 3000,
-            panelClass: ['bar-color'],
-            horizontalPosition: 'right',
-            verticalPosition: 'top',
+            panelClass: ["bar-color"],
+            horizontalPosition: "right",
+            verticalPosition: "top",
         });
     };
     datasharingService.ctorParameters = function () { return [
@@ -3678,13 +4220,52 @@ var masterdataService = /** @class */ (function () {
         this.http = http;
         this.saveuserService = saveuserService;
     }
+    // async userSubmit(){
+    //     console.log(JSON.parse(localStorage.getItem('answer1')));
+    //     let answer1  = this.answer1;
+    //     let answer2  = this.answer2;
+    //     let answer3  = this.answer3;
+    //     let UpdatedlocationName = this.locationName;
+    //     let UcertifyInfoName = this.certifyInfoName;
+    //     let UcertifyInfoCheck = this.certifyInfoChecked;
+    //     try {
+    //         console.log(this.username);
+    //           let formdata = {
+    //                 type:"employee",
+    //                 locationName: UpdatedlocationName,
+    //                 email:this.username,
+    //                 phone:localStorage.getItem('phone'),
+    //                 firstName:"st peter",
+    //                 lastName:"henry",
+    //                 company:"blucocondigital",
+    //                 ingredionContact:"none",
+    //                 certifyInfoName:UcertifyInfoName,
+    //                 certifyInfoChecked:UcertifyInfoCheck,
+    //                   response:[{
+    //                              "questionId": this.questionId, "answer": this.answer1,  "shortText": this.shortTextOne
+    //                         },{
+    //                             "questionId": this.questionId2, "answer": this.answer2,  "shortText": this.shortTextTwo
+    //                         },{
+    //                             "questionId": this.questionId3, "answer": this.answer3,  "shortText": this.shortTextThree
+    //                         }
+    //                     ],
+    //             };
+    //         console.log(formdata);
+    //         let bh = await this.saveuserService.saveUserData(formdata)
+    //         console.log(bh.local.result);
+    //        return bh.local.result;
+    //     } catch(err){
+    //         // this.isLoading = false
+    //         console.log(err)
+    //     }
+    // }
     masterdataService.prototype.userSubmit = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var answer1, answer2, answer3, UpdatedlocationName, UcertifyInfoName, UcertifyInfoCheck, formdata, bh, err_1;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        console.log(JSON.parse(localStorage.getItem('answer1')));
+                        console.log(JSON.parse(localStorage.getItem("answer1")));
                         answer1 = this.answer1;
                         answer2 = this.answer2;
                         answer3 = this.answer3;
@@ -3699,20 +4280,30 @@ var masterdataService = /** @class */ (function () {
                             type: this.userType,
                             locationName: UpdatedlocationName,
                             email: this.email,
-                            phone: localStorage.getItem('phone'),
+                            phone: localStorage.getItem("phone"),
                             firstName: this.firstName,
                             lastName: this.lastName,
                             company: this.company,
                             ingredionContact: this.ingredionContact,
                             certifyInfoName: UcertifyInfoName,
                             certifyInfoChecked: UcertifyInfoCheck,
-                            response: [{
-                                    "questionId": this.questionId, "answer": this.answer1, "shortText": this.shortTextOne
-                                }, {
-                                    "questionId": this.questionId2, "answer": this.answer2, "shortText": this.shortTextTwo
-                                }, {
-                                    "questionId": this.questionId3, "answer": this.answer3, "shortText": this.shortTextThree, "addlInfo": this.addlInfo
-                                }
+                            response: [
+                                {
+                                    questionId: this.questionId,
+                                    answer: this.answer1,
+                                    shortText: this.shortTextOne,
+                                },
+                                {
+                                    questionId: this.questionId2,
+                                    answer: this.answer2,
+                                    shortText: this.shortTextTwo,
+                                },
+                                {
+                                    questionId: this.questionId3,
+                                    answer: this.answer3,
+                                    shortText: this.shortTextThree,
+                                    addlInfo: this.addlInfo,
+                                },
                             ],
                         };
                         console.log(formdata);
@@ -3737,13 +4328,14 @@ var masterdataService = /** @class */ (function () {
     ]; };
     masterdataService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], app_sd_services_saveuserresponse__WEBPACK_IMPORTED_MODULE_3__["saveuserresponse"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
+            app_sd_services_saveuserresponse__WEBPACK_IMPORTED_MODULE_3__["saveuserresponse"]])
     ], masterdataService);
     return masterdataService;
 }());
 
-console.log(localStorage.getItem('answer1'), localStorage.getItem('answer2'), localStorage.getItem('answer3'));
-var confirmdetailsObj = JSON.parse(localStorage.getItem('confirmdetails'));
+//  console.log(localStorage.getItem('answer1'),localStorage.getItem('answer2'),localStorage.getItem('answer3'));
+//  var confirmdetailsObj = JSON.parse(localStorage.getItem('confirmdetails'));
 
 
 /***/ }),
