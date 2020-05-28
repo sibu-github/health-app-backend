@@ -37,7 +37,7 @@ router.post("/api/userResponse", async(req, res) => {
             res.status(500).json({ message: "Location not found" });
         }
     } catch (err) {
-        res.send(err);
+        res.status(500).send(err);
     }
 });
 
@@ -50,15 +50,22 @@ router.get("/api/userflag", async(req, res) => {
             .find({ email: Email })
             .limit(1)
             .sort({ $natural: -1 });
-        udate = URes[0].updatedAt.toDateString();
-
+        var udate = URes[0].updatedAt.toDateString();
+        var q1_res = URes[0].response[0].answer;
+        var q2_res = URes[0].response[1].answer;
+        var q3_res = URes[0].response[2].answer;
         if (udate == today) {
-            res.status(302).json({ updated: "yes" });
+            if (q1_res == false && q2_res == false && q3_res == false) {
+                res.status(200).json({ updated: "yes", colorCode: "green" });
+            } else {
+                res.status(200).json({ updated: "yes", colorCode: "amber" });
+            }
+
         } else {
-            res.status(404).json({ updated: "No" });
+            res.status(500).json({ updated: "No", colorCode: "" });
         }
     } catch (err) {
-        res.status(404).send(err);
+        res.status(500).json({ message: "user not found" });
     }
 });
 
@@ -153,7 +160,7 @@ router.post("/api/dashboard/", async(req, res) => {
             },
         });
     } catch (err) {
-        res.status(404).send(err);
+        res.status(500).json({ message: "match not found" });
     }
 });
 
