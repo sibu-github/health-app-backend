@@ -4,13 +4,12 @@ const mongoose = require("mongoose");
 
 const userResponse = require("../models/userResponse");
 const Location = require("../models/locationList");
-const questions = require("../models/questions");
-const question = require("../models/questions");
+
 
 
 router.post("/api/userResponse", async(req, res) => {
     try {
-        location = await Location.find({ locationName: req.body.locationName });
+        let location = await Location.find({ locationName: req.body.locationName });
         if (location && location.length > 0) {
             const Response = new userResponse({
                 type: req.body.type,
@@ -24,6 +23,11 @@ router.post("/api/userResponse", async(req, res) => {
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 company: req.body.company,
+                //updated buildingNo floorNo sectionNo cubeNo
+                buildingNo: req.body.buildingNo, //buildingNo updated on 29-may-2020
+                floorNo: req.body.floorNo, //floorNo updated on 29-may-2020
+                sectionNo: req.body.sectionNo, //sectionNo updated on 29-may-2020
+                cubeNo: req.body.cubeNo, //cubeNo updated on 29-may-2020
                 ingredionContact: req.body.ingredionContact,
                 response: req.body.response,
                 certifyInfoName: req.body.certifyInfoName,
@@ -43,19 +47,20 @@ router.post("/api/userResponse", async(req, res) => {
 
 router.get("/api/userflag", async(req, res) => {
     const Email = req.query.email;
-    var dateObj = new Date();
+    let dateObj = new Date();
     today = dateObj.toDateString();
     try {
         const URes = await userResponse
             .find({ email: Email })
             .limit(1)
             .sort({ $natural: -1 });
-        var udate = URes[0].updatedAt.toDateString();
-        var q1_res = URes[0].response[0].answer;
-        var q2_res = URes[0].response[1].answer;
-        var q3_res = URes[0].response[2].answer;
+        let udate = URes[0].updatedAt.toDateString();
+        let q1_res = URes[0].response[0].answer;
+        let q2_res = URes[0].response[1].answer;
+        let q3_res = URes[0].response[2].answer;
         if (udate == today) {
-            if (q1_res == false && q2_res == false && q3_res == false) {
+            //below is changed from == to ===
+            if (q1_res === false && q2_res === false && q3_res === false) {
                 res.status(200).json({ updated: "yes", colorCode: "green" });
             } else {
                 res.status(200).json({ updated: "yes", colorCode: "amber" });
@@ -142,7 +147,7 @@ router.post("/api/dashboard/", async(req, res) => {
         const question2 = question[0].response[1].shortText;
         const question3 = question[0].response[2].shortText;
 
-        res.send({
+        res.json({
             "question1": question1,
             q1_count: {
                 "postive": q1_counting_positive,
