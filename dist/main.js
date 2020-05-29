@@ -1255,7 +1255,10 @@ var homeComponent = /** @class */ (function (_super) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
                         username = localStorage.getItem('username');
+                        // if the username is not stored in the localstorage
+                        // we show landingpage
                         if (!username) {
+                            this.router.navigate(['/landingpage']);
                             return [2 /*return*/];
                         }
                         return [4 /*yield*/, this.userService.getIfUserSubmitted(username)];
