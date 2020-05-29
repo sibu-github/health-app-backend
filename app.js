@@ -28,26 +28,21 @@ app.use((req, res, next) => {
   );
   next();
 });
-// for serving static files
-app.use(express.static(path.join(__dirname, DIST_FOLDER)));
 
-// for serving the angular code,
-app.get('/landpage', (req, res) => {
-  res.sendFile(path.join(__dirname, DIST_FOLDER, INDEX_FILE_NAME));
-});
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, DIST_FOLDER, INDEX_FILE_NAME));
-});
-
+// all API routes
 app.use(userRouter);
 app.use(locationRouter);
 app.use(userinfoRouter);
 app.use(apilogRouter);
 app.use(questionRouter);
 app.use(adminRouter);
-app.get('/login', (req, res) => {
-  res.send('Hello World');
+
+// for serving static files
+app.use(express.static(path.join(__dirname, DIST_FOLDER)));
+
+// for serving the angular bundle to the browser
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, DIST_FOLDER, INDEX_FILE_NAME));
 });
 
 module.exports = app;
