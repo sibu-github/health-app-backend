@@ -33,20 +33,6 @@ const responseSchema = new mongoose.Schema({
     phone: {
         type: String,
     },
-    //Changes: added the buildingNo, floorNo, sectionNo , cubeNo
-    buildingNo: { //buildingNo is added 
-        type: String
-    },
-    floorNo: { //floorNo is added
-        type: String
-    },
-    sectionNo: { //sectionNo is added     
-        type: String
-    },
-    cubeNo: { //cubeNo is added 
-        type: String
-    },
-    // changes are done from above comment to here.
     firstName: {
         type: String,
     },
@@ -60,7 +46,6 @@ const responseSchema = new mongoose.Schema({
         type: String,
     },
     response: [{
-        _id: false,
         questionId: { type: String },
         shortText: { type: String },
         answer: { type: Boolean },

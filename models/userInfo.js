@@ -17,20 +17,7 @@ const userinfoScema = new mongoose.Schema({
     locationName: {
         type: String,
     },
-    //below fileds are updated on 29-may-2020 
-    buildingNo: { //buildingNo is added 
-        type: String
-    },
-    floorNo: { //floorNo is added      
-        type: String
-    },
-    sectionNo: { // sectionNo is added 
-        type: String
-    },
-    cubeNo: { //sectionNo is added     
-        type: String
-    }
 }, { timestamps: { createdOn: "created_at", updatedOn: "updated_at" } });
-
+//env.config();
 const userinfo = mongoose.model("userinfo", userinfoScema);
 module.exports = userinfo;
