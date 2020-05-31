@@ -40,6 +40,12 @@ app.use(adminRouter);
 // for serving static files
 app.use(express.static(path.join(__dirname, DIST_FOLDER)));
 
+// for getting response after authentication
+app.get('/logincomplete', (req, res) => {
+  const rs = `Response received:  ${req.query.code}`;
+  res.send(rs);
+});
+
 // for serving the angular bundle to the browser
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, DIST_FOLDER, INDEX_FILE_NAME));
