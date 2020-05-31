@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Complete</title>
+  </head>
+  <body>
+    <h1>Login Complete</h1>
+    <p id="para"></p>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const code = urlParams.get('code');
+      console.log({ code });
+      document.getElementById('para').innerText = 'Received code: ' + code;
+      setTimeout(function () {
+        window.location.href =
+          'https://health-appuat.azurewebsites.net/logincomplete?code=' +
+          'NNAGJSA';
+      }, 3000);
+    </script>
+  </body>
+</html>

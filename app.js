@@ -42,8 +42,9 @@ app.use(express.static(path.join(__dirname, DIST_FOLDER)));
 
 // for getting response after authentication
 app.get('/logincomplete', (req, res) => {
-  const rs = `Response received:  ${req.query.code}`;
-  res.send(rs);
+  // const rs = `Response received:  ${req.query.code}`;
+  // res.send(rs);
+  res.sendFile(path.join(__dirname, 'logincomplete.html'));
 });
 
 // for serving the angular bundle to the browser
