@@ -1,30 +1,30 @@
 {
-    "name": "healthapp",
-    "version": "1.0.0",
-    "description": "",
-    "main": "app.js",
-    "scripts": {
-        "dev": "nodemon index.js",
-        "start": "node index.js"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "body-parser": "^1.19.0",
-        "cors": "^2.8.5",
-        "dotenv": "^8.2.0",
-        "env-cmd": "^8.0.2",
-        "eval": "^0.1.4",
-        "express": "^4.17.1",
-        "express-generator": "^4.16.1",
-        "moment": "^2.24.0",
-        "moment-timezone": "^0.5.28",
-        "mongoose": "^5.9.1",
-        "nodemon": "^2.0.2",
-        "validator": "^12.2.0",
-        "validators": "^0.3.1"
-    },
-    "devDependencies": {
-        "eslint": "^7.1.0"
-    }
+  "name": "healthapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "lint": "eslint . >> lint-errors.log"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "env-cmd": "^8.0.2",
+    "eval": "^0.1.4",
+    "express": "^4.17.1",
+    "express-generator": "^4.16.1",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.28",
+    "mongoose": "^5.9.1",
+    "nodemon": "^2.0.2",
+    "simple-oauth2": "^0.2.1",
+    "validator": "^12.2.0",
+    "validators": "^0.3.1"
+  }
 }

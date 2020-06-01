@@ -8,6 +8,7 @@ const userinfoRouter = require('./routers/userInfoRoutes');
 const apilogRouter = require('./routers/apilogRoutes');
 const questionRouter = require('./routers/questionsRoutes');
 const adminRouter = require('./routers/hradminRoutes');
+const tokenRouter = require('./routers/tokenRoutes');
 
 const DIST_FOLDER = './dist';
 const INDEX_FILE_NAME = 'index.html';
@@ -22,24 +23,30 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,DELETE,OPTIONS');
     next();
 });
-// for serving static files
-app.use(express.static(path.join(__dirname, DIST_FOLDER)));
 
-// for serving the angular code,
-app.get('/landpage', (req, res) => {
-    res.sendFile(path.join(__dirname, DIST_FOLDER, INDEX_FILE_NAME));
-});
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, DIST_FOLDER, INDEX_FILE_NAME));
-});
-
+// all API routes
 app.use(userRouter);
 app.use(locationRouter);
 app.use(userinfoRouter);
 app.use(apilogRouter);
 app.use(questionRouter);
 app.use(adminRouter);
+app.use(tokenRouter);
+
+// for serving static files
+app.use(express.static(path.join(__dirname, DIST_FOLDER)));
+
+// for getting response after authentication
+app.get('/logincomplete', (req, res) => {
+  const code = req.query.code;
+  console.log({ code });
+  res.sendFile(path.join(__dirname, 'logincomplete.html'));
+});
+
+// for serving the angular bundle to the browser
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, DIST_FOLDER, INDEX_FILE_NAME));
+});
 
 
 module.exports = app;
