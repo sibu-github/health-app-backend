@@ -1,9 +1,6 @@
 // the scopes parameter values to call Azure AD API
 const scopes = ['openid', 'profile', 'offline_access'];
 
-console.log('CLIENT_ID', process.env.CLIENT_ID);
-console.log('CLIENT_SECRET', process.env.CLIENT_SECRET);
-
 // credentials to call Azure AD API
 const credentials = {
   clientID: process.env.CLIENT_ID,
@@ -71,10 +68,8 @@ const getTokenFromRefreshToken = (
   });
   token.refresh(function (error, result) {
     if (error) {
-      console.log('Refresh token error: ', error.message);
       callback(request, response, error, null);
     } else {
-      console.log('New token: ', result.token);
       callback(request, response, null, result);
     }
   });

@@ -3,6 +3,20 @@ const express = require('express');
 const axios = require('axios');
 const router = new express.Router();
 const authHelper = require('../authHelper');
+
+// refreshToken when accessToken is expired
+router.get('/api/getNewTokens', (req, res) => {
+  const token = req.query.refreshToken;
+  // exit when refreshToken is not passed
+  if (!token) {
+    res.json({ success: false, message: 'refreshToken is required' });
+    return;
+  }
+
+  // get new tokens from the refresh token
+  authHelper.getTokenFromRefreshToken(token, tokenReceived, req, res);
+});
+
 // getToken routes, which gives the accessToken from the authCode
 router.get('/api/getToken', (req, res) => {
   try {
