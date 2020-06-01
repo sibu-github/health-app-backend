@@ -34,11 +34,9 @@ const getTokenFromCode = (auth_code, callback, request, response) => {
     },
     function (error, result) {
       if (error) {
-        console.log('Access token error: ', error.message);
         callback(request, response, error, null);
       } else {
         const token = oauth2.accessToken.create(result);
-        console.log('Token created: ', token.token);
         callback(request, response, null, token);
       }
     }
