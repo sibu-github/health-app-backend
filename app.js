@@ -8,6 +8,7 @@ const userinfoRouter = require('./routers/userInfoRoutes');
 const apilogRouter = require('./routers/apilogRoutes');
 const questionRouter = require('./routers/questionsRoutes');
 const adminRouter = require('./routers/hradminRoutes');
+const tokenRouter = require('./routers/tokenRoutes');
 
 const DIST_FOLDER = './dist';
 const INDEX_FILE_NAME = 'index.html';
@@ -36,14 +37,15 @@ app.use(userinfoRouter);
 app.use(apilogRouter);
 app.use(questionRouter);
 app.use(adminRouter);
+app.use(tokenRouter);
 
 // for serving static files
 app.use(express.static(path.join(__dirname, DIST_FOLDER)));
 
 // for getting response after authentication
 app.get('/logincomplete', (req, res) => {
-  // const rs = `Response received:  ${req.query.code}`;
-  // res.send(rs);
+  const code = req.query.code;
+  console.log({ code });
   res.sendFile(path.join(__dirname, 'logincomplete.html'));
 });
 
