@@ -4,9 +4,9 @@ const mongoose = require("mongoose");
 
 const userResponse = require("../models/userResponse");
 const Location = require("../models/locationList");
+const { find } = require("../models/userResponse");
 
-
-
+/*api for the saving the user Responses*/
 router.post("/api/userResponse", async(req, res) => {
     try {
         let location = await Location.find({ locationName: req.body.locationName });
@@ -41,10 +41,11 @@ router.post("/api/userResponse", async(req, res) => {
             res.status(500).json({ message: "Location not found" });
         }
     } catch (err) {
-        res.status(500).send(err);
+        res.status(500).json(err);
     }
 });
 
+/*API for checking the user has updated for the day and also color coding for yes and no*/
 router.get("/api/userflag", async(req, res) => {
     const Email = req.query.email;
     let dateObj = new Date();
@@ -55,12 +56,13 @@ router.get("/api/userflag", async(req, res) => {
             .limit(1)
             .sort({ $natural: -1 });
         let udate = URes[0].updatedAt.toDateString();
-        let q1_res = URes[0].response[0].answer;
-        let q2_res = URes[0].response[1].answer;
-        let q3_res = URes[0].response[2].answer;
+
+        let q1Res = URes[0].response[0].answer;
+        let q2Res = URes[0].response[1].answer;
+        let q3Res = URes[0].response[2].answer;
         if (udate == today) {
             //below is changed from == to ===
-            if (q1_res === false && q2_res === false && q3_res === false) {
+            if (q1Res === false && q2Res === false && q3Res === false) {
                 res.status(200).json({ updated: "yes", colorCode: "green" });
             } else {
                 res.status(200).json({ updated: "yes", colorCode: "amber" });
@@ -74,98 +76,129 @@ router.get("/api/userflag", async(req, res) => {
     }
 });
 
+/*api for the HR Dashboard*/
 router.post("/api/dashboard/", async(req, res) => {
+    let fromDate = req.body.fromDate;
+    let toDate = req.body.toDate;
+    let locationName = req.body.locationName;
     try {
-        q1_counting_positive = await userResponse.aggregate([{
-                $match: req.body,
-            },
-            {
-                $match: { "response.0.answer": false },
-            },
-            {
-                $count: "postive",
-            },
-        ]);
+        /*Total count only for the fromDate*/
+        if (fromDate && !toDate && !locationName) {
+            /*for q1Positive count */
+            let q1Positive = await userResponse.find({ updatedAt: { $gte: new Date(fromDate) }, "response.0.answer": true }).countDocuments();
 
-        q2_counting_positive = await userResponse.aggregate([{
-                $match: req.body,
-            },
-            {
-                $match: { "response.1.answer": true },
-            },
-            {
-                $count: "postive",
-            },
-        ]);
+            /*for the  q2Positive count */
+            let q2Positive = await userResponse.find({ updatedAt: { $gte: new Date(fromDate) }, "response.1.answer": true }).countDocuments();
 
-        q3_counting_positive = await userResponse.aggregate([{
-                $match: req.body,
-            },
-            {
-                $match: { "response.2.answer": true },
-            },
-            {
-                $count: "postive",
-            },
-        ]);
+            /*for the q3Positive count*/
+            let q3Positive = await userResponse.find({ updatedAt: { $gte: new Date(fromDate) }, "response.2.answer": true }).countDocuments();
 
-        q1_counting_negative = await userResponse.aggregate([{
-                $match: req.body,
-            },
-            {
-                $match: { "response.0.answer": false },
-            },
-            {
-                $count: "negative",
-            },
-        ]);
+            /*for the q1Negative count*/
+            let q1Negative = await userResponse.find({ updatedAt: { $gte: new Date(fromDate) }, "response.0.answer": false }).countDocuments();
 
-        q2_counting_negative = await userResponse.aggregate([{
-                $match: req.body,
-            },
-            {
-                $match: { "response.1.answer": false },
-            },
-            {
-                $count: "negative",
-            },
-        ]);
+            /*for the q2Negative count*/
+            let q2Negative = await userResponse.find({ updatedAt: { $gte: new Date(fromDate) }, "response.1.answer": false }).countDocuments();
 
-        q3_counting_negative = await userResponse.aggregate([{
-                $match: req.body,
-            },
-            {
-                $match: { "response.2.answer": false },
-            },
-            {
-                $count: "negative",
-            },
-        ]);
+            /*for the q3Negative count*/
+            let q3Negative = await userResponse.find({ updatedAt: { $gte: new Date(fromDate) }, "response.2.answer": false }).countDocuments();
 
-        const question = await userResponse.find().limit(1);
-        const question1 = question[0].response[0].shortText;
-        const question2 = question[0].response[1].shortText;
-        const question3 = question[0].response[2].shortText;
+            /*getting short text for the response*/
+            let userRes = await userResponse.find({}, { _id: false }).limit(1).sort({ "$natural": -1 });
+            q1ShortText = userRes[0].response[0].shortText;
+            q2ShortText = userRes[0].response[1].shortText;
+            q3ShortText = userRes[0].response[2].shortText;
+            /*for the send of the response*/
+            res.status(200).json({ "q1ShortText": q1ShortText, "q1Positive": q1Positive, "q1Negative": q1Negative, "q2ShortText": q2ShortText, "q2Positive": q2Positive, "q2Negative": q2Negative, "q3ShortText": q3ShortText, "q3Positive": q3Positive, "q3Negative": q3Negative });
 
-        res.json({
-            "question1": question1,
-            q1_count: {
-                "postive": q1_counting_positive,
-                "negative": q1_counting_negative,
-            },
-            "question2": question2,
-            q2_count: {
-                "positive": q2_counting_positive,
-                "negative": q2_counting_negative,
-            },
-            "question3": question3,
-            q3_count: {
-                "positive": q3_counting_positive,
-                "negative": q3_counting_negative,
-            },
-        });
+            /*Total count for the locationName*/
+        } else if (!fromDate && !toDate && locationName) {
+            /*for q1Positive count */
+            let q1Positive = await userResponse.find({ locationName: locationName, "response.0.answer": true }).countDocuments();
+
+            /*for the  q2Positive count */
+            let q2Positive = await userResponse.find({ locationName: locationName, "response.1.answer": true }).countDocuments();
+
+            /*for the q3Positive count*/
+            let q3Positive = await userResponse.find({ locationName: locationName, "response.2.answer": true }).countDocuments();
+
+            /*for the q1Negative count*/
+            let q1Negative = await userResponse.find({ locationName: locationName, "response.0.answer": false }).countDocuments();
+
+            /*for the q2Negative count*/
+            let q2Negative = await userResponse.find({ locationName: locationName, "response.1.answer": false }).countDocuments();
+
+            /*for the q3Negative count*/
+            let q3Negative = await userResponse.find({ locationName: locationName, "response.2.answer": false }).countDocuments();
+
+            /*getting short text for the response*/
+            let userRes = await userResponse.find({}, { _id: false }).limit(1).sort({ "$natural": -1 });
+            q1ShortText = userRes[0].response[0].shortText;
+            q2ShortText = userRes[0].response[1].shortText;
+            q3ShortText = userRes[0].response[2].shortText;
+            /*for the send of the response*/
+            res.status(200).json({ "q1ShortText": q1ShortText, "q1Positive": q1Positive, "q1Negative": q1Negative, "q2ShortText": q2ShortText, "q2Positive": q2Positive, "q2Negative": q2Negative, "q3ShortText": q3ShortText, "q3Positive": q3Positive, "q3Negative": q3Negative });
+
+            /*Total count for the fromDate and toDate*/
+        } else if (fromDate && toDate && !locationName) {
+
+            /*for q1Positive count*/
+            let q1Positive = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, "response.0.answer": true }).countDocuments();
+
+            /*for the  q2Positive count */
+            let q2Positive = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, "response.1.answer": true }).countDocuments();
+
+            /*for the q3Positive count*/
+            let q3Positive = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, "response.2.answer": true }).countDocuments();
+
+            /*for the q1Negative count*/
+            let q1Negative = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, "response.0.answer": false }).countDocuments();
+
+            /*for the q2Negative count*/
+            let q2Negative = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, "response.1.answer": false }).countDocuments();
+
+            /*for the q3Negative count*/
+            let q3Negative = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, "response.2.answer": false }).countDocuments();
+
+            /*getting short text for the response*/
+            let userRes = await userResponse.find({}, { _id: false }).limit(1).sort({ "$natural": -1 });
+            q1ShortText = userRes[0].response[0].shortText;
+            q2ShortText = userRes[0].response[1].shortText;
+            q3ShortText = userRes[0].response[2].shortText;
+            /*for the send of the response*/
+            res.status(200).json({ "q1ShortText": q1ShortText, "q1Positive": q1Positive, "q1Negative": q1Negative, "q2ShortText": q2ShortText, "q2Positive": q2Positive, "q2Negative": q2Negative, "q3ShortText": q3ShortText, "q3Positive": q3Positive, "q3Negative": q3Negative });
+
+            /*total count for the fromDate, toDate and locationName*/
+        } else if (fromDate && toDate && locationName) {
+
+            /*q1 q1Positive count*/
+            let q1Positive = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, locationName: locationName, "response.0.answer": true }).countDocuments();
+
+            /*for the  q2Positive count */
+            let q2Positive = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, locationName: locationName, "response.0.answer": true }).countDocuments();
+
+            /*for the q3Positive count*/
+            let q3Positive = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, locationName: locationName, "response.0.answer": true }).countDocuments();
+
+            /*for the q1Negative count*/
+            let q1Negative = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, locationName: locationName, "response.0.answer": true }).countDocuments();
+
+            /*for the q2Negative count*/
+            let q2Negative = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, locationName: locationName, "response.0.answer": true }).countDocuments();
+
+            /*for the q3Negative count*/
+            let q3Negative = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, locationName: locationName, "response.0.answer": true }).countDocuments();
+
+            /*getting short text for the response*/
+            let userRes = await userResponse.find({}, { _id: false }).limit(1).sort({ "$natural": -1 });
+            q1ShortText = userRes[0].response[0].shortText;
+            q2ShortText = userRes[0].response[1].shortText;
+            q3ShortText = userRes[0].response[2].shortText;
+            /*for the send of the response*/
+            res.status(200).json({ "q1ShortText": q1ShortText, "q1Positive": q1Positive, "q1Negative": q1Negative, "q2ShortText": q2ShortText, "q2Positive": q2Positive, "q2Negative": q2Negative, "q3ShortText": q3ShortText, "q3Positive": q3Positive, "q3Negative": q3Negative });
+        }
     } catch (err) {
-        res.status(500).json({ message: "match not found" });
+        res.status(500).json({ message: "Match not found" });
+
     }
 });
 

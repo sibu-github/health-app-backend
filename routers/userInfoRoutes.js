@@ -26,22 +26,26 @@ router.post("/api/userinfo", async(req, res) => {
 
             });
             await userInfo.save();
-            res.status(200).send({ userInfo });
+            res.status(200).json({ userInfo });
         } else {
             res.status(500).json({ message: "invalid locationName" });
         }
     } catch (err) {
-        res.status(500).send(err);
+        res.status(500).json(err);
     }
 });
 
 router.get("/api/userdetails", async(req, res) => {
-    try {
-        const email = req.query.email;
-        const userdetails = await userinfo.find({ email: email });
-        res.send({ userdetails });
-    } catch (err) {
-        res.status(500).send(err);
+    const email = req.query.email;
+    if (email && email.length > 0) {
+        try {
+            const userdetails = await userinfo.find({ email: email });
+            res.json({ userdetails });
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    } else {
+        res.status(500).json({ message: "enter proper email" });
     }
 });
 

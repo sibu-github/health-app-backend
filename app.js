@@ -17,27 +17,21 @@ app.use(express.json());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'Origin,X-Requested-With,Content-Type,Accept'
-  );
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'GET,POST,PATCH,DELETE,OPTIONS'
-  );
-  next();
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin,X-Requested-With,Content-Type,Accept');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,DELETE,OPTIONS');
+    next();
 });
 // for serving static files
 app.use(express.static(path.join(__dirname, DIST_FOLDER)));
 
 // for serving the angular code,
 app.get('/landpage', (req, res) => {
-  res.sendFile(path.join(__dirname, DIST_FOLDER, INDEX_FILE_NAME));
+    res.sendFile(path.join(__dirname, DIST_FOLDER, INDEX_FILE_NAME));
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, DIST_FOLDER, INDEX_FILE_NAME));
+    res.sendFile(path.join(__dirname, DIST_FOLDER, INDEX_FILE_NAME));
 });
 
 app.use(userRouter);
@@ -46,8 +40,6 @@ app.use(userinfoRouter);
 app.use(apilogRouter);
 app.use(questionRouter);
 app.use(adminRouter);
-app.get('/login', (req, res) => {
-  res.send('Hello World');
-});
+
 
 module.exports = app;
