@@ -12,7 +12,7 @@ router.get("/api/admin", async(req, res) => {
             if (Admin && Admin.isActive === true) {
                 res.status(200).json({ Authorized: "true" });
             } else {
-                res.status(500).json({ Authorized: "false" });
+                res.status(200).json({ Authorized: "false" });
             }
         } catch (err) {
             res.status(500).json(err);
