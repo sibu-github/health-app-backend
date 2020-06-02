@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
 const express = require("express");
+const auth = require('../middleware/auth');
 
 const router = express.Router();
 
 const apilog = require("../models/apilog");
 
 /*API for the posting the log*/
-router.post("/api/apilog", async(req, res) => {
+router.post("/api/apilog", auth, async(req, res) => {
     try {
         const log = new apilog(req.body);
         await log.save();
@@ -19,7 +20,7 @@ router.post("/api/apilog", async(req, res) => {
 });
 
 /*API for fetching all the log information*/
-router.get("/api/apiloginfo", async(req, res) => {
+router.get("/api/apiloginfo", auth, async(req, res) => {
     try {
         const loginfo = await apilog.find();
         //added the status as 200 and response in json

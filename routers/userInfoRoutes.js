@@ -3,9 +3,10 @@ const express = require("express");
 const router = new express.Router();
 const userinfo = require("../models/userInfo");
 const location = require("../models/locationList");
+const auth = require('../middleware/auth');
 const url = require("url");
 
-router.post("/api/userinfo", async(req, res) => {
+router.post("/api/userinfo", auth, async(req, res) => {
     try {
         const Location = await location.find({
             locationName: req.body.locationName
@@ -35,7 +36,7 @@ router.post("/api/userinfo", async(req, res) => {
     }
 });
 
-router.get("/api/userdetails", async(req, res) => {
+router.get("/api/userdetails", auth, async(req, res) => {
     const email = req.query.email;
     if (email && email.length > 0) {
         try {

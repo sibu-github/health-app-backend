@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const router = new express.Router();
+const auth = require("../middleware/auth");
 
 const Location = require("../models/locationList");
 
-router.post("/api/postlocation", async(req, res) => {
+router.post("/api/postlocation", auth, async(req, res) => {
     try {
         const location = new Location(req.body);
         await location.save();
@@ -16,7 +17,7 @@ router.post("/api/postlocation", async(req, res) => {
     }
 });
 
-router.get("/api/getlocation/", async(req, res) => {
+router.get("/api/getlocation/", auth, async(req, res) => {
     try {
         const location = await Location.find({ active: true });
         res.status(200).json(location);

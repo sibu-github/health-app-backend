@@ -1,13 +1,14 @@
 const express = require("express");
 const router = new express.Router();
 const mongoose = require("mongoose");
+const auth = require('../middleware/auth');
 
 const userResponse = require("../models/userResponse");
 const Location = require("../models/locationList");
 const { find } = require("../models/userResponse");
 
 /*api for the saving the user Responses*/
-router.post("/api/userResponse", async(req, res) => {
+router.post("/api/userResponse", auth, async(req, res) => {
     try {
         let location = await Location.find({ locationName: req.body.locationName });
         if (location && location.length > 0) {
@@ -46,7 +47,7 @@ router.post("/api/userResponse", async(req, res) => {
 });
 
 /*API for checking the user has updated for the day and also color coding for yes and no*/
-router.get("/api/userflag", async(req, res) => {
+router.get("/api/userflag", auth, async(req, res) => {
     const Email = req.query.email;
     let dateObj = new Date();
     today = dateObj.toDateString();
@@ -77,7 +78,7 @@ router.get("/api/userflag", async(req, res) => {
 });
 
 /*api for the HR Dashboard*/
-router.post("/api/dashboard/", async(req, res) => {
+router.post("/api/dashboard/", auth, async(req, res) => {
     let fromDate = req.body.fromDate;
     let toDate = req.body.toDate;
     let locationName = req.body.locationName;

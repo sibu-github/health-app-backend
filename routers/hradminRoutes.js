@@ -1,10 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
+const auth = require('../middleware/auth');
+
 const hradmin = require("../models/HRadmin");
 
 /*API for checking the access of the admin*/
-router.get("/api/admin", async(req, res) => {
+router.get("/api/admin", auth, async(req, res) => {
     let Email = req.query.email;
     if (Email && Email.length > 0) {
         try {
