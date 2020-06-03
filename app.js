@@ -58,7 +58,12 @@ app.get('/logincomplete', (req, res) => {
 
 // for serving the angular bundle to the browser
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, DIST_FOLDER, INDEX_FILE_NAME));
+  // res.sendFile(path.join(__dirname, DIST_FOLDER, INDEX_FILE_NAME));
+
+  const DB_HOST = process.env.DB_HOST;
+  const DB_PASSWORD = process.env.DB_PASSWORD;
+
+  res.json({ host: DB_HOST, password: DB_PASSWORD });
 });
 
 module.exports = app;
