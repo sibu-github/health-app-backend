@@ -5,7 +5,7 @@ const scopes = ['openid', 'profile', 'offline_access'];
 const credentials = {
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-  site: 'https://login.microsoftonline.com/common',
+  site: `https://login.microsoftonline.com/${process.env.TENANT_ID}`,
   authorizationPath: '/oauth2/v2.0/authorize',
   tokenPath: '/oauth2/v2.0/token',
 };
