@@ -8,10 +8,10 @@ const authHelper = require('../authHelper');
 router.get('/api/getNewTokens', (req, res) => {
     const token = req.query.refreshToken;
     // exit when refreshToken is not passed
-    if (!token) {
-        res.json({ success: false, message: 'refreshToken is required' });
-        return;
-    }
+    // if (!token) {
+    //     res.json({ success: false, message: 'refreshToken is required' });
+    //     return;
+    // }
 
     // get new tokens from the refresh token
     authHelper.getTokenFromRefreshToken(token, tokenReceived, req, res);
