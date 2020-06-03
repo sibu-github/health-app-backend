@@ -8,19 +8,6 @@ const auth = async (req, res, next) => {
   const Token = authHeader ? authHeader.replace('Bearer ', '') : '';
   console.log(Token);
 
-  /**
-   * =====================================================
-   * ADDING THIS LINE EXPLICITLY FOR TESTING FROM DEV ENV
-   * WE HAVE TO REMOVE IT
-   */
-  if (!Token) {
-    next();
-    return;
-  }
-  /**
-   * ========================================================
-   */
-
   try {
     jwt.verify(Token, privateKey, function (err, decoded) {
       req.user = decoded;
