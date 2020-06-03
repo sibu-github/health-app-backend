@@ -6,9 +6,13 @@ const auth = require('../middleware/auth');
 const Location = require('../models/locationList');
 
 router.post('/api/postlocation', auth, async (req, res) => {
+  console.log(req.url);
+  console.log(req.body);
   try {
     const location = new Location(req.body);
+    console.log('before executing the query');
     await location.save();
+    console.log('after executing the query');
     //added the json and status
     res.status(200).json(location);
   } catch (err) {
