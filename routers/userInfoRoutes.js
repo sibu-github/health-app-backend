@@ -29,7 +29,7 @@ router.post("/api/userinfo", auth, async(req, res) => {
             await userInfo.save();
             res.status(200).json({ userInfo });
         } else {
-            res.status(500).json({ message: "invalid locationName" });
+            res.status(200).json({ message: "invalid locationName" });
         }
     } catch (err) {
         res.status(500).json(err);
