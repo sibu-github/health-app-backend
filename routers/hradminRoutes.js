@@ -20,7 +20,7 @@ router.get("/api/admin", auth, async(req, res) => {
             res.status(500).json(err);
         }
     } else {
-        res.status(500).json({ message: "enter valid email from parameters" });
+        res.status(200).json({ message: "enter valid email from parameters" });
     }
 });
 

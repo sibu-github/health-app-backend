@@ -39,10 +39,10 @@ router.post("/api/userResponse", auth, async(req, res) => {
 
             res.status(200).send(Response);
         } else {
-            res.status(500).json({ message: "Location not found" });
+            res.status(200).json({ message: "Location not found" });
         }
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json({ "error": err });
     }
 });
 
@@ -70,7 +70,7 @@ router.get("/api/userflag", auth, async(req, res) => {
             }
 
         } else {
-            res.status(500).json({ updated: "No", colorCode: "" });
+            res.status(200).json({ updated: "No", colorCode: "" });
         }
     } catch (err) {
         res.status(500).json({ message: "user not found" });
