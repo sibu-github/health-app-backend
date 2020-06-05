@@ -78,14 +78,14 @@ __webpack_require__.r(__webpack_exports__);
 
 function AppComponent_button_3_Template(rf, ctx) { if (rf & 1) {
     const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_button_3_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r2.login(); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Login");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function AppComponent_button_4_Template(rf, ctx) { if (rf & 1) {
     const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_button_4_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r5); const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r4.logout(); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Logout");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -94,12 +94,13 @@ class AppComponent {
     constructor(broadcastService, authService) {
         this.broadcastService = broadcastService;
         this.authService = authService;
-        this.title = "azure-login-test";
+        this.title = "HR ADMIN DASHBOARD";
         this.loggedIn = false;
     }
     ngOnInit() {
         this.checkAccount();
-        this.broadcastService.subscribe("msal:loginSuccess", () => {
+        this.broadcastService.subscribe("msal:loginSuccess", (payload) => {
+            console.log(payload);
             this.checkAccount();
         });
         this.authService.handleRedirectCallback((authError, response) => {
@@ -118,6 +119,9 @@ class AppComponent {
     }
     checkAccount() {
         this.loggedIn = !!this.authService.getAccount();
+        if (!this.loggedIn) {
+            this.login();
+        }
     }
     login() {
         this.authService.loginPopup();
@@ -127,13 +131,13 @@ class AppComponent {
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_azure_msal_angular__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_azure_msal_angular__WEBPACK_IMPORTED_MODULE_2__["MsalService"])); };
-AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 5, vars: 3, consts: [["href", "/", 1, "title"], ["mat-raised-button", "", 3, "click", 4, "ngIf"], ["mat-raised-button", "", 3, "click"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 0);
+AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 5, vars: 3, consts: [["mat-raised-button", "", 3, "click", 4, "ngIf"], ["mat-raised-button", "", 3, "click"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, AppComponent_button_3_Template, 2, 0, "button", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, AppComponent_button_4_Template, 2, 0, "button", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, AppComponent_button_3_Template, 2, 0, "button", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, AppComponent_button_4_Template, 2, 0, "button", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
@@ -179,29 +183,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const CLIENT_ID = "c4f2534b-88d8-4671-9804-495b19e235aa";
-const AUTH_URL = "https://login.microsoftonline.com/8d88c9c2-2058-486d-9cd4-2fc9010326bc";
-const REDIRECT_URL = "https://health-appuat.azurewebsites.net/logincomplete";
-const msalConfig = {
-    auth: {
-        clientId: CLIENT_ID,
-        authority: AUTH_URL,
-        redirectUri: REDIRECT_URL,
-    },
-    cache: {
-        cacheLocation: "localStorage",
-        storeAuthStateInCookie: false,
-    },
-};
-const msalParams = {
-    popUp: true,
-    consentScopes: ["user.read", "openid", "profile"],
-    unprotectedResources: [],
-    protectedResourceMap: [
-        ["https://graph.microsoft.com/v1.0/me", ["user.read"]],
-    ],
-    extraQueryParameters: {},
-};
 const msalProviders = {
     provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
     useClass: _azure_msal_angular__WEBPACK_IMPORTED_MODULE_2__["MsalInterceptor"],
@@ -229,7 +210,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                 consentScopes: ["user.read", "openid", "profile"],
                 unprotectedResources: [],
                 protectedResourceMap: [
-                    ["Enter_the_Graph_Endpoint_Herev1.0/me", ["user.read"]],
+                    ["https://graph.microsoft.com/v1.0/me", ["user.read"]],
                 ],
                 extraQueryParameters: {},
             }),
@@ -260,7 +241,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                         consentScopes: ["user.read", "openid", "profile"],
                         unprotectedResources: [],
                         protectedResourceMap: [
-                            ["Enter_the_Graph_Endpoint_Herev1.0/me", ["user.read"]],
+                            ["https://graph.microsoft.com/v1.0/me", ["user.read"]],
                         ],
                         extraQueryParameters: {},
                     }),

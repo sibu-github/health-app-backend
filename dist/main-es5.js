@@ -153,7 +153,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       if (rf & 1) {
         var _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 1);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_button_3_Template_button_click_0_listener() {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3);
@@ -173,7 +173,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       if (rf & 1) {
         var _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 1);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_button_4_Template_button_click_0_listener() {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r5);
@@ -197,7 +197,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.broadcastService = broadcastService;
         this.authService = authService;
-        this.title = "azure-login-test";
+        this.title = "HR ADMIN DASHBOARD";
         this.loggedIn = false;
       }
 
@@ -207,7 +207,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this = this;
 
           this.checkAccount();
-          this.broadcastService.subscribe("msal:loginSuccess", function () {
+          this.broadcastService.subscribe("msal:loginSuccess", function (payload) {
+            console.log(payload);
+
             _this.checkAccount();
           });
           this.authService.handleRedirectCallback(function (authError, response) {
@@ -229,6 +231,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "checkAccount",
         value: function checkAccount() {
           this.loggedIn = !!this.authService.getAccount();
+
+          if (!this.loggedIn) {
+            this.login();
+          }
         }
       }, {
         key: "login",
@@ -254,10 +260,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       selectors: [["app-root"]],
       decls: 5,
       vars: 3,
-      consts: [["href", "/", 1, "title"], ["mat-raised-button", "", 3, "click", 4, "ngIf"], ["mat-raised-button", "", 3, "click"]],
+      consts: [["mat-raised-button", "", 3, "click", 4, "ngIf"], ["mat-raised-button", "", 3, "click"]],
       template: function AppComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -265,9 +271,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, AppComponent_button_3_Template, 2, 0, "button", 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, AppComponent_button_3_Template, 2, 0, "button", 0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, AppComponent_button_4_Template, 2, 0, "button", 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, AppComponent_button_4_Template, 2, 0, "button", 0);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -367,27 +373,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! ./app.component */
     "./src/app/app.component.ts");
 
-    var CLIENT_ID = "c4f2534b-88d8-4671-9804-495b19e235aa";
-    var AUTH_URL = "https://login.microsoftonline.com/8d88c9c2-2058-486d-9cd4-2fc9010326bc";
-    var REDIRECT_URL = "https://health-appuat.azurewebsites.net/logincomplete";
-    var msalConfig = {
-      auth: {
-        clientId: CLIENT_ID,
-        authority: AUTH_URL,
-        redirectUri: REDIRECT_URL
-      },
-      cache: {
-        cacheLocation: "localStorage",
-        storeAuthStateInCookie: false
-      }
-    };
-    var msalParams = {
-      popUp: true,
-      consentScopes: ["user.read", "openid", "profile"],
-      unprotectedResources: [],
-      protectedResourceMap: [["https://graph.microsoft.com/v1.0/me", ["user.read"]]],
-      extraQueryParameters: {}
-    };
     var msalProviders = {
       provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
       useClass: _azure_msal_angular__WEBPACK_IMPORTED_MODULE_2__["MsalInterceptor"],
@@ -421,7 +406,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         popUp: true,
         consentScopes: ["user.read", "openid", "profile"],
         unprotectedResources: [],
-        protectedResourceMap: [["Enter_the_Graph_Endpoint_Herev1.0/me", ["user.read"]]],
+        protectedResourceMap: [["https://graph.microsoft.com/v1.0/me", ["user.read"]]],
         extraQueryParameters: {}
       })]]
     });
@@ -454,7 +439,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             popUp: true,
             consentScopes: ["user.read", "openid", "profile"],
             unprotectedResources: [],
-            protectedResourceMap: [["Enter_the_Graph_Endpoint_Herev1.0/me", ["user.read"]]],
+            protectedResourceMap: [["https://graph.microsoft.com/v1.0/me", ["user.read"]]],
             extraQueryParameters: {}
           })],
           providers: [msalProviders],
