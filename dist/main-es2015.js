@@ -78,6 +78,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 function AppComponent_button_3_Template(rf, ctx) { if (rf & 1) {
     const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 1);
@@ -139,18 +140,22 @@ class AppComponent {
     }
     getProfile() {
         console.log("getProfile");
+        const graphMeEndpoint = "https://graph.microsoft.com/v1.0/me";
         this.authService
             .acquireTokenSilent({ scopes: ["user.read"] })
             .then((tokenResponse) => {
             console.log("token response is:", tokenResponse);
-        });
-        const graphMeEndpoint = "https://graph.microsoft.com/v1.0/me";
-        this.http
-            .get(graphMeEndpoint)
-            .toPromise()
-            .then((profile) => {
-            console.log("getProfile response");
-            console.log(profile);
+            let { accessToken } = tokenResponse;
+            let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + accessToken,
+            });
+            this.http
+                .get(graphMeEndpoint, { headers })
+                .toPromise()
+                .then((profile) => {
+                console.log("getProfile response", profile);
+            });
         });
     }
 }

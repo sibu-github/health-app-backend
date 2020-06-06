@@ -261,16 +261,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getProfile",
         value: function getProfile() {
+          var _this2 = this;
+
           console.log("getProfile");
+          var graphMeEndpoint = "https://graph.microsoft.com/v1.0/me";
           this.authService.acquireTokenSilent({
             scopes: ["user.read"]
           }).then(function (tokenResponse) {
             console.log("token response is:", tokenResponse);
-          });
-          var graphMeEndpoint = "https://graph.microsoft.com/v1.0/me";
-          this.http.get(graphMeEndpoint).toPromise().then(function (profile) {
-            console.log("getProfile response");
-            console.log(profile);
+            var accessToken = tokenResponse.accessToken;
+            var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + accessToken
+            });
+
+            _this2.http.get(graphMeEndpoint, {
+              headers: headers
+            }).toPromise().then(function (profile) {
+              console.log("getProfile response", profile);
+            });
           });
         }
       }]);
