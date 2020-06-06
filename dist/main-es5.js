@@ -139,13 +139,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _azure_msal_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+    /* harmony import */
+
+
+    var _azure_msal_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @azure/msal-angular */
     "./node_modules/@azure/msal-angular/__ivy_ngcc__/fesm2015/azure-msal-angular.js");
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
@@ -192,9 +198,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var AppComponent =
     /*#__PURE__*/
     function () {
-      function AppComponent(broadcastService, authService) {
+      function AppComponent(http, broadcastService, authService) {
         _classCallCheck(this, AppComponent);
 
+        this.http = http;
         this.broadcastService = broadcastService;
         this.authService = authService;
         this.title = "HR ADMIN DASHBOARD";
@@ -208,9 +215,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.checkAccount();
           this.broadcastService.subscribe("msal:loginSuccess", function (payload) {
+            console.log("login success");
             console.log(payload);
 
             _this.checkAccount();
+
+            _this.getProfile();
+          });
+          this.broadcastService.subscribe("msal:acquireTokenSuccess", function (payload) {
+            console.log("msal:msal:acquireTokenSuccess");
+            console.log(payload);
           });
           this.authService.handleRedirectCallback(function (authError, response) {
             if (authError) {
@@ -230,15 +244,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "checkAccount",
         value: function checkAccount() {
+          console.log("check Account");
           this.loggedIn = !!this.authService.getAccount();
-
-          if (!this.loggedIn) {
-            this.login();
-          }
         }
       }, {
         key: "login",
         value: function login() {
+          console.log("login");
           this.authService.loginPopup();
         }
       }, {
@@ -246,13 +258,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function logout() {
           this.authService.logout();
         }
+      }, {
+        key: "getProfile",
+        value: function getProfile() {
+          console.log("getProfile");
+          var graphMeEndpoint = "https://graph.microsoft.com/v1.0/me";
+          this.http.get(graphMeEndpoint).toPromise().then(function (profile) {
+            console.log("getProfile response");
+            console.log(profile);
+          });
+        }
       }]);
 
       return AppComponent;
     }();
 
     AppComponent.ɵfac = function AppComponent_Factory(t) {
-      return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_azure_msal_angular__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_azure_msal_angular__WEBPACK_IMPORTED_MODULE_2__["MsalService"]));
+      return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_azure_msal_angular__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_azure_msal_angular__WEBPACK_IMPORTED_MODULE_3__["MsalService"]));
     };
 
     AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
@@ -292,7 +314,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.loggedIn);
         }
       },
-      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"]],
+      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"]],
       styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */"]
     });
     /*@__PURE__*/
@@ -307,9 +329,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }]
       }], function () {
         return [{
-          type: _azure_msal_angular__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"]
+          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
         }, {
-          type: _azure_msal_angular__WEBPACK_IMPORTED_MODULE_2__["MsalService"]
+          type: _azure_msal_angular__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"]
+        }, {
+          type: _azure_msal_angular__WEBPACK_IMPORTED_MODULE_3__["MsalService"]
         }];
       }, null);
     })();
