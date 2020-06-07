@@ -18,12 +18,17 @@ router.post("/api/postlocation", auth, async(req, res) => {
 });
 
 router.get("/api/getlocation/", auth, async(req, res) => {
-    try {
-        const location = await Location.find({ active: true });
-        res.status(200).json(location);
-    } catch (err) {
-        //added status 
-        res.status(500).json({ message: "location is not found" });
+    let langCode = req.query.languageKey;
+    if (langCode) {
+        try {
+            const location = await Location.find({ languageCode: langCode });
+            res.status(200).json(location);
+        } catch (err) {
+            //added status 
+            res.status(500).json({ message: "location is not found" });
+        }
+    } else {
+        res.status(500).json({ message: "enterlanguagecode in params" });
     }
 });
 

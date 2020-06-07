@@ -25,9 +25,8 @@ const locationSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
-    active: {
-        type: Boolean,
-        default: true,
+    languageCode: {
+        type: String
     },
 });
 
