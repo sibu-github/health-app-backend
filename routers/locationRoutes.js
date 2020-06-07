@@ -17,7 +17,7 @@ router.post('/api/postlocation', auth, async (req, res) => {
   }
 });
 
-router.get('/api/getlocation/', auth, async (req, res) => {
+router.get('/api/getlocation', auth, async (req, res) => {
   const locale = req.query.locale || 'en';
   try {
     const result = await Location.find({ active: true });
