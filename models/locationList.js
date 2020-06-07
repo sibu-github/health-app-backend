@@ -28,6 +28,9 @@ const locationSchema = new mongoose.Schema({
     languageCode: {
         type: String
     },
+    priorityNumber: {
+        type: String
+    }
 });
 
 const location = mongoose.model("location", locationSchema);

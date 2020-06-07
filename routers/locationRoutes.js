@@ -21,7 +21,10 @@ router.get("/api/getlocation/", auth, async(req, res) => {
     let langCode = req.query.languageKey;
     if (langCode) {
         try {
-            const location = await Location.find({ languageCode: langCode });
+            const prioritylocation = await Location.find({ languageCode: langCode, priorityNumber: { $lt: 8 } }).sort('priorityNumber');
+            const nonPrioritylocation = await Location.find({ languageCode: langCode, priorityNumber: { $gte: 8 } }).sort('locationName');
+            const location = prioritylocation.concat(nonPrioritylocation);
+            // console.log(location);
             res.status(200).json(location);
         } catch (err) {
             //added status 
