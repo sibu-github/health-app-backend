@@ -17,10 +17,19 @@ router.post('/api/postlocation', auth, async (req, res) => {
   }
 });
 
-router.get('/api/getlocation/', auth, async (req, res) => {
+router.get('/api/getlocation', auth, async (req, res) => {
+  const locale = req.query.locale || 'en';
   try {
-    const location = await Location.find({ active: true });
-    res.status(200).json(location);
+    const result = await Location.find({ active: true });
+    const data = result.map((dt) => {
+      return {
+        country: dt.country,
+        region: dt.region,
+        locationName: dt.locationName,
+        locationVal: dt.locationLocale[locale],
+      };
+    });
+    res.status(200).json(data);
   } catch (err) {
     //added status
     res.status(500).json({ message: 'location is not found' });
