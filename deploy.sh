@@ -20,5 +20,5 @@ echo "copying dist folder"
 mv /Users/sibaprasad/neutrinos-studio/health-app/app/dist ./
 echo "commiting to git"
 git add --all
-git commit -m "deploying angular build"
+git commit -m "deploying angular build to sit"
 git push origin sit-master
