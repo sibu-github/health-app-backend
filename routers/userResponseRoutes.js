@@ -19,6 +19,7 @@ router.post("/api/userResponse", auth, async(req, res) => {
                 locationType: location[0].locationType,
                 country: location[0].country,
                 region: location[0].region,
+                englishName: location[0].englishName,
                 email: req.body.email,
                 phone: req.body.phone,
                 firstName: req.body.firstName,
@@ -142,23 +143,28 @@ router.post("/api/dashboard/", auth, async(req, res) => {
 
             /*Total count for the locationName*/
         } else if (!fromDate && !toDate && locationName) {
+
+            /*find location englishName*/
+            /*when user fill the entries in any language it finds its englishname and based on the englishName we get count */
+            let loc = await Location.find({ locationName: locationName });
+            console.log(loc[0].englishName);
             /*for q1Positive count */
-            let q1Positive = await userResponse.find({ locationName: locationName, "response.0.answer": true }).countDocuments();
+            let q1Positive = await userResponse.find({ englishName: loc[0].englishName, "response.0.answer": true }).countDocuments();
 
             /*for the  q2Positive count */
-            let q2Positive = await userResponse.find({ locationName: locationName, "response.1.answer": true }).countDocuments();
+            let q2Positive = await userResponse.find({ englishName: loc[0].englishName, "response.1.answer": true }).countDocuments();
 
             /*for the q3Positive count*/
-            let q3Positive = await userResponse.find({ locationName: locationName, "response.2.answer": true }).countDocuments();
+            let q3Positive = await userResponse.find({ englishName: loc[0].englishName, "response.2.answer": true }).countDocuments();
 
             /*for the q1Negative count*/
-            let q1Negative = await userResponse.find({ locationName: locationName, "response.0.answer": false }).countDocuments();
+            let q1Negative = await userResponse.find({ englishName: loc[0].englishName, "response.0.answer": false }).countDocuments();
 
             /*for the q2Negative count*/
-            let q2Negative = await userResponse.find({ locationName: locationName, "response.1.answer": false }).countDocuments();
+            let q2Negative = await userResponse.find({ englishName: loc[0].englishName, "response.1.answer": false }).countDocuments();
 
             /*for the q3Negative count*/
-            let q3Negative = await userResponse.find({ locationName: locationName, "response.2.answer": false }).countDocuments();
+            let q3Negative = await userResponse.find({ englishName: loc[0].englishName, "response.2.answer": false }).countDocuments();
 
             /*getting short text for the response*/
             let userRes = await userResponse.find({}, { _id: false }).limit(1).sort({ "$natural": -1 });
@@ -200,23 +206,27 @@ router.post("/api/dashboard/", auth, async(req, res) => {
             /*total count for the fromDate, toDate and locationName*/
         } else if (fromDate && toDate && locationName) {
 
+            /*find location englishName*/
+            /*when user fill the entries in any language it finds its englishname and based on the englishName we get count */
+            let loc = await Location.find({ locationName: locationName });
+
             /*q1 q1Positive count*/
-            let q1Positive = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, locationName: locationName, "response.0.answer": true }).countDocuments();
+            let q1Positive = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, englishName: loc[0].englishName, "response.0.answer": true }).countDocuments();
 
             /*for the  q2Positive count */
-            let q2Positive = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, locationName: locationName, "response.0.answer": true }).countDocuments();
+            let q2Positive = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, englishName: loc[0].englishName, "response.0.answer": true }).countDocuments();
 
             /*for the q3Positive count*/
-            let q3Positive = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, locationName: locationName, "response.0.answer": true }).countDocuments();
+            let q3Positive = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, englishName: loc[0].englishName, "response.0.answer": true }).countDocuments();
 
             /*for the q1Negative count*/
-            let q1Negative = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, locationName: locationName, "response.0.answer": true }).countDocuments();
+            let q1Negative = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, englishName: loc[0].englishName, "response.0.answer": false }).countDocuments();
 
             /*for the q2Negative count*/
-            let q2Negative = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, locationName: locationName, "response.0.answer": true }).countDocuments();
+            let q2Negative = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, englishName: loc[0].englishName, "response.0.answer": false }).countDocuments();
 
             /*for the q3Negative count*/
-            let q3Negative = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, locationName: locationName, "response.0.answer": true }).countDocuments();
+            let q3Negative = await userResponse.find({ updatedAt: { $gte: new Date(fromDate), $lte: new Date(toDate) }, englishName: loc[0].englishName, "response.0.answer": false }).countDocuments();
 
             /*getting short text for the response*/
             let userRes = await userResponse.find({}, { _id: false }).limit(1).sort({ "$natural": -1 });

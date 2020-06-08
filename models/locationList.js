@@ -30,6 +30,10 @@ const locationSchema = new mongoose.Schema({
     },
     priorityNumber: {
         type: String
+    },
+    /*when location are added in different language there name is added in englishName*/
+    englishName: {
+        type: String
     }
 });
 

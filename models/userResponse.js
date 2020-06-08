@@ -72,6 +72,9 @@ const responseSchema = new mongoose.Schema({
     certifyInfoChecked: {
         type: Boolean,
     },
+    englishName: {
+        type: String
+    }
 }, { timestamps: { createdOn: "createdOn" } });
 
 const userResponse = mongoose.model("userResponse", responseSchema);
