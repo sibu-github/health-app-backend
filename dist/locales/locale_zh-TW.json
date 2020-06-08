@@ -66,7 +66,7 @@
         "phone": "電話號碼",
         "Email": "電子郵件地址",
         "companyname": "公司名",
-        "ingredoncontact": "Ingredon聯繫人",
+        "ingredoncontact": "入侵聯絡",
         "fir": "必須填寫名字",
         "personalinformation": "個人信息",
         "hrq1": "最近發燒",
@@ -77,8 +77,8 @@
         "classifyyourself": "自我分類",
         "pep": "請輸入密碼",
         "chooseopt": "選擇選項繼續",
-        "lase": "以員工身份登錄",
-        "lahr": "以人力資源身份登錄",
+        "lase": "繼續作為員工",
+        "lahr": "繼續擔任人力資源",
         "fromdate": "從日期",
         "todate": "至今",
         "byregion": "按地區",
@@ -89,6 +89,8 @@
         "flno": "樓層號",
         "scno": "翼/科號",
         "cuno": "立方體/辦公室編號",
-        "submittedby": "由...所提交"
+        "submittedby": "由...所提交",
+        "classifyUser": "分類用戶",
+        "ingredion": "侵略"
     }
 }

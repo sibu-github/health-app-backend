@@ -77,8 +77,8 @@
         "classifyyourself": "Klassifizieren Sie sich",
         "pep": "Bitte Passwort eingeben",
         "chooseopt": "Wählen Sie Optionen, um fortzufahren",
-        "lase": "Melden Sie sich als Mitarbeiter an",
-        "lahr": "Melden Sie sich als HR an",
+        "lase": "Weiter als Mitarbeiter",
+        "lahr": "Weiter als HR",
         "fromdate": "Ab Datum",
         "todate": "Miteinander ausgehen",
         "byregion": "Nach Region",
@@ -89,6 +89,8 @@
         "flno": "Stockwerk Nummer",
         "scno": "Flügel- / Abschnittsnummer",
         "cuno": "Würfel- / Büronummer",
-        "submittedby": "Eingereicht von"
+        "submittedby": "Eingereicht von",
+        "classifyUser": "Benutzer klassifizieren",
+        "ingredion": "Zutat"
     }
 }

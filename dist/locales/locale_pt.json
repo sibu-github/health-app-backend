@@ -30,7 +30,7 @@
         "thankyoumessage": "Por fornecer suas informações de saúde! Agradecemos o seu esforço.",
         "thankyou": "Obrigado",
         "developedby": "Desenvolvido por",
-        "login": "Conecte-se",
+        "login": "Iniciar sessão",
         "travel": "Divulgação de viagens",
         "question3": "Você ou alguém com quem teve contato pessoal próximo viajou nos últimos 14 dias? Em caso afirmativo, liste quais locais",
         "inputhelp": "Washington, Springfield, Franklin e Greenville",
@@ -66,7 +66,7 @@
         "phone": "Número de telefone",
         "Email": "Endereço de e-mail",
         "companyname": "Nome da empresa",
-        "ingredoncontact": "Ingredon Contato",
+        "ingredoncontact": "Ingrediente Contato",
         "fir": "O primeiro nome é necessário",
         "personalinformation": "Informação pessoal",
         "hrq1": "Teve febre recentemente",
@@ -77,8 +77,8 @@
         "classifyyourself": "Classifique-se",
         "pep": "Digite a senha",
         "chooseopt": "Escolha Opções para continuar",
-        "lase": "Entrar como Funcionário",
-        "lahr": "Entrar como RH",
+        "lase": "Continuar como funcionário",
+        "lahr": "Continuar como RH",
         "fromdate": "Da data",
         "todate": "Até a presente data",
         "byregion": "Por região",
@@ -89,6 +89,8 @@
         "flno": "Número do andar",
         "scno": "Número da asa / seção",
         "cuno": "Número do cubo / escritório",
-        "submittedby": "Enviado por"
+        "submittedby": "Enviado por",
+        "classifyUser": "Classificar usuário",
+        "ingredion": "Ingrediente"
     }
 }

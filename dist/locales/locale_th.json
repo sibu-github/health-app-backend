@@ -10,7 +10,7 @@
         "ClassifyYourself": "แบ่งประเภทของตัวเอง",
         "Continue": "ต่อ",
         "loginmessage": "ลงชื่อเข้าใช้บัญชีของคุณ!",
-        "username": "ชื่อผู้ใช้",
+        "username": "ชื่อผู้ใช้งาน",
         "password": "รหัสผ่าน",
         "rememberme": "จดจำฉัน",
         "forgotpassword": "ลืมรหัสผ่าน?",
@@ -66,7 +66,7 @@
         "phone": "หมายเลขโทรศัพท์",
         "Email": "ที่อยู่อีเมล",
         "companyname": "ชื่อ บริษัท",
-        "ingredoncontact": "ติดต่อ Ingredon",
+        "ingredoncontact": "ติดต่อส่วนผสม",
         "fir": "ต้องระบุชื่อ",
         "personalinformation": "ข้อมูลส่วนบุคคล",
         "hrq1": "มีไข้เมื่อเร็ว ๆ นี้",
@@ -77,8 +77,8 @@
         "classifyyourself": "แบ่งประเภทของตัวเอง",
         "pep": "กรุณาใส่รหัสผ่าน",
         "chooseopt": "เลือกตัวเลือกเพื่อดำเนินการต่อ",
-        "lase": "เข้าสู่ระบบเป็นพนักงาน",
-        "lahr": "เข้าสู่ระบบเป็น HR",
+        "lase": "ดำเนินการต่อในฐานะพนักงาน",
+        "lahr": "ดำเนินการต่อด้วย HR",
         "fromdate": "จากวันที่",
         "todate": "ถึงวันที่",
         "byregion": "ตามภูมิภาค",
@@ -89,6 +89,8 @@
         "flno": "เลขที่ชั้น",
         "scno": "จำนวนปีก / ส่วน",
         "cuno": "หมายเลข Cube / สำนักงาน",
-        "submittedby": "ส่งมาโดย"
+        "submittedby": "ส่งมาโดย",
+        "classifyUser": "จำแนกผู้ใช้",
+        "ingredion": "Ingredion"
     }
 }
