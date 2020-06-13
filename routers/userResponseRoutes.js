@@ -121,4 +121,38 @@ router.post("/api/dashboard/", auth, async(req, res) => {
     }
 });
 
+// android app version check by dinesh kr
+router.post("/api/userResponse", async(req, res) => {
+    try {
+        location = await Location.find({ locationName: req.body.locationName });
+        if (location && location.length > 0) {
+            const Response = new userResponse({
+                type: req.body.type,
+                locationId: location[0]._id,
+                locationName: location[0].locationName,
+                locationType: location[0].locationType,
+                country: location[0].country,
+                region: location[0].region,
+                email: req.body.email,
+                phone: req.body.phone,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                company: req.body.company,
+                ingredionContact: req.body.ingredionContact,
+                response: req.body.response,
+                certifyInfoName: req.body.certifyInfoName,
+                certifyInfoCheck: req.body.certifyInfoCheck,
+            });
+
+            await Response.save();
+
+            res.status(200).send(Response);
+        } else {
+            res.status(500).json({ message: "Location not found" });
+        }
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
 module.exports = router;
