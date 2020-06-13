@@ -51,7 +51,7 @@ router.get("/api/userdetails", auth, async(req, res) => {
     }
 });
 
-router.post("api/getAndroidVersion",async(req, res) => {
+router.post("/api/getAndroidVersion",async(req, res) => {
     console.log("inside getAndroidVersionInfo",req.body);
     async function getAndroidVersionInfo() {
         try {
