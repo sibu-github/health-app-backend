@@ -10,7 +10,6 @@ const apilogRouter = require('./routers/apilogRoutes');
 const questionRouter = require('./routers/questionsRoutes');
 const adminRouter = require('./routers/hradminRoutes');
 const tokenRouter = require('./routers/tokenRoutes');
-require('dotenv').config({ path: 'ENV_FILENAME' });
 //jwt JwtTokenRouter
 const JwtTokenRouter = require('./routers/jwtAuthRoutes');
 const morgan = require('morgan');
