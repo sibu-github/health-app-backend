@@ -16,7 +16,7 @@
         "forgotpassword": "Passwort vergessen?",
         "dashboard": "INSTRUMENTENTAFEL",
         "hrwelcome": "HALLO HR ADMIN!",
-        "hrmessage2": "Dies ist die Gesundheitsakte des gesamten Mitarbeiters für Ihre Region",
+        "hrmessage2": "Dies ist die allgemeine Gesundheitsakte der Mitarbeiter für Ihre Region",
         "start": "Lasst uns beginnen",
         "develop": "Entwickelt von",
         "healthinformation": "Gesundheitsinformationen",
@@ -91,6 +91,7 @@
         "cuno": "Würfel- / Büronummer",
         "submittedby": "Eingereicht von",
         "classifyUser": "Benutzer klassifizieren",
-        "ingredion": "Zutat"
+        "ingredion": "Zutat",
+        "closeError": "Benutzer hat die Anmeldung abgebrochen"
     }
 }
