@@ -43,7 +43,11 @@ router.post("/api/getAndroidVersion",async(req, res) => {
         .find({ isActive: true, appType: 'android' })
         .limit(1)
         .sort({ $natural: -1 });
-        res.status(200).json(versionRes)
+        if(versionRes.length === 0){
+            throw new Error('Version data not found')
+        }
+
+        res.status(200).json({data: versionRes[0]})
     } catch(err){
         console.error(err)
         res.status(500).json({success: false, message: err})
