@@ -5,7 +5,6 @@ const userinfo = require("../models/userInfo");
 const location = require("../models/locationList");
 const auth = require('../middleware/auth');
 const url = require("url");
-var gplay = require('google-play-scraper');
 
 router.post("/api/userinfo", auth, async(req, res) => {
     try {
@@ -51,30 +50,6 @@ router.get("/api/userdetails", auth, async(req, res) => {
     }
 });
 
-router.post("/api/getAndroidVersion",async(req, res) => {
-    console.log("inside getAndroidVersionInfo",req.body);
-    async function getAndroidVersionInfo() {
-        try {
-            const gPlayResults = gplay.app({appId: req.body.appId});
 
-             gPlayResults.then(function(result) {
-                res.json({
-                    code: 200,
-                    data: result,
-                    message: 'Success'
-                })
-    });            
-        } catch (error) {
-            console.log('error on getAndroidVersionInfo main', error)
-            res.json({
-                code: 500,
-                data: [],
-                message: "someting went wrong.."
-            })
-        }
-    }
-    getAndroidVersionInfo();
-
-});
 
 module.exports = router;

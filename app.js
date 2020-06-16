@@ -10,6 +10,7 @@ const apilogRouter = require('./routers/apilogRoutes');
 const questionRouter = require('./routers/questionsRoutes');
 const adminRouter = require('./routers/hradminRoutes');
 const tokenRouter = require('./routers/tokenRoutes');
+const versionRouter = require('./routers/appVersionRoutes')
 //jwt JwtTokenRouter
 const JwtTokenRouter = require('./routers/jwtAuthRoutes');
 const morgan = require('morgan');
@@ -56,6 +57,7 @@ app.use(questionRouter);
 app.use(adminRouter);
 app.use(tokenRouter);
 app.use(JwtTokenRouter);
+app.use(versionRouter);
 
 // for serving static files
 app.use(express.static(path.join(__dirname, DIST_FOLDER)));
