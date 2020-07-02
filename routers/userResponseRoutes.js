@@ -56,8 +56,19 @@ router.get("/api/userflag", auth, async(req, res) => {
             .find({ email: Email })
             .limit(1)
             .sort({ $natural: -1 });
-        let udate = URes[0].updatedAt.toDateString();
 
+        /**
+         * Bug Fix: 
+         * User hasn't submitted any response previously
+         * "User Not Found" snackbar shown in the frontend
+         */
+        if(URes.length === 0){
+            res.status(200).json({ updated: "No", colorCode: "" });
+            return
+        }
+
+
+        let udate = URes[0].updatedAt.toDateString();
         let q1Res = URes[0].response[0].answer;
         let q2Res = URes[0].response[1].answer;
         let q3Res = URes[0].response[2].answer;
@@ -73,7 +84,8 @@ router.get("/api/userflag", auth, async(req, res) => {
             res.status(200).json({ updated: "No", colorCode: "" });
         }
     } catch (err) {
-        res.status(500).json({ message: "user not found" });
+        console.error(err)
+        res.status(500).json({ message: 'An error occurred' });
     }
 });
 
