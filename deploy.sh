@@ -4,8 +4,8 @@
 echo "switching to frontend repository"
 cd /Users/sibaprasad/neutrinos-studio/health-app/app
 echo "switch to master branch"
-# git checkout master
-git checkout uat-prep-23Jun
+git checkout master
+# git checkout uat-prep-23Jun
 echo "remove dist folder"
 rm -rf dist
 echo "making angular build"
