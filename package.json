@@ -27,7 +27,7 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.2",
     "simple-oauth2": "^0.2.1",
-    "validator": "^12.2.0",
+    "validator": "^13.7.0",
     "validators": "^0.3.1"
   }
 }
